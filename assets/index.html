@@ -10,14 +10,7 @@
 	<link type="text/css" rel="stylesheet" href="https://kkaebida.github.io/kkaebi/assets/css/demo.css" />
 	<link type="text/css" rel="stylesheet" href="https://kkaebida.github.io/kkaebi/assets/css/jquery.mmenu.css" />
 	<link href="https://kkaebida.github.io/kkaebi/assets/css/styles.css" rel="stylesheet">
-	<!--third part dependencies-->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
-
-	<!--pull to refresh plugin-->
-	<script src="https://kkaebida.github.io/kkaebi/assets/css/mk-pullfresh.js" type="text/javascript"></script>
-    <link  href="https://kkaebida.github.io/kkaebi/assets/css/mk-pullfresh.css" rel="stylesheet">
-	
 	<script type="text/javascript" src="https://kkaebida.github.io/kkaebi/assets/css/jquery.mmenu.js"></script>
 	 
 		<script type="text/javascript">  
@@ -245,42 +238,7 @@ a#MOVE_TOP_BTN {
 
 </div> 
 
-	<script>
 
-$(textEl).mkPullFresh(function(end){
-        var self = this;
-		//end()
-		setTimeout(function(){
-			self.$puller.find('.log').html( '<p>Refreshed at '+(new Date())+'</p>' );
-			end();
-		},1000);
-    });
-
-var elog = createLogger( eventsEl );
-$('#eventsEl .puller').mkPullFresh({ emitEvents: true })
-	.on('mkPullFreshStart',  function(e,y,pf)  {elog('start.');})
-	.on('mkPullFreshPull',   function(e,y,pf)  {elog('start. pull('+y+'). '); })
-	.on('mkPullFreshPending',function(e,end,pf){elog('pending. ',true);setTimeout(end,1000)})
-	.on('mkPullFreshEnd',    function(e,y,pf)  {elog('end.',true);});
-
-$('#custom1El .puller').mkPullFresh({
-	indicatorHtml: '<div class="mkpf-envelop"><div class="active">pull down</div><div class="ready">drop to refresh</div><div class="pending">pending ...</div></div>',
-	pendingShift: 35
-});
-$('#custom2El .puller').mkPullFresh();
-
-
-function createLogger(element){
-	return function(message,append){
-		if(append){
-			$(element).find('.log').append(message);
-		}else{
-			$(element).find('.log').html(message);
-		}
-	};
-};
-
-	</script>
  	
 </body>
 </html>
