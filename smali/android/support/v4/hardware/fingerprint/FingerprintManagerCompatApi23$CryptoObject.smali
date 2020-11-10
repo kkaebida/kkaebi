@@ -24,62 +24,71 @@
 
 # direct methods
 .method public constructor <init>(Ljava/security/Signature;)V
-    .locals 0
+    .locals 1
+    .param p1, "signature"    # Ljava/security/Signature;
 
-    .line 139
+    .prologue
+    const/4 v0, 0x0
+
+    .line 129
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 140
+    .line 130
     iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mSignature:Ljava/security/Signature;
 
-    const/4 p1, 0x0
+    .line 131
+    iput-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mCipher:Ljavax/crypto/Cipher;
 
-    .line 141
-    iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mCipher:Ljavax/crypto/Cipher;
+    .line 132
+    iput-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mMac:Ljavax/crypto/Mac;
 
-    .line 142
-    iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mMac:Ljavax/crypto/Mac;
-
+    .line 133
     return-void
 .end method
 
 .method public constructor <init>(Ljavax/crypto/Cipher;)V
-    .locals 0
+    .locals 1
+    .param p1, "cipher"    # Ljavax/crypto/Cipher;
 
-    .line 145
+    .prologue
+    const/4 v0, 0x0
+
+    .line 135
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 146
+    .line 136
     iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mCipher:Ljavax/crypto/Cipher;
 
-    const/4 p1, 0x0
+    .line 137
+    iput-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mSignature:Ljava/security/Signature;
 
-    .line 147
-    iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mSignature:Ljava/security/Signature;
+    .line 138
+    iput-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mMac:Ljavax/crypto/Mac;
 
-    .line 148
-    iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mMac:Ljavax/crypto/Mac;
-
+    .line 139
     return-void
 .end method
 
 .method public constructor <init>(Ljavax/crypto/Mac;)V
-    .locals 0
+    .locals 1
+    .param p1, "mac"    # Ljavax/crypto/Mac;
 
-    .line 151
+    .prologue
+    const/4 v0, 0x0
+
+    .line 141
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 152
+    .line 142
     iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mMac:Ljavax/crypto/Mac;
 
-    const/4 p1, 0x0
+    .line 143
+    iput-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mCipher:Ljavax/crypto/Cipher;
 
-    .line 153
-    iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mCipher:Ljavax/crypto/Cipher;
+    .line 144
+    iput-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mSignature:Ljava/security/Signature;
 
-    .line 154
-    iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mSignature:Ljava/security/Signature;
-
+    .line 145
     return-void
 .end method
 
@@ -88,7 +97,8 @@
 .method public getCipher()Ljavax/crypto/Cipher;
     .locals 1
 
-    .line 158
+    .prologue
+    .line 148
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mCipher:Ljavax/crypto/Cipher;
 
     return-object v0
@@ -97,7 +107,8 @@
 .method public getMac()Ljavax/crypto/Mac;
     .locals 1
 
-    .line 159
+    .prologue
+    .line 149
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mMac:Ljavax/crypto/Mac;
 
     return-object v0
@@ -106,7 +117,8 @@
 .method public getSignature()Ljava/security/Signature;
     .locals 1
 
-    .line 157
+    .prologue
+    .line 147
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;->mSignature:Ljava/security/Signature;
 
     return-object v0

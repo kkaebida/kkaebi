@@ -18,7 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 32
+    .prologue
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,18 +29,21 @@
 # virtual methods
 .method public tagDatagramSocket(Ljava/net/DatagramSocket;)V
     .locals 3
+    .param p1, "socket"    # Ljava/net/DatagramSocket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .line 34
+    .prologue
+    .line 35
     invoke-static {p1}, Landroid/os/ParcelFileDescriptor;->fromDatagramSocket(Ljava/net/DatagramSocket;)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v0
 
-    .line 35
+    .line 36
+    .local v0, "pfd":Landroid/os/ParcelFileDescriptor;
     new-instance v1, Landroid/support/v4/net/DatagramSocketWrapper;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -50,26 +54,30 @@
 
     invoke-static {v1}, Landroid/net/TrafficStats;->tagSocket(Ljava/net/Socket;)V
 
-    .line 40
+    .line 41
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->detachFd()I
 
+    .line 42
     return-void
 .end method
 
 .method public untagDatagramSocket(Ljava/net/DatagramSocket;)V
     .locals 3
+    .param p1, "socket"    # Ljava/net/DatagramSocket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .line 44
+    .prologue
+    .line 45
     invoke-static {p1}, Landroid/os/ParcelFileDescriptor;->fromDatagramSocket(Ljava/net/DatagramSocket;)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v0
 
-    .line 45
+    .line 46
+    .local v0, "pfd":Landroid/os/ParcelFileDescriptor;
     new-instance v1, Landroid/support/v4/net/DatagramSocketWrapper;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -80,8 +88,9 @@
 
     invoke-static {v1}, Landroid/net/TrafficStats;->untagSocket(Ljava/net/Socket;)V
 
-    .line 50
+    .line 51
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->detachFd()I
 
+    .line 52
     return-void
 .end method

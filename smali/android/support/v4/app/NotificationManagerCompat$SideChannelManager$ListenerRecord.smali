@@ -26,7 +26,8 @@
 .field public taskQueue:Ljava/util/LinkedList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/LinkedList<",
+            "Ljava/util/LinkedList",
+            "<",
             "Landroid/support/v4/app/NotificationManagerCompat$Task;",
             ">;"
         }
@@ -37,27 +38,30 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "componentName"    # Landroid/content/ComponentName;
 
-    .line 563
+    .prologue
+    const/4 v1, 0x0
+
+    .line 604
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x0
+    .line 596
+    iput-boolean v1, p0, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;->bound:Z
 
-    .line 555
-    iput-boolean v0, p0, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;->bound:Z
+    .line 600
+    new-instance v0, Ljava/util/LinkedList;
 
-    .line 559
-    new-instance v1, Ljava/util/LinkedList;
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
-    invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
+    iput-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;->taskQueue:Ljava/util/LinkedList;
 
-    iput-object v1, p0, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;->taskQueue:Ljava/util/LinkedList;
+    .line 602
+    iput v1, p0, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;->retryCount:I
 
-    .line 561
-    iput v0, p0, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;->retryCount:I
-
-    .line 564
+    .line 605
     iput-object p1, p0, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager$ListenerRecord;->componentName:Landroid/content/ComponentName;
 
+    .line 606
     return-void
 .end method

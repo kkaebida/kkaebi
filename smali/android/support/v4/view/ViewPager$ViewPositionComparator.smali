@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Landroid/view/View;",
         ">;"
     }
@@ -30,7 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 3149
+    .prologue
+    .line 3142
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,66 +41,74 @@
 
 # virtual methods
 .method public compare(Landroid/view/View;Landroid/view/View;)I
-    .locals 2
+    .locals 4
+    .param p1, "lhs"    # Landroid/view/View;
+    .param p2, "rhs"    # Landroid/view/View;
 
-    .line 3152
+    .prologue
+    .line 3145
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/support/v4/view/ViewPager$LayoutParams;
+    check-cast v0, Landroid/support/v4/view/ViewPager$LayoutParams;
 
-    .line 3153
+    .line 3146
+    .local v0, "llp":Landroid/support/v4/view/ViewPager$LayoutParams;
     invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object p2
+    move-result-object v1
 
-    check-cast p2, Landroid/support/v4/view/ViewPager$LayoutParams;
+    check-cast v1, Landroid/support/v4/view/ViewPager$LayoutParams;
 
-    .line 3154
-    iget-boolean v0, p1, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
+    .line 3147
+    .local v1, "rlp":Landroid/support/v4/view/ViewPager$LayoutParams;
+    iget-boolean v2, v0, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
 
-    iget-boolean v1, p2, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
+    iget-boolean v3, v1, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
 
-    if-eq v0, v1, :cond_1
+    if-eq v2, v3, :cond_1
 
-    .line 3155
-    iget-boolean p1, p1, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
+    .line 3148
+    iget-boolean v2, v0, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
 
-    if-eqz p1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v2, 0x1
+
+    .line 3150
+    :goto_0
+    return v2
+
+    .line 3148
+    :cond_0
+    const/4 v2, -0x1
 
     goto :goto_0
 
-    :cond_0
-    const/4 p1, -0x1
-
-    :goto_0
-    return p1
-
-    .line 3157
+    .line 3150
     :cond_1
-    iget p1, p1, Landroid/support/v4/view/ViewPager$LayoutParams;->position:I
+    iget v2, v0, Landroid/support/v4/view/ViewPager$LayoutParams;->position:I
 
-    iget p2, p2, Landroid/support/v4/view/ViewPager$LayoutParams;->position:I
+    iget v3, v1, Landroid/support/v4/view/ViewPager$LayoutParams;->position:I
 
-    sub-int/2addr p1, p2
+    sub-int/2addr v2, v3
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .locals 1
 
-    .line 3149
+    .prologue
+    .line 3142
     check-cast p1, Landroid/view/View;
 
     check-cast p2, Landroid/view/View;
 
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/view/ViewPager$ViewPositionComparator;->compare(Landroid/view/View;Landroid/view/View;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

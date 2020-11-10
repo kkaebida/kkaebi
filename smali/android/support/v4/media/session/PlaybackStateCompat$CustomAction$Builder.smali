@@ -26,28 +26,32 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
-    .locals 1
+    .locals 2
+    .param p1, "action"    # Ljava/lang/String;
+    .param p2, "name"    # Ljava/lang/CharSequence;
+    .param p3, "icon"    # I
 
-    .line 1013
+    .prologue
+    .line 965
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1014
+    .line 966
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1015
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    .line 967
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "You must specify an action to build a CustomAction."
+    const-string v1, "You must specify an action to build a CustomAction."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    .line 1018
+    .line 970
     :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -55,37 +59,39 @@
 
     if-eqz v0, :cond_1
 
-    .line 1019
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    .line 971
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "You must specify a name to build a CustomAction."
+    const-string v1, "You must specify a name to build a CustomAction."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
+    .line 974
     :cond_1
     if-nez p3, :cond_2
 
-    .line 1023
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    .line 975
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "You must specify an icon resource id to build a CustomAction."
+    const-string v1, "You must specify an icon resource id to build a CustomAction."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    .line 1026
+    .line 978
     :cond_2
     iput-object p1, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;->mAction:Ljava/lang/String;
 
-    .line 1027
+    .line 979
     iput-object p2, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;->mName:Ljava/lang/CharSequence;
 
-    .line 1028
+    .line 980
     iput p3, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;->mIcon:I
 
+    .line 981
     return-void
 .end method
 
@@ -94,7 +100,8 @@
 .method public build()Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;
     .locals 5
 
-    .line 1052
+    .prologue
+    .line 1004
     new-instance v0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;
 
     iget-object v1, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;->mAction:Ljava/lang/String;
@@ -112,9 +119,12 @@
 
 .method public setExtras(Landroid/os/Bundle;)Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;
     .locals 0
+    .param p1, "extras"    # Landroid/os/Bundle;
 
-    .line 1041
+    .prologue
+    .line 993
     iput-object p1, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;->mExtras:Landroid/os/Bundle;
 
+    .line 994
     return-object p0
 .end method

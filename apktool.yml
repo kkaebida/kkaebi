@@ -1,5 +1,5 @@
 !!brut.androlib.meta.MetaInfo
-apkFileName: 1gen_signed.apk
+apkFileName: KCC차량조회.apk
 compressionType: false
 doNotCompress: null
 isFrameworkApk: false
@@ -7,21 +7,15 @@ packageInfo:
   forcedPackageId: '127'
   renameManifestPackage: null
 sdkInfo:
-  minSdkVersion: '14'
-  targetSdkVersion: '28'
+  minSdkVersion: '21'
+  targetSdkVersion: '26'
 sharedLibrary: false
-unknownFiles:
-  play-services-ads-base.properties: '8'
-  play-services-ads-identifier.properties: '8'
-  play-services-ads-lite.properties: '8'
-  play-services-ads.properties: '8'
-  play-services-basement.properties: '8'
-  play-services-gass.properties: '8'
+unknownFiles: {}
 usesFramework:
   ids:
   - 1
   tag: null
 version: 2.2.2-SNAPSHOT
 versionInfo:
-  versionCode: '244059'
+  versionCode: '3'
   versionName: '1.0'

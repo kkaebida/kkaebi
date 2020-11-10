@@ -18,7 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 26
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,26 +28,35 @@
 
 # virtual methods
 .method public getAllocationByteCount(Landroid/graphics/Bitmap;)I
-    .locals 0
+    .locals 1
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 35
+    .prologue
+    .line 37
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getByteCount()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public hasMipMap(Landroid/graphics/Bitmap;)Z
-    .locals 0
+    .locals 1
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
-    const/4 p1, 0x0
+    .prologue
+    .line 30
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public setHasMipMap(Landroid/graphics/Bitmap;Z)V
     .locals 0
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p2, "hasMipMap"    # Z
 
+    .prologue
+    .line 34
     return-void
 .end method

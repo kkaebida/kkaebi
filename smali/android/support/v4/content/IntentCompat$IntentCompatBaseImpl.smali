@@ -18,7 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 30
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,14 +29,19 @@
 # virtual methods
 .method public makeMainSelectorActivity(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
     .locals 1
+    .param p1, "selectorAction"    # Ljava/lang/String;
+    .param p2, "selectorCategory"    # Ljava/lang/String;
 
-    .line 36
+    .prologue
+    .line 37
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 37
+    .line 38
+    .local v0, "intent":Landroid/content/Intent;
     invoke-virtual {v0, p2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 39
     return-object v0
 .end method

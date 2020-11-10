@@ -48,9 +48,6 @@
 .method public abstract onSetRating(Ljava/lang/Object;)V
 .end method
 
-.method public abstract onSetRating(Ljava/lang/Object;Landroid/os/Bundle;)V
-.end method
-
 .method public abstract onSkipToNext()V
 .end method
 

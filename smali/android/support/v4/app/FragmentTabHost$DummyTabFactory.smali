@@ -24,35 +24,42 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 81
     iput-object p1, p0, Landroid/support/v4/app/FragmentTabHost$DummyTabFactory;->mContext:Landroid/content/Context;
 
+    .line 82
     return-void
 .end method
 
 
 # virtual methods
 .method public createTabContent(Ljava/lang/String;)Landroid/view/View;
-    .locals 1
+    .locals 3
+    .param p1, "tag"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v2, 0x0
 
     .line 86
-    new-instance p1, Landroid/view/View;
+    new-instance v0, Landroid/view/View;
 
-    iget-object v0, p0, Landroid/support/v4/app/FragmentTabHost$DummyTabFactory;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/support/v4/app/FragmentTabHost$DummyTabFactory;->mContext:Landroid/content/Context;
 
-    invoke-direct {p1, v0}, Landroid/view/View;-><init>(Landroid/content/Context;)V
-
-    const/4 v0, 0x0
+    invoke-direct {v0, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     .line 87
-    invoke-virtual {p1, v0}, Landroid/view/View;->setMinimumWidth(I)V
+    .local v0, "v":Landroid/view/View;
+    invoke-virtual {v0, v2}, Landroid/view/View;->setMinimumWidth(I)V
 
     .line 88
-    invoke-virtual {p1, v0}, Landroid/view/View;->setMinimumHeight(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setMinimumHeight(I)V
 
-    return-object p1
+    .line 89
+    return-object v0
 .end method

@@ -52,7 +52,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;",
             ">;"
         }
@@ -71,13 +72,7 @@
 .method public abstract getSessionActivity()Landroid/app/PendingIntent;
 .end method
 
-.method public abstract getShuffleMode()I
-.end method
-
 .method public abstract getTransportControls()Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;
-.end method
-
-.method public abstract isCaptioningEnabled()Z
 .end method
 
 .method public abstract isShuffleModeEnabled()Z
@@ -87,6 +82,9 @@
 .end method
 
 .method public abstract removeQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
+.end method
+
+.method public abstract removeQueueItemAt(I)V
 .end method
 
 .method public abstract sendCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ResultReceiver;)V

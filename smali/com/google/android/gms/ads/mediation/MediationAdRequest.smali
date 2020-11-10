@@ -21,7 +21,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -29,9 +30,6 @@
 .end method
 
 .method public abstract getLocation()Landroid/location/Location;
-.end method
-
-.method public abstract isDesignedForFamilies()Z
 .end method
 
 .method public abstract isTesting()Z

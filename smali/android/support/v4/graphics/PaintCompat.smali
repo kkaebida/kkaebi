@@ -7,6 +7,7 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -15,15 +16,16 @@
 
 .method public static hasGlyph(Landroid/graphics/Paint;Ljava/lang/String;)Z
     .locals 2
-    .param p0    # Landroid/graphics/Paint;
+    .param p0, "paint"    # Landroid/graphics/Paint;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1    # Ljava/lang/String;
+    .param p1, "string"    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
+    .prologue
     .line 37
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -34,15 +36,16 @@
     .line 38
     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->hasGlyph(Ljava/lang/String;)Z
 
-    move-result p0
-
-    return p0
+    move-result v0
 
     .line 40
+    :goto_0
+    return v0
+
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v4/graphics/PaintCompatApi14;->hasGlyph(Landroid/graphics/Paint;Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    goto :goto_0
 .end method

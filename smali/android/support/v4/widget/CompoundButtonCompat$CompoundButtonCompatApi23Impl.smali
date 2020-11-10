@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x17
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 128
+    .prologue
+    .line 130
     invoke-direct {p0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;-><init>()V
 
     return-void
@@ -31,12 +32,14 @@
 
 # virtual methods
 .method public getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .locals 1
+    .param p1, "button"    # Landroid/widget/CompoundButton;
 
-    .line 131
+    .prologue
+    .line 133
     invoke-virtual {p1}, Landroid/widget/CompoundButton;->getButtonDrawable()Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

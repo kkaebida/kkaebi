@@ -7,10 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x14
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/app/RemoteInput;
 .end annotation
@@ -25,7 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 369
+    .prologue
+    .line 365
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,63 +32,80 @@
 # virtual methods
 .method public addDataResultToIntent(Landroid/support/v4/app/RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
     .locals 0
+    .param p1, "remoteInput"    # Landroid/support/v4/app/RemoteInput;
+    .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/support/v4/app/RemoteInput;",
             "Landroid/content/Intent;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Landroid/net/Uri;",
             ">;)V"
         }
     .end annotation
 
-    .line 389
+    .prologue
+    .line 385
+    .local p3, "results":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/net/Uri;>;"
     invoke-static {p1, p2, p3}, Landroid/support/v4/app/RemoteInputCompatApi20;->addDataResultToIntent(Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
 
+    .line 386
     return-void
 .end method
 
 .method public addResultsToIntent([Landroid/support/v4/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "remoteInputs"    # [Landroid/support/v4/app/RemoteInput;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "results"    # Landroid/os/Bundle;
 
-    .line 383
+    .prologue
+    .line 379
     invoke-static {p1, p2, p3}, Landroid/support/v4/app/RemoteInputCompatApi20;->addResultsToIntent([Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
 
+    .line 380
     return-void
 .end method
 
 .method public getDataResultsFromIntent(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
-    .locals 0
+    .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "remoteInputResultKey"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Intent;",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Landroid/net/Uri;",
             ">;"
         }
     .end annotation
 
-    .line 378
+    .prologue
+    .line 374
     invoke-static {p1, p2}, Landroid/support/v4/app/RemoteInputCompatApi20;->getDataResultsFromIntent(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
-    .locals 0
+    .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
 
-    .line 372
+    .prologue
+    .line 368
     invoke-static {p1}, Landroid/support/v4/app/RemoteInputCompatApi20;->getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

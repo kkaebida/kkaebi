@@ -1,5 +1,8 @@
 .class final Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;
-.super Lcom/google/android/gms/ads/mediation/NativeContentAdMapper;
+.super Lcom/google/android/gms/ads/AdListener;
+
+# interfaces
+.implements Lcom/google/android/gms/ads/internal/client/zza;
 
 
 # annotations
@@ -8,129 +11,102 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x18
     name = "zzb"
 .end annotation
 
 
 # instance fields
-.field private final zzhf:Lcom/google/android/gms/ads/formats/NativeContentAd;
+.field final zzaN:Lcom/google/ads/mediation/AbstractAdViewAdapter;
+
+.field final zzaP:Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/android/gms/ads/formats/NativeContentAd;)V
-    .locals 1
+.method public constructor <init>(Lcom/google/ads/mediation/AbstractAdViewAdapter;Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;)V
+    .locals 0
 
-    invoke-direct {p0}, Lcom/google/android/gms/ads/mediation/NativeContentAdMapper;-><init>()V
+    invoke-direct {p0}, Lcom/google/android/gms/ads/AdListener;-><init>()V
 
-    iput-object p1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzhf:Lcom/google/android/gms/ads/formats/NativeContentAd;
+    iput-object p1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaN:Lcom/google/ads/mediation/AbstractAdViewAdapter;
 
-    invoke-virtual {p1}, Lcom/google/android/gms/ads/formats/NativeContentAd;->getHeadline()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/ads/mediation/NativeContentAdMapper;->setHeadline(Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Lcom/google/android/gms/ads/formats/NativeContentAd;->getImages()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/ads/mediation/NativeContentAdMapper;->setImages(Ljava/util/List;)V
-
-    invoke-virtual {p1}, Lcom/google/android/gms/ads/formats/NativeContentAd;->getBody()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/ads/mediation/NativeContentAdMapper;->setBody(Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Lcom/google/android/gms/ads/formats/NativeContentAd;->getLogo()Lcom/google/android/gms/ads/formats/NativeAd$Image;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p1}, Lcom/google/android/gms/ads/formats/NativeContentAd;->getLogo()Lcom/google/android/gms/ads/formats/NativeAd$Image;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/ads/mediation/NativeContentAdMapper;->setLogo(Lcom/google/android/gms/ads/formats/NativeAd$Image;)V
-
-    :cond_0
-    invoke-virtual {p1}, Lcom/google/android/gms/ads/formats/NativeContentAd;->getCallToAction()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/ads/mediation/NativeContentAdMapper;->setCallToAction(Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Lcom/google/android/gms/ads/formats/NativeContentAd;->getAdvertiser()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/ads/mediation/NativeContentAdMapper;->setAdvertiser(Ljava/lang/String;)V
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/ads/mediation/NativeAdMapper;->setOverrideImpressionRecording(Z)V
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/ads/mediation/NativeAdMapper;->setOverrideClickHandling(Z)V
-
-    invoke-virtual {p1}, Lcom/google/android/gms/ads/formats/NativeContentAd;->getVideoController()Lcom/google/android/gms/ads/VideoController;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Lcom/google/android/gms/ads/mediation/NativeAdMapper;->zza(Lcom/google/android/gms/ads/VideoController;)V
+    iput-object p2, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaP:Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final trackView(Landroid/view/View;)V
+.method public onAdClicked()V
     .locals 2
 
-    instance-of v0, p1, Lcom/google/android/gms/ads/formats/NativeAdView;
+    iget-object v0, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaP:Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;
 
-    if-eqz v0, :cond_0
+    iget-object v1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaN:Lcom/google/ads/mediation/AbstractAdViewAdapter;
 
-    move-object v0, p1
+    invoke-interface {v0, v1}, Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;->onAdClicked(Lcom/google/android/gms/ads/mediation/MediationInterstitialAdapter;)V
 
-    check-cast v0, Lcom/google/android/gms/ads/formats/NativeAdView;
+    return-void
+.end method
 
-    iget-object v1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzhf:Lcom/google/android/gms/ads/formats/NativeContentAd;
+.method public onAdClosed()V
+    .locals 2
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/formats/NativeAdView;->setNativeAd(Lcom/google/android/gms/ads/formats/NativeAd;)V
+    iget-object v0, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaP:Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;
 
-    :cond_0
-    sget-object v0, Lcom/google/android/gms/ads/formats/NativeAdViewHolder;->zzvk:Ljava/util/WeakHashMap;
+    iget-object v1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaN:Lcom/google/ads/mediation/AbstractAdViewAdapter;
 
-    invoke-virtual {v0, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;->onAdClosed(Lcom/google/android/gms/ads/mediation/MediationInterstitialAdapter;)V
 
-    move-result-object p1
+    return-void
+.end method
 
-    check-cast p1, Lcom/google/android/gms/ads/formats/NativeAdViewHolder;
+.method public onAdFailedToLoad(I)V
+    .locals 2
+    .param p1, "errorCode"    # I
 
-    if-eqz p1, :cond_1
+    .prologue
+    iget-object v0, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaP:Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;
 
-    iget-object v0, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzhf:Lcom/google/android/gms/ads/formats/NativeContentAd;
+    iget-object v1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaN:Lcom/google/ads/mediation/AbstractAdViewAdapter;
 
-    invoke-virtual {p1, v0}, Lcom/google/android/gms/ads/formats/NativeAdViewHolder;->setNativeAd(Lcom/google/android/gms/ads/formats/NativeAd;)V
+    invoke-interface {v0, v1, p1}, Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;->onAdFailedToLoad(Lcom/google/android/gms/ads/mediation/MediationInterstitialAdapter;I)V
 
-    :cond_1
+    return-void
+.end method
+
+.method public onAdLeftApplication()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaP:Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;
+
+    iget-object v1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaN:Lcom/google/ads/mediation/AbstractAdViewAdapter;
+
+    invoke-interface {v0, v1}, Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;->onAdLeftApplication(Lcom/google/android/gms/ads/mediation/MediationInterstitialAdapter;)V
+
+    return-void
+.end method
+
+.method public onAdLoaded()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaP:Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;
+
+    iget-object v1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaN:Lcom/google/ads/mediation/AbstractAdViewAdapter;
+
+    invoke-interface {v0, v1}, Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;->onAdLoaded(Lcom/google/android/gms/ads/mediation/MediationInterstitialAdapter;)V
+
+    return-void
+.end method
+
+.method public onAdOpened()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaP:Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;
+
+    iget-object v1, p0, Lcom/google/ads/mediation/AbstractAdViewAdapter$zzb;->zzaN:Lcom/google/ads/mediation/AbstractAdViewAdapter;
+
+    invoke-interface {v0, v1}, Lcom/google/android/gms/ads/mediation/MediationInterstitialListener;->onAdOpened(Lcom/google/android/gms/ads/mediation/MediationInterstitialAdapter;)V
+
     return-void
 .end method

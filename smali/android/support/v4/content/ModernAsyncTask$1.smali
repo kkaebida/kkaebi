@@ -25,6 +25,7 @@
 .method constructor <init>()V
     .locals 2
 
+    .prologue
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,7 +45,9 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 3
+    .param p1, "r"    # Ljava/lang/Runnable;
 
+    .prologue
     .line 64
     new-instance v0, Ljava/lang/Thread;
 
@@ -56,6 +59,8 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-object v2, p0, Landroid/support/v4/content/ModernAsyncTask$1;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -63,6 +68,8 @@
     move-result v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

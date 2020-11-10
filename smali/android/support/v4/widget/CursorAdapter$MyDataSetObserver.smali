@@ -22,11 +22,13 @@
 .method constructor <init>(Landroid/support/v4/widget/CursorAdapter;)V
     .locals 0
 
+    .prologue
     .line 491
     iput-object p1, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
 
+    .line 492
     return-void
 .end method
 
@@ -35,6 +37,7 @@
 .method public onChanged()V
     .locals 2
 
+    .prologue
     .line 496
     iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
@@ -47,12 +50,14 @@
 
     invoke-virtual {v0}, Landroid/support/v4/widget/CursorAdapter;->notifyDataSetChanged()V
 
+    .line 498
     return-void
 .end method
 
 .method public onInvalidated()V
     .locals 2
 
+    .prologue
     .line 502
     iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
@@ -65,5 +70,6 @@
 
     invoke-virtual {v0}, Landroid/support/v4/widget/CursorAdapter;->notifyDataSetInvalidated()V
 
+    .line 504
     return-void
 .end method

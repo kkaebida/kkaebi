@@ -18,7 +18,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Landroid/support/v4/widget/DrawerLayout$SavedState;",
             ">;"
         }
@@ -42,10 +43,15 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 2027
+    .prologue
+    .line 2038
     new-instance v0, Landroid/support/v4/widget/DrawerLayout$SavedState$1;
 
     invoke-direct {v0}, Landroid/support/v4/widget/DrawerLayout$SavedState$1;-><init>()V
+
+    invoke-static {v0}, Landroid/support/v4/os/ParcelableCompat;->newCreator(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
+
+    move-result-object v0
 
     sput-object v0, Landroid/support/v4/widget/DrawerLayout$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -53,100 +59,111 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 0
+    .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
+    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
-    .line 2005
+    .prologue
+    .line 2016
     invoke-direct {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    const/4 p2, 0x0
-
-    .line 1998
-    iput p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->openDrawerGravity:I
-
-    .line 2006
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result p2
-
-    iput p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->openDrawerGravity:I
-
-    .line 2007
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result p2
-
-    iput p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeLeft:I
-
-    .line 2008
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result p2
-
-    iput p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeRight:I
-
     .line 2009
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->openDrawerGravity:I
+
+    .line 2017
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result p2
+    move-result v0
 
-    iput p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeStart:I
+    iput v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->openDrawerGravity:I
 
-    .line 2010
+    .line 2018
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeEnd:I
+    iput v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeLeft:I
 
+    .line 2019
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeRight:I
+
+    .line 2020
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeStart:I
+
+    .line 2021
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeEnd:I
+
+    .line 2022
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .locals 1
+    .param p1, "superState"    # Landroid/os/Parcelable;
 
-    .line 2014
+    .prologue
+    .line 2025
     invoke-direct {p0, p1}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
 
-    const/4 p1, 0x0
+    .line 2009
+    const/4 v0, 0x0
 
-    .line 1998
-    iput p1, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->openDrawerGravity:I
+    iput v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->openDrawerGravity:I
 
+    .line 2026
     return-void
 .end method
 
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
-    .line 2019
+    .prologue
+    .line 2030
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 2020
-    iget p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->openDrawerGravity:I
+    .line 2031
+    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->openDrawerGravity:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2021
-    iget p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeLeft:I
+    .line 2032
+    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeLeft:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2022
-    iget p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeRight:I
+    .line 2033
+    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeRight:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2023
-    iget p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeStart:I
+    .line 2034
+    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeStart:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2024
-    iget p2, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeEnd:I
+    .line 2035
+    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$SavedState;->lockModeEnd:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 2036
     return-void
 .end method

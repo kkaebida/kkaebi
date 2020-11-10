@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x18
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 1609
+    .prologue
+    .line 2323
     invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoApi23Impl;-><init>()V
 
     return-void
@@ -33,48 +34,63 @@
 .method public getActionSetProgress()Ljava/lang/Object;
     .locals 1
 
-    .line 1612
-    sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SET_PROGRESS:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+    .prologue
+    .line 2326
+    invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi24;->getActionSetProgress()Ljava/lang/Object;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public getDrawingOrder(Landroid/view/accessibility/AccessibilityNodeInfo;)I
-    .locals 0
+.method public getDrawingOrder(Ljava/lang/Object;)I
+    .locals 1
+    .param p1, "info"    # Ljava/lang/Object;
 
-    .line 1617
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getDrawingOrder()I
+    .prologue
+    .line 2331
+    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi24;->getDrawingOrder(Ljava/lang/Object;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
-.method public isImportantForAccessibility(Landroid/view/accessibility/AccessibilityNodeInfo;)Z
-    .locals 0
+.method public isImportantForAccessibility(Ljava/lang/Object;)Z
+    .locals 1
+    .param p1, "info"    # Ljava/lang/Object;
 
-    .line 1627
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->isImportantForAccessibility()Z
+    .prologue
+    .line 2341
+    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi24;->isImportantForAccessibility(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
-.method public setDrawingOrder(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
+.method public setDrawingOrder(Ljava/lang/Object;I)V
     .locals 0
+    .param p1, "info"    # Ljava/lang/Object;
+    .param p2, "drawingOrderInParent"    # I
 
-    .line 1622
-    invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setDrawingOrder(I)V
+    .prologue
+    .line 2336
+    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi24;->setDrawingOrder(Ljava/lang/Object;I)V
 
+    .line 2337
     return-void
 .end method
 
-.method public setImportantForAccessibility(Landroid/view/accessibility/AccessibilityNodeInfo;Z)V
+.method public setImportantForAccessibility(Ljava/lang/Object;Z)V
     .locals 0
+    .param p1, "info"    # Ljava/lang/Object;
+    .param p2, "importantForAccessibility"    # Z
 
-    .line 1633
-    invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setImportantForAccessibility(Z)V
+    .prologue
+    .line 2346
+    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi24;->setImportantForAccessibility(Ljava/lang/Object;Z)V
 
+    .line 2348
     return-void
 .end method

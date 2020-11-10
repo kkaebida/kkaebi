@@ -26,8 +26,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl;Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl;
 
-    .line 103
+    .prologue
+    .line 102
     iput-object p1, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->this$0:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl;
 
     iput-object p2, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
@@ -40,130 +42,158 @@
 
 # virtual methods
 .method public createAccessibilityNodeInfo(I)Ljava/lang/Object;
-    .locals 1
+    .locals 2
+    .param p1, "virtualViewId"    # I
+
+    .prologue
+    .line 129
+    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
 
     .line 130
-    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
+    invoke-virtual {v1, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->createAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+
+    move-result-object v0
 
     .line 131
-    invoke-virtual {v0, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->createAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+    .local v0, "compatInfo":Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+    if-nez v0, :cond_0
 
-    move-result-object p1
+    .line 132
+    const/4 v1, 0x0
 
-    if-nez p1, :cond_0
+    .line 134
+    :goto_0
+    return-object v1
 
-    const/4 p1, 0x0
-
-    return-object p1
-
-    .line 135
     :cond_0
-    invoke-virtual {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
+    invoke-virtual {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getInfo()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v1
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
-    .locals 3
+    .locals 6
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "virtualViewId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             "I)",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/Object;",
             ">;"
         }
     .end annotation
 
+    .prologue
+    .line 112
+    iget-object v5, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
+
     .line 113
-    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
+    invoke-virtual {v5, p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
+
+    move-result-object v0
 
     .line 114
-    invoke-virtual {v0, p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
+    .local v0, "compatInfos":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;>;"
+    if-nez v0, :cond_1
 
-    move-result-object p1
+    .line 115
+    const/4 v4, 0x0
 
-    if-nez p1, :cond_0
+    .line 123
+    :cond_0
+    return-object v4
 
-    const/4 p1, 0x0
+    .line 117
+    :cond_1
+    new-instance v4, Ljava/util/ArrayList;
 
-    return-object p1
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     .line 118
-    :cond_0
-    new-instance p2, Ljava/util/ArrayList;
+    .local v4, "infos":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    move-result v3
 
     .line 119
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result v0
-
+    .local v3, "infoCount":I
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v3, :cond_0
 
-    .line 121
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    .line 120
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
-    .line 122
-    invoke-virtual {v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
+    .line 121
+    .local v2, "infoCompat":Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+    invoke-virtual {v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getInfo()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-interface {p2, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 119
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
-
-    :cond_1
-    return-object p2
 .end method
 
 .method public findFocus(I)Ljava/lang/Object;
-    .locals 1
+    .locals 2
+    .param p1, "focus"    # I
+
+    .prologue
+    .line 140
+    iget-object v1, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
+
+    invoke-virtual {v1, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->findFocus(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+
+    move-result-object v0
 
     .line 141
-    iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
+    .local v0, "compatInfo":Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->findFocus(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+    .line 142
+    const/4 v1, 0x0
 
-    move-result-object p1
+    .line 144
+    :goto_0
+    return-object v1
 
-    if-nez p1, :cond_0
-
-    const/4 p1, 0x0
-
-    return-object p1
-
-    .line 145
     :cond_0
-    invoke-virtual {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
+    invoke-virtual {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getInfo()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v1
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public performAction(IILandroid/os/Bundle;)Z
     .locals 1
+    .param p1, "virtualViewId"    # I
+    .param p2, "action"    # I
+    .param p3, "arguments"    # Landroid/os/Bundle;
 
-    .line 107
+    .prologue
+    .line 106
     iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderKitKatImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->performAction(IILandroid/os/Bundle;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x15
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 105
+    .prologue
+    .line 107
     invoke-direct {p0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;-><init>()V
 
     return-void
@@ -31,41 +32,53 @@
 
 # virtual methods
 .method public getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
-    .locals 0
+    .locals 1
+    .param p1, "button"    # Landroid/widget/CompoundButton;
 
-    .line 113
+    .prologue
+    .line 115
     invoke-virtual {p1}, Landroid/widget/CompoundButton;->getButtonTintList()Landroid/content/res/ColorStateList;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getButtonTintMode(Landroid/widget/CompoundButton;)Landroid/graphics/PorterDuff$Mode;
-    .locals 0
+    .locals 1
+    .param p1, "button"    # Landroid/widget/CompoundButton;
 
-    .line 123
+    .prologue
+    .line 125
     invoke-virtual {p1}, Landroid/widget/CompoundButton;->getButtonTintMode()Landroid/graphics/PorterDuff$Mode;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
     .locals 0
+    .param p1, "button"    # Landroid/widget/CompoundButton;
+    .param p2, "tint"    # Landroid/content/res/ColorStateList;
 
-    .line 108
+    .prologue
+    .line 110
     invoke-virtual {p1, p2}, Landroid/widget/CompoundButton;->setButtonTintList(Landroid/content/res/ColorStateList;)V
 
+    .line 111
     return-void
 .end method
 
 .method public setButtonTintMode(Landroid/widget/CompoundButton;Landroid/graphics/PorterDuff$Mode;)V
     .locals 0
+    .param p1, "button"    # Landroid/widget/CompoundButton;
+    .param p2, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
-    .line 118
+    .prologue
+    .line 120
     invoke-virtual {p1, p2}, Landroid/widget/CompoundButton;->setButtonTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
+    .line 121
     return-void
 .end method

@@ -24,7 +24,8 @@
             "(",
             "Ljava/lang/String;",
             "I)",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/Object;",
             ">;"
         }

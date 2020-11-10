@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Landroid/support/v4/widget/FocusStrategy$BoundsAdapter<",
+        "Landroid/support/v4/widget/FocusStrategy$BoundsAdapter",
+        "<",
         "Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;",
         ">;"
     }
@@ -30,7 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 333
+    .prologue
+    .line 335
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,17 +42,22 @@
 # virtual methods
 .method public obtainBounds(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;Landroid/graphics/Rect;)V
     .locals 0
+    .param p1, "node"    # Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+    .param p2, "outBounds"    # Landroid/graphics/Rect;
 
-    .line 336
+    .prologue
+    .line 338
     invoke-virtual {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getBoundsInParent(Landroid/graphics/Rect;)V
 
+    .line 339
     return-void
 .end method
 
 .method public bridge synthetic obtainBounds(Ljava/lang/Object;Landroid/graphics/Rect;)V
     .locals 0
 
-    .line 333
+    .prologue
+    .line 335
     check-cast p1, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/widget/ExploreByTouchHelper$1;->obtainBounds(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;Landroid/graphics/Rect;)V

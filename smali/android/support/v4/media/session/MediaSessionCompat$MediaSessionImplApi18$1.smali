@@ -24,8 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;
 
-    .line 3059
+    .prologue
+    .line 2662
     iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18$1;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,18 +38,21 @@
 
 # virtual methods
 .method public onPlaybackPositionUpdate(J)V
-    .locals 1
+    .locals 3
+    .param p1, "newPositionMs"    # J
 
-    .line 3062
+    .prologue
+    .line 2665
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18$1;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;
+
+    const/16 v1, 0x12
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p1
+    move-result-object v2
 
-    const/16 p2, 0x12
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;->postToHandler(ILjava/lang/Object;)V
 
-    invoke-virtual {v0, p2, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;->postToHandler(ILjava/lang/Object;)V
-
+    .line 2666
     return-void
 .end method

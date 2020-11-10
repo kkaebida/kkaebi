@@ -24,7 +24,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 152
+    .prologue
+    .line 153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,17 +34,23 @@
 
 # virtual methods
 .method public onQueryTextChange(Ljava/lang/String;)Z
-    .locals 0
+    .locals 1
+    .param p1, "newText"    # Ljava/lang/String;
 
-    const/4 p1, 0x0
+    .prologue
+    .line 161
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
-    .locals 0
+    .locals 1
+    .param p1, "query"    # Ljava/lang/String;
 
-    const/4 p1, 0x0
+    .prologue
+    .line 156
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

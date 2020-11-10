@@ -6,12 +6,17 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/support/v4/app/ServiceCompat$Api24ServiceCompatImpl;,
+        Landroid/support/v4/app/ServiceCompat$BaseServiceCompatImpl;,
+        Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;,
         Landroid/support/v4/app/ServiceCompat$StopForegroundFlags;
     }
 .end annotation
 
 
 # static fields
+.field static final IMPL:Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;
+
 .field public static final START_STICKY:I = 0x1
 
 .field public static final STOP_FOREGROUND_DETACH:I = 0x2
@@ -20,46 +25,61 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 107
+    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastN()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 108
+    new-instance v0, Landroid/support/v4/app/ServiceCompat$Api24ServiceCompatImpl;
+
+    invoke-direct {v0}, Landroid/support/v4/app/ServiceCompat$Api24ServiceCompatImpl;-><init>()V
+
+    sput-object v0, Landroid/support/v4/app/ServiceCompat;->IMPL:Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;
+
+    .line 112
+    :goto_0
+    return-void
+
+    .line 110
+    :cond_0
+    new-instance v0, Landroid/support/v4/app/ServiceCompat$BaseServiceCompatImpl;
+
+    invoke-direct {v0}, Landroid/support/v4/app/ServiceCompat$BaseServiceCompatImpl;-><init>()V
+
+    sput-object v0, Landroid/support/v4/app/ServiceCompat;->IMPL:Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;
+
+    goto :goto_0
+.end method
+
 .method private constructor <init>()V
     .locals 0
 
-    .line 35
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 38
     return-void
 .end method
 
 .method public static stopForeground(Landroid/app/Service;I)V
-    .locals 2
+    .locals 1
+    .param p0, "service"    # Landroid/app/Service;
+    .param p1, "flags"    # I
 
-    .line 96
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    .prologue
+    .line 123
+    sget-object v0, Landroid/support/v4/app/ServiceCompat;->IMPL:Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;
 
-    const/16 v1, 0x18
+    invoke-interface {v0, p0, p1}, Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;->stopForeground(Landroid/app/Service;I)V
 
-    if-lt v0, v1, :cond_0
-
-    .line 97
-    invoke-virtual {p0, p1}, Landroid/app/Service;->stopForeground(I)V
-
-    goto :goto_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    and-int/2addr p1, v0
-
-    if-eqz p1, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    .line 99
-    :goto_0
-    invoke-virtual {p0, v0}, Landroid/app/Service;->stopForeground(Z)V
-
-    :goto_1
+    .line 124
     return-void
 .end method

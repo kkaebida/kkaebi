@@ -24,8 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/FragmentManagerImpl;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/app/FragmentManagerImpl;
 
-    .line 697
+    .prologue
+    .line 722
     iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$1;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,10 +40,12 @@
 .method public run()V
     .locals 1
 
-    .line 700
+    .prologue
+    .line 725
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$1;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
 
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentManagerImpl;->execPendingActions()Z
 
+    .line 726
     return-void
 .end method

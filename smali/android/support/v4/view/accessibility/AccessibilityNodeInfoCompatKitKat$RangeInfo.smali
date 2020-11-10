@@ -18,60 +18,73 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 28
+    .prologue
+    .line 189
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method static getCurrent(Ljava/lang/Object;)F
-    .locals 0
+    .locals 1
+    .param p0, "info"    # Ljava/lang/Object;
 
-    .line 30
+    .prologue
+    .line 191
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
+    .end local p0    # "info":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getCurrent()F
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static getMax(Ljava/lang/Object;)F
-    .locals 0
+    .locals 1
+    .param p0, "info"    # Ljava/lang/Object;
 
-    .line 34
+    .prologue
+    .line 195
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
+    .end local p0    # "info":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getMax()F
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static getMin(Ljava/lang/Object;)F
-    .locals 0
+    .locals 1
+    .param p0, "info"    # Ljava/lang/Object;
 
-    .line 38
+    .prologue
+    .line 199
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
+    .end local p0    # "info":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getMin()F
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static getType(Ljava/lang/Object;)I
-    .locals 0
+    .locals 1
+    .param p0, "info"    # Ljava/lang/Object;
 
-    .line 42
+    .prologue
+    .line 203
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
+    .end local p0    # "info":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getType()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method

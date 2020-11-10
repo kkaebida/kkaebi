@@ -17,18 +17,20 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
     .locals 0
-    .param p1    # Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;
+    .param p1, "orig"    # Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .param p2    # Landroid/content/res/Resources;
+    .param p2, "res"    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
     .line 55
     invoke-direct {p0, p1, p2}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;-><init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
 
+    .line 56
     return-void
 .end method
 
@@ -36,11 +38,12 @@
 # virtual methods
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .param p1    # Landroid/content/res/Resources;
+    .param p1, "res"    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
+    .prologue
     .line 60
     new-instance v0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;
 

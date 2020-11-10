@@ -35,16 +35,17 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 40
+    .prologue
+    .line 41
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/support/v4/util/TimeUtils;->sFormatSync:Ljava/lang/Object;
 
+    .line 42
     const/16 v0, 0x18
 
-    .line 41
     new-array v0, v0, [C
 
     sput-object v0, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
@@ -55,698 +56,862 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 185
+    .prologue
+    .line 186
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method private static accumField(IIZI)I
-    .locals 2
+    .locals 1
+    .param p0, "amt"    # I
+    .param p1, "suffix"    # I
+    .param p2, "always"    # Z
+    .param p3, "zeropad"    # I
 
-    const/4 v0, 0x3
+    .prologue
+    .line 45
+    const/16 v0, 0x63
 
-    const/16 v1, 0x63
-
-    if-gt p0, v1, :cond_5
-
-    if-eqz p2, :cond_0
-
-    if-lt p3, v0, :cond_0
-
-    goto :goto_2
-
-    :cond_0
-    const/16 v0, 0x9
-
-    const/4 v1, 0x2
-
-    if-gt p0, v0, :cond_4
+    if-gt p0, v0, :cond_0
 
     if-eqz p2, :cond_1
 
-    if-lt p3, v1, :cond_1
+    const/4 v0, 0x3
 
-    goto :goto_1
+    if-lt p3, v0, :cond_1
 
+    .line 46
+    :cond_0
+    add-int/lit8 v0, p1, 0x3
+
+    .line 54
+    :goto_0
+    return v0
+
+    .line 48
     :cond_1
-    if-nez p2, :cond_3
+    const/16 v0, 0x9
 
-    if-lez p0, :cond_2
+    if-gt p0, v0, :cond_2
+
+    if-eqz p2, :cond_3
+
+    const/4 v0, 0x2
+
+    if-lt p3, v0, :cond_3
+
+    .line 49
+    :cond_2
+    add-int/lit8 v0, p1, 0x2
 
     goto :goto_0
 
-    :cond_2
-    const/4 p0, 0x0
-
-    return p0
-
+    .line 51
     :cond_3
-    :goto_0
-    add-int/lit8 p1, p1, 0x1
+    if-nez p2, :cond_4
 
-    return p1
+    if-lez p0, :cond_5
 
+    .line 52
     :cond_4
-    :goto_1
-    add-int/2addr p1, v1
+    add-int/lit8 v0, p1, 0x1
 
-    return p1
+    goto :goto_0
 
+    .line 54
     :cond_5
-    :goto_2
-    add-int/2addr p1, v0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public static formatDuration(JJLjava/io/PrintWriter;)V
-    .locals 3
+    .locals 4
+    .param p0, "time"    # J
+    .param p2, "now"    # J
+    .param p4, "pw"    # Ljava/io/PrintWriter;
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
         }
     .end annotation
 
+    .prologue
+    .line 179
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p0, v0
+    cmp-long v0, p0, v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    const-string p0, "--"
+    .line 180
+    const-string v0, "--"
 
-    .line 179
-    invoke-virtual {p4, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p4, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 184
+    :goto_0
     return-void
 
+    .line 183
     :cond_0
-    const/4 v0, 0x0
-
     sub-long v0, p0, p2
 
-    const/4 p0, 0x0
+    const/4 v2, 0x0
 
-    .line 182
-    invoke-static {v0, v1, p4, p0}, Landroid/support/v4/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;I)V
+    invoke-static {v0, v1, p4, v2}, Landroid/support/v4/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;I)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public static formatDuration(JLjava/io/PrintWriter;)V
-    .locals 1
+    .locals 2
+    .param p0, "duration"    # J
+    .param p2, "pw"    # Ljava/io/PrintWriter;
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
         }
     .end annotation
 
+    .prologue
+    .line 173
     const/4 v0, 0x0
 
-    .line 172
     invoke-static {p0, p1, p2, v0}, Landroid/support/v4/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;I)V
 
+    .line 174
     return-void
 .end method
 
 .method public static formatDuration(JLjava/io/PrintWriter;I)V
-    .locals 2
+    .locals 6
+    .param p0, "duration"    # J
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "fieldLen"    # I
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
         }
     .end annotation
 
-    .line 163
-    sget-object v0, Landroid/support/v4/util/TimeUtils;->sFormatSync:Ljava/lang/Object;
-
-    monitor-enter v0
-
+    .prologue
     .line 164
+    sget-object v2, Landroid/support/v4/util/TimeUtils;->sFormatSync:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    .line 165
     :try_start_0
     invoke-static {p0, p1, p3}, Landroid/support/v4/util/TimeUtils;->formatDurationLocked(JI)I
 
-    move-result p0
-
-    .line 165
-    new-instance p1, Ljava/lang/String;
-
-    sget-object p3, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
-
-    const/4 v1, 0x0
-
-    invoke-direct {p1, p3, v1, p0}, Ljava/lang/String;-><init>([CII)V
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    move-result v0
 
     .line 166
-    monitor-exit v0
+    .local v0, "len":I
+    new-instance v1, Ljava/lang/String;
 
+    sget-object v3, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
+
+    const/4 v4, 0x0
+
+    invoke-direct {v1, v3, v4, v0}, Ljava/lang/String;-><init>([CII)V
+
+    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 167
+    monitor-exit v2
+
+    .line 168
     return-void
 
+    .line 167
+    .end local v0    # "len":I
     :catchall_0
-    move-exception p0
+    move-exception v1
 
-    monitor-exit v0
+    monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw p0
+    throw v1
 .end method
 
 .method public static formatDuration(JLjava/lang/StringBuilder;)V
-    .locals 2
+    .locals 4
+    .param p0, "duration"    # J
+    .param p2, "builder"    # Ljava/lang/StringBuilder;
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
         }
     .end annotation
 
-    .line 154
-    sget-object v0, Landroid/support/v4/util/TimeUtils;->sFormatSync:Ljava/lang/Object;
+    .prologue
+    .line 155
+    sget-object v2, Landroid/support/v4/util/TimeUtils;->sFormatSync:Ljava/lang/Object;
 
-    monitor-enter v0
+    monitor-enter v2
 
+    .line 156
     const/4 v1, 0x0
 
-    .line 155
     :try_start_0
     invoke-static {p0, p1, v1}, Landroid/support/v4/util/TimeUtils;->formatDurationLocked(JI)I
 
-    move-result p0
-
-    .line 156
-    sget-object p1, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
-
-    invoke-virtual {p2, p1, v1, p0}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
+    move-result v0
 
     .line 157
-    monitor-exit v0
+    .local v0, "len":I
+    sget-object v1, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
 
+    const/4 v3, 0x0
+
+    invoke-virtual {p2, v1, v3, v0}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
+
+    .line 158
+    monitor-exit v2
+
+    .line 159
     return-void
 
+    .line 158
+    .end local v0    # "len":I
     :catchall_0
-    move-exception p0
+    move-exception v1
 
-    monitor-exit v0
+    monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw p0
+    throw v1
 .end method
 
 .method private static formatDurationLocked(JI)I
-    .locals 18
+    .locals 20
+    .param p0, "duration"    # J
+    .param p2, "fieldLen"    # I
 
-    move-wide/from16 v0, p0
-
-    move/from16 v2, p2
-
-    .line 81
-    sget-object v3, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
-
-    array-length v3, v3
-
-    if-ge v3, v2, :cond_0
-
+    .prologue
     .line 82
-    new-array v3, v2, [C
+    sget-object v4, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
 
-    sput-object v3, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
+    array-length v4, v4
 
-    .line 85
+    move/from16 v0, p2
+
+    if-ge v4, v0, :cond_0
+
+    .line 83
+    move/from16 v0, p2
+
+    new-array v4, v0, [C
+
+    sput-object v4, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
+
+    .line 86
     :cond_0
-    sget-object v3, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
+    sget-object v2, Landroid/support/v4/util/TimeUtils;->sFormatStr:[C
 
-    const-wide/16 v4, 0x0
+    .line 88
+    .local v2, "formatStr":[C
+    const-wide/16 v6, 0x0
 
-    cmp-long v6, v0, v4
+    cmp-long v4, p0, v6
 
-    const/16 v7, 0x20
+    if-nez v4, :cond_2
 
-    const/4 v10, 0x1
+    .line 89
+    const/4 v5, 0x0
 
-    const/4 v11, 0x0
-
-    if-nez v6, :cond_2
-
-    add-int/lit8 v0, v2, -0x1
-
-    :goto_0
-    if-lez v0, :cond_1
+    .line 90
+    .local v5, "pos":I
+    add-int/lit8 p2, p2, -0x1
 
     .line 91
-    aput-char v7, v3, v11
+    :goto_0
+    move/from16 v0, p2
+
+    if-ge v5, v0, :cond_1
+
+    .line 92
+    const/16 v4, 0x20
+
+    aput-char v4, v2, v5
 
     goto :goto_0
 
+    .line 94
     :cond_1
-    const/16 v0, 0x30
+    const/16 v4, 0x30
 
-    .line 93
-    aput-char v0, v3, v11
+    aput-char v4, v2, v5
 
-    return v10
+    .line 95
+    const/4 v4, 0x1
 
-    :cond_2
-    cmp-long v6, v0, v4
-
-    if-lez v6, :cond_3
-
-    const/16 v4, 0x2b
-
-    goto :goto_1
-
-    :cond_3
-    const/16 v4, 0x2d
-
-    neg-long v0, v0
-
+    .line 149
     :goto_1
-    const-wide/16 v5, 0x3e8
+    return v4
 
-    .line 105
-    rem-long v8, v0, v5
+    .line 99
+    .end local v5    # "pos":I
+    :cond_2
+    const-wide/16 v6, 0x0
 
-    long-to-int v12, v8
+    cmp-long v4, p0, v6
+
+    if-lez v4, :cond_6
+
+    .line 100
+    const/16 v16, 0x2b
 
     .line 106
-    div-long/2addr v0, v5
+    .local v16, "prefix":C
+    :goto_2
+    const-wide/16 v6, 0x3e8
 
-    long-to-double v0, v0
+    rem-long v6, p0, v6
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->floor(D)D
+    long-to-int v13, v6
 
-    move-result-wide v0
+    .line 107
+    .local v13, "millis":I
+    const-wide/16 v6, 0x3e8
 
-    double-to-int v0, v0
+    div-long v6, p0, v6
 
-    const v1, 0x15180
+    long-to-double v6, v6
 
-    if-le v0, v1, :cond_4
+    invoke-static {v6, v7}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v6
+
+    double-to-int v0, v6
+
+    move/from16 v17, v0
+
+    .line 108
+    .local v17, "seconds":I
+    const/4 v3, 0x0
+
+    .local v3, "days":I
+    const/4 v12, 0x0
+
+    .local v12, "hours":I
+    const/4 v14, 0x0
 
     .line 110
-    div-int v5, v0, v1
+    .local v14, "minutes":I
+    const v4, 0x15180
 
-    mul-int v1, v1, v5
+    move/from16 v0, v17
 
-    sub-int/2addr v0, v1
+    if-le v0, v4, :cond_3
 
-    goto :goto_2
+    .line 111
+    const v4, 0x15180
 
-    :cond_4
-    const/4 v5, 0x0
+    div-int v3, v17, v4
 
-    :goto_2
-    const/16 v1, 0xe10
+    .line 112
+    const v4, 0x15180
 
-    if-le v0, v1, :cond_5
+    mul-int/2addr v4, v3
+
+    sub-int v17, v17, v4
 
     .line 114
-    div-int/lit16 v1, v0, 0xe10
+    :cond_3
+    const/16 v4, 0xe10
 
-    mul-int/lit16 v6, v1, 0xe10
+    move/from16 v0, v17
 
-    sub-int/2addr v0, v6
+    if-le v0, v4, :cond_4
 
-    goto :goto_3
+    .line 115
+    move/from16 v0, v17
 
-    :cond_5
-    const/4 v1, 0x0
+    div-int/lit16 v12, v0, 0xe10
 
-    :goto_3
-    const/16 v6, 0x3c
+    .line 116
+    mul-int/lit16 v4, v12, 0xe10
 
-    if-le v0, v6, :cond_6
+    sub-int v17, v17, v4
 
     .line 118
-    div-int/lit8 v6, v0, 0x3c
+    :cond_4
+    const/16 v4, 0x3c
 
-    mul-int/lit8 v8, v6, 0x3c
+    move/from16 v0, v17
 
-    sub-int/2addr v0, v8
+    if-le v0, v4, :cond_5
 
-    move v13, v0
+    .line 119
+    div-int/lit8 v14, v17, 0x3c
 
-    move v0, v6
+    .line 120
+    mul-int/lit8 v4, v14, 0x3c
 
-    goto :goto_4
+    sub-int v17, v17, v4
 
-    :cond_6
-    move v13, v0
-
-    const/4 v0, 0x0
-
-    :goto_4
-    const/4 v14, 0x3
-
-    const/4 v15, 0x2
-
-    if-eqz v2, :cond_b
+    .line 123
+    :cond_5
+    const/4 v5, 0x0
 
     .line 125
-    invoke-static {v5, v10, v11, v11}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
-
-    move-result v6
-
-    if-lez v6, :cond_7
-
-    const/4 v8, 0x1
-
-    goto :goto_5
-
-    :cond_7
-    const/4 v8, 0x0
+    .restart local v5    # "pos":I
+    if-eqz p2, :cond_b
 
     .line 126
-    :goto_5
-    invoke-static {v1, v10, v8, v15}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
+    const/4 v4, 0x1
 
-    move-result v8
+    const/4 v6, 0x0
 
-    add-int/2addr v6, v8
+    const/4 v7, 0x0
 
-    if-lez v6, :cond_8
+    invoke-static {v3, v4, v6, v7}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
 
-    const/4 v8, 0x1
-
-    goto :goto_6
-
-    :cond_8
-    const/4 v8, 0x0
+    move-result v15
 
     .line 127
+    .local v15, "myLen":I
+    const/4 v6, 0x1
+
+    if-lez v15, :cond_7
+
+    const/4 v4, 0x1
+
+    :goto_3
+    const/4 v7, 0x2
+
+    invoke-static {v12, v6, v4, v7}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
+
+    move-result v4
+
+    add-int/2addr v15, v4
+
+    .line 128
+    const/4 v6, 0x1
+
+    if-lez v15, :cond_8
+
+    const/4 v4, 0x1
+
+    :goto_4
+    const/4 v7, 0x2
+
+    invoke-static {v14, v6, v4, v7}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
+
+    move-result v4
+
+    add-int/2addr v15, v4
+
+    .line 129
+    const/4 v6, 0x1
+
+    if-lez v15, :cond_9
+
+    const/4 v4, 0x1
+
+    :goto_5
+    const/4 v7, 0x2
+
+    move/from16 v0, v17
+
+    invoke-static {v0, v6, v4, v7}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
+
+    move-result v4
+
+    add-int/2addr v15, v4
+
+    .line 130
+    const/4 v6, 0x2
+
+    const/4 v7, 0x1
+
+    if-lez v15, :cond_a
+
+    const/4 v4, 0x3
+
     :goto_6
-    invoke-static {v0, v10, v8, v15}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
+    invoke-static {v13, v6, v7, v4}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
 
-    move-result v8
+    move-result v4
 
-    add-int/2addr v6, v8
+    add-int/lit8 v4, v4, 0x1
 
-    if-lez v6, :cond_9
+    add-int/2addr v15, v4
 
-    const/4 v8, 0x1
+    .line 131
+    :goto_7
+    move/from16 v0, p2
+
+    if-ge v15, v0, :cond_b
+
+    .line 132
+    const/16 v4, 0x20
+
+    aput-char v4, v2, v5
+
+    .line 133
+    add-int/lit8 v5, v5, 0x1
+
+    .line 134
+    add-int/lit8 v15, v15, 0x1
 
     goto :goto_7
 
-    :cond_9
-    const/4 v8, 0x0
+    .line 102
+    .end local v3    # "days":I
+    .end local v5    # "pos":I
+    .end local v12    # "hours":I
+    .end local v13    # "millis":I
+    .end local v14    # "minutes":I
+    .end local v15    # "myLen":I
+    .end local v16    # "prefix":C
+    .end local v17    # "seconds":I
+    :cond_6
+    const/16 v16, 0x2d
+
+    .line 103
+    .restart local v16    # "prefix":C
+    move-wide/from16 v0, p0
+
+    neg-long v0, v0
+
+    move-wide/from16 p0, v0
+
+    goto/16 :goto_2
+
+    .line 127
+    .restart local v3    # "days":I
+    .restart local v5    # "pos":I
+    .restart local v12    # "hours":I
+    .restart local v13    # "millis":I
+    .restart local v14    # "minutes":I
+    .restart local v15    # "myLen":I
+    .restart local v17    # "seconds":I
+    :cond_7
+    const/4 v4, 0x0
+
+    goto :goto_3
 
     .line 128
-    :goto_7
-    invoke-static {v13, v10, v8, v15}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
+    :cond_8
+    const/4 v4, 0x0
 
-    move-result v8
+    goto :goto_4
 
-    add-int/2addr v6, v8
+    .line 129
+    :cond_9
+    const/4 v4, 0x0
 
-    if-lez v6, :cond_a
+    goto :goto_5
 
-    const/4 v8, 0x3
+    .line 130
+    :cond_a
+    const/4 v4, 0x0
+
+    goto :goto_6
+
+    .line 138
+    .end local v15    # "myLen":I
+    :cond_b
+    aput-char v16, v2, v5
+
+    .line 139
+    add-int/lit8 v5, v5, 0x1
+
+    .line 141
+    move/from16 v18, v5
+
+    .line 142
+    .local v18, "start":I
+    if-eqz p2, :cond_c
+
+    const/16 v19, 0x1
+
+    .line 143
+    .local v19, "zeropad":Z
+    :goto_8
+    const/16 v4, 0x64
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-static/range {v2 .. v7}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
+
+    move-result v5
+
+    .line 144
+    const/16 v8, 0x68
+
+    move/from16 v0, v18
+
+    if-eq v5, v0, :cond_d
+
+    const/4 v10, 0x1
+
+    :goto_9
+    if-eqz v19, :cond_e
+
+    const/4 v11, 0x2
+
+    :goto_a
+    move-object v6, v2
+
+    move v7, v12
+
+    move v9, v5
+
+    invoke-static/range {v6 .. v11}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
+
+    move-result v5
+
+    .line 145
+    const/16 v8, 0x6d
+
+    move/from16 v0, v18
+
+    if-eq v5, v0, :cond_f
+
+    const/4 v10, 0x1
+
+    :goto_b
+    if-eqz v19, :cond_10
+
+    const/4 v11, 0x2
+
+    :goto_c
+    move-object v6, v2
+
+    move v7, v14
+
+    move v9, v5
+
+    invoke-static/range {v6 .. v11}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
+
+    move-result v5
+
+    .line 146
+    const/16 v8, 0x73
+
+    move/from16 v0, v18
+
+    if-eq v5, v0, :cond_11
+
+    const/4 v10, 0x1
+
+    :goto_d
+    if-eqz v19, :cond_12
+
+    const/4 v11, 0x2
+
+    :goto_e
+    move-object v6, v2
+
+    move/from16 v7, v17
+
+    move v9, v5
+
+    invoke-static/range {v6 .. v11}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
+
+    move-result v5
+
+    .line 147
+    const/16 v8, 0x6d
+
+    const/4 v10, 0x1
+
+    if-eqz v19, :cond_13
+
+    move/from16 v0, v18
+
+    if-eq v5, v0, :cond_13
+
+    const/4 v11, 0x3
+
+    :goto_f
+    move-object v6, v2
+
+    move v7, v13
+
+    move v9, v5
+
+    invoke-static/range {v6 .. v11}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
+
+    move-result v5
+
+    .line 148
+    const/16 v4, 0x73
+
+    aput-char v4, v2, v5
+
+    .line 149
+    add-int/lit8 v4, v5, 0x1
+
+    goto/16 :goto_1
+
+    .line 142
+    .end local v19    # "zeropad":Z
+    :cond_c
+    const/16 v19, 0x0
 
     goto :goto_8
 
-    :cond_a
-    const/4 v8, 0x0
-
-    .line 129
-    :goto_8
-    invoke-static {v12, v15, v10, v8}, Landroid/support/v4/util/TimeUtils;->accumField(IIZI)I
-
-    move-result v8
-
-    add-int/2addr v8, v10
-
-    add-int/2addr v6, v8
-
-    const/4 v8, 0x0
-
-    :goto_9
-    if-ge v6, v2, :cond_c
-
-    .line 131
-    aput-char v7, v3, v8
-
-    add-int/lit8 v8, v8, 0x1
-
-    add-int/lit8 v6, v6, 0x1
+    .line 144
+    .restart local v19    # "zeropad":Z
+    :cond_d
+    const/4 v10, 0x0
 
     goto :goto_9
 
-    :cond_b
-    const/4 v8, 0x0
-
-    .line 137
-    :cond_c
-    aput-char v4, v3, v8
-
-    add-int/lit8 v9, v8, 0x1
-
-    if-eqz v2, :cond_d
-
-    const/4 v2, 0x1
+    :cond_e
+    const/4 v11, 0x0
 
     goto :goto_a
 
-    :cond_d
-    const/4 v2, 0x0
-
-    :goto_a
-    const/16 v6, 0x64
-
-    const/4 v8, 0x0
-
-    const/16 v16, 0x0
-
-    move-object v4, v3
-
-    move v7, v9
-
-    move v11, v9
-
-    move/from16 v9, v16
-
-    .line 142
-    invoke-static/range {v4 .. v9}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
-
-    move-result v7
-
-    const/16 v6, 0x68
-
-    if-eq v7, v11, :cond_e
-
-    const/4 v8, 0x1
+    .line 145
+    :cond_f
+    const/4 v10, 0x0
 
     goto :goto_b
 
-    :cond_e
-    const/4 v8, 0x0
-
-    :goto_b
-    if-eqz v2, :cond_f
-
-    const/4 v9, 0x2
+    :cond_10
+    const/4 v11, 0x0
 
     goto :goto_c
 
-    :cond_f
-    const/4 v9, 0x0
-
-    :goto_c
-    move-object v4, v3
-
-    move v5, v1
-
-    .line 143
-    invoke-static/range {v4 .. v9}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
-
-    move-result v7
-
-    const/16 v6, 0x6d
-
-    if-eq v7, v11, :cond_10
-
-    const/4 v8, 0x1
+    .line 146
+    :cond_11
+    const/4 v10, 0x0
 
     goto :goto_d
 
-    :cond_10
-    const/4 v8, 0x0
-
-    :goto_d
-    if-eqz v2, :cond_11
-
-    const/4 v9, 0x2
+    :cond_12
+    const/4 v11, 0x0
 
     goto :goto_e
 
-    :cond_11
-    const/4 v9, 0x0
-
-    :goto_e
-    move-object v4, v3
-
-    move v5, v0
-
-    .line 144
-    invoke-static/range {v4 .. v9}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
-
-    move-result v7
-
-    const/16 v6, 0x73
-
-    if-eq v7, v11, :cond_12
-
-    const/4 v8, 0x1
+    .line 147
+    :cond_13
+    const/4 v11, 0x0
 
     goto :goto_f
-
-    :cond_12
-    const/4 v8, 0x0
-
-    :goto_f
-    if-eqz v2, :cond_13
-
-    const/4 v9, 0x2
-
-    goto :goto_10
-
-    :cond_13
-    const/4 v9, 0x0
-
-    :goto_10
-    move-object v4, v3
-
-    move v5, v13
-
-    .line 145
-    invoke-static/range {v4 .. v9}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
-
-    move-result v7
-
-    const/16 v6, 0x6d
-
-    const/4 v8, 0x1
-
-    if-eqz v2, :cond_14
-
-    if-eq v7, v11, :cond_14
-
-    const/4 v9, 0x3
-
-    goto :goto_11
-
-    :cond_14
-    const/4 v9, 0x0
-
-    :goto_11
-    move-object v4, v3
-
-    move v5, v12
-
-    .line 146
-    invoke-static/range {v4 .. v9}, Landroid/support/v4/util/TimeUtils;->printField([CICIZI)I
-
-    move-result v0
-
-    const/16 v1, 0x73
-
-    .line 147
-    aput-char v1, v3, v0
-
-    add-int/2addr v0, v10
-
-    return v0
 .end method
 
 .method private static printField([CICIZI)I
-    .locals 2
+    .locals 3
+    .param p0, "formatStr"    # [C
+    .param p1, "amt"    # I
+    .param p2, "suffix"    # C
+    .param p3, "pos"    # I
+    .param p4, "always"    # Z
+    .param p5, "zeropad"    # I
 
+    .prologue
+    .line 59
     if-nez p4, :cond_0
 
     if-lez p1, :cond_7
 
+    .line 60
     :cond_0
-    if-eqz p4, :cond_1
-
-    const/4 v0, 0x3
-
-    if-ge p5, v0, :cond_2
-
-    :cond_1
-    const/16 v0, 0x63
-
-    if-le p1, v0, :cond_3
+    move v1, p3
 
     .line 61
+    .local v1, "startPos":I
+    if-eqz p4, :cond_1
+
+    const/4 v2, 0x3
+
+    if-ge p5, v2, :cond_2
+
+    :cond_1
+    const/16 v2, 0x63
+
+    if-le p1, v2, :cond_3
+
+    .line 62
     :cond_2
     div-int/lit8 v0, p1, 0x64
 
-    add-int/lit8 v1, v0, 0x30
+    .line 63
+    .local v0, "dig":I
+    add-int/lit8 v2, v0, 0x30
 
-    int-to-char v1, v1
+    int-to-char v2, v2
 
-    .line 62
-    aput-char v1, p0, p3
+    aput-char v2, p0, p3
 
-    add-int/lit8 v1, p3, 0x1
+    .line 64
+    add-int/lit8 p3, p3, 0x1
 
-    mul-int/lit8 v0, v0, 0x64
+    .line 65
+    mul-int/lit8 v2, v0, 0x64
 
-    sub-int/2addr p1, v0
-
-    goto :goto_0
-
-    :cond_3
-    move v1, p3
-
-    :goto_0
-    if-eqz p4, :cond_4
-
-    const/4 p4, 0x2
-
-    if-ge p5, p4, :cond_5
-
-    :cond_4
-    const/16 p4, 0x9
-
-    if-gt p1, p4, :cond_5
-
-    if-eq p3, v1, :cond_6
+    sub-int/2addr p1, v2
 
     .line 67
-    :cond_5
-    div-int/lit8 p3, p1, 0xa
+    .end local v0    # "dig":I
+    :cond_3
+    if-eqz p4, :cond_4
 
-    add-int/lit8 p4, p3, 0x30
+    const/4 v2, 0x2
 
-    int-to-char p4, p4
+    if-ge p5, v2, :cond_5
+
+    :cond_4
+    const/16 v2, 0x9
+
+    if-gt p1, v2, :cond_5
+
+    if-eq v1, p3, :cond_6
 
     .line 68
-    aput-char p4, p0, v1
+    :cond_5
+    div-int/lit8 v0, p1, 0xa
 
-    add-int/lit8 v1, v1, 0x1
+    .line 69
+    .restart local v0    # "dig":I
+    add-int/lit8 v2, v0, 0x30
 
-    mul-int/lit8 p3, p3, 0xa
+    int-to-char v2, v2
 
-    sub-int/2addr p1, p3
+    aput-char v2, p0, p3
 
+    .line 70
+    add-int/lit8 p3, p3, 0x1
+
+    .line 71
+    mul-int/lit8 v2, v0, 0xa
+
+    sub-int/2addr p1, v2
+
+    .line 73
+    .end local v0    # "dig":I
     :cond_6
-    add-int/lit8 p1, p1, 0x30
+    add-int/lit8 v2, p1, 0x30
 
-    int-to-char p1, p1
+    int-to-char v2, v2
 
-    .line 72
-    aput-char p1, p0, v1
-
-    add-int/lit8 v1, v1, 0x1
+    aput-char v2, p0, p3
 
     .line 74
-    aput-char p2, p0, v1
+    add-int/lit8 p3, p3, 0x1
 
-    add-int/lit8 p3, v1, 0x1
+    .line 75
+    aput-char p2, p0, p3
 
+    .line 76
+    add-int/lit8 p3, p3, 0x1
+
+    .line 78
+    .end local v1    # "startPos":I
     :cond_7
     return p3
 .end method

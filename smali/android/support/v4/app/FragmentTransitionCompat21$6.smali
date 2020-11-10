@@ -22,6 +22,7 @@
 .method constructor <init>(Landroid/graphics/Rect;)V
     .locals 0
 
+    .prologue
     .line 546
     iput-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$6;->val$epicenter:Landroid/graphics/Rect;
 
@@ -33,32 +34,33 @@
 
 # virtual methods
 .method public onGetEpicenter(Landroid/transition/Transition;)Landroid/graphics/Rect;
-    .locals 0
+    .locals 1
+    .param p1, "transition"    # Landroid/transition/Transition;
 
+    .prologue
     .line 549
-    iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$6;->val$epicenter:Landroid/graphics/Rect;
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$6;->val$epicenter:Landroid/graphics/Rect;
 
-    if-eqz p1, :cond_1
+    if-eqz v0, :cond_0
 
-    iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$6;->val$epicenter:Landroid/graphics/Rect;
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$6;->val$epicenter:Landroid/graphics/Rect;
 
-    invoke-virtual {p1}, Landroid/graphics/Rect;->isEmpty()Z
+    invoke-virtual {v0}, Landroid/graphics/Rect;->isEmpty()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_1
 
-    goto :goto_0
+    .line 550
+    :cond_0
+    const/4 v0, 0x0
 
     .line 552
-    :cond_0
-    iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$6;->val$epicenter:Landroid/graphics/Rect;
-
-    return-object p1
+    :goto_0
+    return-object v0
 
     :cond_1
-    :goto_0
-    const/4 p1, 0x0
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$6;->val$epicenter:Landroid/graphics/Rect;
 
-    return-object p1
+    goto :goto_0
 .end method

@@ -39,7 +39,8 @@
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/media/MediaBrowserCompat$MediaItem;",
             ">;",
             "Landroid/os/Bundle;",

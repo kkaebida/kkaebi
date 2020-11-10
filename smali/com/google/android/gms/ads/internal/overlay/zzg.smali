@@ -1,17 +1,25 @@
-.class final Lcom/google/android/gms/ads/internal/overlay/zzg;
-.super Ljava/lang/Exception;
+.class public interface abstract Lcom/google/android/gms/ads/internal/overlay/zzg;
+.super Ljava/lang/Object;
 
 
-# annotations
-.annotation runtime Lcom/google/android/gms/internal/ads/zzadh;
-.end annotation
+# virtual methods
+.method public abstract onPaused()V
+.end method
 
+.method public abstract onPrepared(Landroid/media/MediaPlayer;)V
+.end method
 
-# direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+.method public abstract zzeD()V
+.end method
 
-    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+.method public abstract zzeE()V
+.end method
 
-    return-void
+.method public abstract zzeF()V
+.end method
+
+.method public abstract zzeG()V
+.end method
+
+.method public abstract zzg(Ljava/lang/String;Ljava/lang/String;)V
 .end method

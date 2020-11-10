@@ -32,50 +32,57 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, -0x1
 
-    .line 3137
+    .line 3130
     invoke-direct {p0, v0, v0}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
+    .line 3111
     const/4 v0, 0x0
 
-    .line 3118
     iput v0, p0, Landroid/support/v4/view/ViewPager$LayoutParams;->widthFactor:F
 
+    .line 3131
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .line 3141
+    .prologue
+    .line 3134
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const/4 v0, 0x0
+    .line 3111
+    const/4 v1, 0x0
 
-    .line 3118
-    iput v0, p0, Landroid/support/v4/view/ViewPager$LayoutParams;->widthFactor:F
+    iput v1, p0, Landroid/support/v4/view/ViewPager$LayoutParams;->widthFactor:F
 
-    .line 3143
-    sget-object v0, Landroid/support/v4/view/ViewPager;->LAYOUT_ATTRS:[I
+    .line 3136
+    sget-object v1, Landroid/support/v4/view/ViewPager;->LAYOUT_ATTRS:[I
 
-    invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 p2, 0x0
+    .line 3137
+    .local v0, "a":Landroid/content/res/TypedArray;
+    const/4 v1, 0x0
 
-    const/16 v0, 0x30
+    const/16 v2, 0x30
 
-    .line 3144
-    invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getInteger(II)I
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getInteger(II)I
 
-    move-result p2
+    move-result v1
 
-    iput p2, p0, Landroid/support/v4/view/ViewPager$LayoutParams;->gravity:I
+    iput v1, p0, Landroid/support/v4/view/ViewPager$LayoutParams;->gravity:I
 
-    .line 3145
-    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
+    .line 3138
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 3139
     return-void
 .end method

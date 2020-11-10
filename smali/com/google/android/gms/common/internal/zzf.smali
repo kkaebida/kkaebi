@@ -1,494 +1,806 @@
-.class final Lcom/google/android/gms/common/internal/zzf;
+.class public final Lcom/google/android/gms/common/internal/zzf;
 .super Ljava/lang/Object;
-
-# interfaces
-.implements Landroid/content/ServiceConnection;
-
-
-# instance fields
-.field private mComponentName:Landroid/content/ComponentName;
-
-.field private mState:I
-
-.field private zzcy:Landroid/os/IBinder;
-
-.field private final zzdz:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set<",
-            "Landroid/content/ServiceConnection;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private zzea:Z
-
-.field private final zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
-
-.field private final synthetic zzec:Lcom/google/android/gms/common/internal/zze;
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/android/gms/common/internal/zze;Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;)V
-    .locals 0
-
-    .line 1
-    iput-object p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 2
-    iput-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
-
-    .line 3
-    new-instance p1, Ljava/util/HashSet;
-
-    invoke-direct {p1}, Ljava/util/HashSet;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzdz:Ljava/util/Set;
-
-    const/4 p1, 0x2
-
-    .line 4
-    iput p1, p0, Lcom/google/android/gms/common/internal/zzf;->mState:I
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final getBinder()Landroid/os/IBinder;
-    .locals 1
-
-    .line 57
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzcy:Landroid/os/IBinder;
-
-    return-object v0
-.end method
-
-.method public final getComponentName()Landroid/content/ComponentName;
-    .locals 1
-
-    .line 58
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->mComponentName:Landroid/content/ComponentName;
-
-    return-object v0
-.end method
-
-.method public final getState()I
-    .locals 1
-
-    .line 54
-    iget v0, p0, Lcom/google/android/gms/common/internal/zzf;->mState:I
-
-    return v0
-.end method
-
-.method public final isBound()Z
-    .locals 1
-
-    .line 53
-    iget-boolean v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzea:Z
-
-    return v0
-.end method
-
-.method public final onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+.method public static zzb(Landroid/content/Context;ILjava/lang/String;)Ljava/lang/String;
     .locals 4
-
-    .line 6
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/zze;->zza(Lcom/google/android/gms/common/internal/zze;)Ljava/util/HashMap;
-
-    move-result-object v0
-
-    monitor-enter v0
-
-    .line 7
-    :try_start_0
-    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {v1}, Lcom/google/android/gms/common/internal/zze;->zzb(Lcom/google/android/gms/common/internal/zze;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/google/android/gms/common/internal/zzf;->zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v3, v2}, Landroid/os/Handler;->removeMessages(ILjava/lang/Object;)V
-
-    .line 8
-    iput-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzcy:Landroid/os/IBinder;
-
-    .line 9
-    iput-object p1, p0, Lcom/google/android/gms/common/internal/zzf;->mComponentName:Landroid/content/ComponentName;
-
-    .line 10
-    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzf;->zzdz:Ljava/util/Set;
-
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/content/ServiceConnection;
-
-    .line 11
-    invoke-interface {v2, p1, p2}, Landroid/content/ServiceConnection;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-
-    goto :goto_0
-
-    .line 13
-    :cond_0
-    iput v3, p0, Lcom/google/android/gms/common/internal/zzf;->mState:I
-
-    .line 14
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception p1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw p1
-.end method
-
-.method public final onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 4
-
-    .line 15
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/zze;->zza(Lcom/google/android/gms/common/internal/zze;)Ljava/util/HashMap;
-
-    move-result-object v0
-
-    monitor-enter v0
-
-    .line 16
-    :try_start_0
-    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {v1}, Lcom/google/android/gms/common/internal/zze;->zzb(Lcom/google/android/gms/common/internal/zze;)Landroid/os/Handler;
-
-    move-result-object v1
 
     const/4 v2, 0x1
 
-    iget-object v3, p0, Lcom/google/android/gms/common/internal/zzf;->zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/Handler;->removeMessages(ILjava/lang/Object;)V
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    const/4 v1, 0x0
+    move-result-object v0
 
-    .line 17
-    iput-object v1, p0, Lcom/google/android/gms/common/internal/zzf;->zzcy:Landroid/os/IBinder;
+    sparse-switch p1, :sswitch_data_0
 
-    .line 18
-    iput-object p1, p0, Lcom/google/android/gms/common/internal/zzf;->mComponentName:Landroid/content/ComponentName;
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_unknown_issue:I
 
-    .line 19
-    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzf;->zzdz:Ljava/util/Set;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    return-object v0
 
-    move-result v2
+    :sswitch_0
+    invoke-static {v0}, Lcom/google/android/gms/internal/zzle;->zzb(Landroid/content/res/Resources;)Z
 
-    if-eqz v2, :cond_0
+    move-result v1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    if-eqz v1, :cond_0
 
-    move-result-object v2
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_install_text_tablet:I
 
-    check-cast v2, Landroid/content/ServiceConnection;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    .line 20
-    invoke-interface {v2, p1}, Landroid/content/ServiceConnection;->onServiceDisconnected(Landroid/content/ComponentName;)V
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x2
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_install_text_phone:I
 
-    .line 22
-    iput p1, p0, Lcom/google/android/gms/common/internal/zzf;->mState:I
+    new-array v2, v2, [Ljava/lang/Object;
 
-    .line 23
-    monitor-exit v0
+    aput-object p2, v2, v3
 
-    return-void
-
-    :catchall_0
-    move-exception p1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw p1
-.end method
-
-.method public final zza(Landroid/content/ServiceConnection;Ljava/lang/String;)V
-    .locals 1
-
-    .line 45
-    iget-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {p2}, Lcom/google/android/gms/common/internal/zze;->zzd(Lcom/google/android/gms/common/internal/zze;)Lcom/google/android/gms/common/stats/ConnectionTracker;
-
-    iget-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    .line 46
-    invoke-static {p2}, Lcom/google/android/gms/common/internal/zze;->zzc(Lcom/google/android/gms/common/internal/zze;)Landroid/content/Context;
-
-    iget-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
-
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    .line 47
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/zze;->zzc(Lcom/google/android/gms/common/internal/zze;)Landroid/content/Context;
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p2, v0}, Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;->zzb(Landroid/content/Context;)Landroid/content/Intent;
+    goto :goto_0
 
-    .line 48
-    iget-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzdz:Ljava/util/Set;
+    :sswitch_1
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_enable_text:I
 
-    invoke-interface {p2, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    new-array v2, v2, [Ljava/lang/Object;
 
-    return-void
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_2
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_updating_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_3
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_update_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_4
+    sget v1, Lcom/google/android/gms/R$string;->common_android_wear_update_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_5
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_unsupported_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_6
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_network_error_text:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_7
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_invalid_account_text:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_8
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_api_unavailable_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_9
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_sign_in_failed_text:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_3
+        0x3 -> :sswitch_1
+        0x5 -> :sswitch_7
+        0x7 -> :sswitch_6
+        0x9 -> :sswitch_5
+        0x10 -> :sswitch_8
+        0x11 -> :sswitch_9
+        0x12 -> :sswitch_2
+        0x2a -> :sswitch_4
+    .end sparse-switch
 .end method
 
-.method public final zza(Landroid/content/ServiceConnection;)Z
-    .locals 1
+.method public static zzc(Landroid/content/Context;ILjava/lang/String;)Ljava/lang/String;
+    .locals 4
 
-    .line 55
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzdz:Ljava/util/Set;
+    const/4 v2, 0x1
 
-    invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    const/4 v3, 0x0
 
-    move-result p1
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    return p1
+    move-result-object v0
+
+    sparse-switch p1, :sswitch_data_0
+
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_unknown_issue:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :sswitch_0
+    invoke-static {v0}, Lcom/google/android/gms/internal/zzle;->zzb(Landroid/content/res/Resources;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_install_text_tablet:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_0
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_install_text_phone:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_1
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_updating_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_2
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_update_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_3
+    sget v1, Lcom/google/android/gms/R$string;->common_android_wear_notification_needs_update_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_4
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_enable_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_5
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_unsupported_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_6
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_network_error_text:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_7
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_invalid_account_text:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_8
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_api_unavailable_text:I
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_9
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_sign_in_failed_text:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_4
+        0x5 -> :sswitch_7
+        0x7 -> :sswitch_6
+        0x9 -> :sswitch_5
+        0x10 -> :sswitch_8
+        0x11 -> :sswitch_9
+        0x12 -> :sswitch_1
+        0x2a -> :sswitch_3
+    .end sparse-switch
 .end method
 
-.method public final zzb(Landroid/content/ServiceConnection;Ljava/lang/String;)V
-    .locals 0
+.method public static final zzg(Landroid/content/Context;I)Ljava/lang/String;
+    .locals 4
 
-    .line 50
-    iget-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
+    const/4 v0, 0x0
 
-    invoke-static {p2}, Lcom/google/android/gms/common/internal/zze;->zzd(Lcom/google/android/gms/common/internal/zze;)Lcom/google/android/gms/common/stats/ConnectionTracker;
-
-    iget-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {p2}, Lcom/google/android/gms/common/internal/zze;->zzc(Lcom/google/android/gms/common/internal/zze;)Landroid/content/Context;
-
-    .line 51
-    iget-object p2, p0, Lcom/google/android/gms/common/internal/zzf;->zzdz:Ljava/util/Set;
-
-    invoke-interface {p2, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public final zze(Ljava/lang/String;)V
-    .locals 7
-
-    const/4 v0, 0x3
-
-    .line 24
-    iput v0, p0, Lcom/google/android/gms/common/internal/zzf;->mState:I
-
-    .line 25
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    .line 26
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/zze;->zzd(Lcom/google/android/gms/common/internal/zze;)Lcom/google/android/gms/common/stats/ConnectionTracker;
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
+    sparse-switch p1, :sswitch_data_0
 
-    .line 27
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/zze;->zzc(Lcom/google/android/gms/common/internal/zze;)Landroid/content/Context;
+    const-string v1, "GooglePlayServicesUtil"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Unexpected error code "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
+    move-result-object v2
 
-    .line 28
-    invoke-static {v3}, Lcom/google/android/gms/common/internal/zze;->zzc(Lcom/google/android/gms/common/internal/zze;)Landroid/content/Context;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v0, v3}, Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;->zzb(Landroid/content/Context;)Landroid/content/Intent;
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v4
+    :goto_0
+    :sswitch_0
+    return-object v0
 
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
+    :sswitch_1
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_install_title:I
 
-    .line 29
-    invoke-virtual {v0}, Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;->zzq()I
-
-    move-result v6
-
-    move-object v3, p1
-
-    move-object v5, p0
-
-    .line 30
-    invoke-virtual/range {v1 .. v6}, Lcom/google/android/gms/common/stats/ConnectionTracker;->zza(Landroid/content/Context;Ljava/lang/String;Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzea:Z
-
-    .line 31
-    iget-boolean p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzea:Z
-
-    if-eqz p1, :cond_0
-
-    .line 32
-    iget-object p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/zze;->zzb(Lcom/google/android/gms/common/internal/zze;)Landroid/os/Handler;
-
-    move-result-object p1
-
-    const/4 v0, 0x1
-
-    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzf;->zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object p1
-
-    .line 33
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/zze;->zzb(Lcom/google/android/gms/common/internal/zze;)Landroid/os/Handler;
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
+    goto :goto_0
 
-    invoke-static {v1}, Lcom/google/android/gms/common/internal/zze;->zze(Lcom/google/android/gms/common/internal/zze;)J
+    :sswitch_2
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_enable_title:I
 
-    move-result-wide v1
-
-    invoke-virtual {v0, p1, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    return-void
-
-    :cond_0
-    const/4 p1, 0x2
-
-    .line 35
-    iput p1, p0, Lcom/google/android/gms/common/internal/zzf;->mState:I
-
-    .line 36
-    :try_start_0
-    iget-object p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/zze;->zzd(Lcom/google/android/gms/common/internal/zze;)Lcom/google/android/gms/common/stats/ConnectionTracker;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/zze;->zzc(Lcom/google/android/gms/common/internal/zze;)Landroid/content/Context;
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0, p0}, Lcom/google/android/gms/common/stats/ConnectionTracker;->unbindService(Landroid/content/Context;Landroid/content/ServiceConnection;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    goto :goto_0
 
-    return-void
+    :sswitch_3
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_updating_title:I
 
-    :catch_0
-    return-void
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_4
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_update_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_5
+    sget v0, Lcom/google/android/gms/R$string;->common_android_wear_update_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_6
+    const-string v0, "GooglePlayServicesUtil"
+
+    const-string v2, "Google Play services is invalid. Cannot recover."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_unsupported_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_7
+    const-string v0, "GooglePlayServicesUtil"
+
+    const-string v2, "Network error occurred. Please retry request later."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_network_error_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_8
+    const-string v1, "GooglePlayServicesUtil"
+
+    const-string v2, "Internal error occurred. Please see logs for detailed information"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_9
+    const-string v1, "GooglePlayServicesUtil"
+
+    const-string v2, "Developer error occurred. Please see logs for detailed information"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_a
+    const-string v0, "GooglePlayServicesUtil"
+
+    const-string v2, "An invalid account was specified when connecting. Please provide a valid account."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_invalid_account_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_b
+    const-string v1, "GooglePlayServicesUtil"
+
+    const-string v2, "The application is not licensed to the user."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_c
+    const-string v1, "GooglePlayServicesUtil"
+
+    const-string v2, "One of the API components you attempted to connect to is not available."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_d
+    const-string v0, "GooglePlayServicesUtil"
+
+    const-string v2, "The specified account could not be signed in."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_sign_in_failed_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_4
+        0x3 -> :sswitch_2
+        0x4 -> :sswitch_0
+        0x5 -> :sswitch_a
+        0x6 -> :sswitch_0
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_6
+        0xa -> :sswitch_9
+        0xb -> :sswitch_b
+        0x10 -> :sswitch_c
+        0x11 -> :sswitch_d
+        0x12 -> :sswitch_3
+        0x2a -> :sswitch_5
+    .end sparse-switch
 .end method
 
-.method public final zzf(Ljava/lang/String;)V
+.method public static zzh(Landroid/content/Context;I)Ljava/lang/String;
     .locals 2
 
-    .line 40
-    iget-object p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/zze;->zzb(Lcom/google/android/gms/common/internal/zze;)Landroid/os/Handler;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzeb:Lcom/google/android/gms/common/internal/GmsClientSupervisor$zza;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Handler;->removeMessages(ILjava/lang/Object;)V
-
-    .line 41
-    iget-object p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/zze;->zzd(Lcom/google/android/gms/common/internal/zze;)Lcom/google/android/gms/common/stats/ConnectionTracker;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzec:Lcom/google/android/gms/common/internal/zze;
-
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/zze;->zzc(Lcom/google/android/gms/common/internal/zze;)Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0, p0}, Lcom/google/android/gms/common/stats/ConnectionTracker;->unbindService(Landroid/content/Context;Landroid/content/ServiceConnection;)V
+    sparse-switch p1, :sswitch_data_0
 
-    const/4 p1, 0x0
+    const v1, 0x104000a
 
-    .line 42
-    iput-boolean p1, p0, Lcom/google/android/gms/common/internal/zzf;->zzea:Z
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    const/4 p1, 0x2
+    move-result-object v0
 
-    .line 43
-    iput p1, p0, Lcom/google/android/gms/common/internal/zzf;->mState:I
+    :goto_0
+    return-object v0
 
-    return-void
+    :sswitch_0
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_install_button:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_1
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_enable_button:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_2
+    sget v1, Lcom/google/android/gms/R$string;->common_google_play_services_update_button:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_1
+        0x2a -> :sswitch_2
+    .end sparse-switch
 .end method
 
-.method public final zzr()Z
-    .locals 1
+.method public static final zzi(Landroid/content/Context;I)Ljava/lang/String;
+    .locals 4
 
-    .line 56
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzf;->zzdz:Ljava/util/Set;
+    const/4 v0, 0x0
 
-    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result v0
+    move-result-object v1
 
-    return v0
+    sparse-switch p1, :sswitch_data_0
+
+    const-string v1, "GooglePlayServicesUtil"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Unexpected error code "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    :sswitch_0
+    return-object v0
+
+    :sswitch_1
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_install_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_2
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_enable_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_3
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_updating_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_4
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_update_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_5
+    sget v0, Lcom/google/android/gms/R$string;->common_android_wear_update_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_6
+    const-string v0, "GooglePlayServicesUtil"
+
+    const-string v2, "Google Play services is invalid. Cannot recover."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_unsupported_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_7
+    const-string v0, "GooglePlayServicesUtil"
+
+    const-string v2, "Network error occurred. Please retry request later."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_network_error_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_8
+    const-string v1, "GooglePlayServicesUtil"
+
+    const-string v2, "Internal error occurred. Please see logs for detailed information"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_9
+    const-string v1, "GooglePlayServicesUtil"
+
+    const-string v2, "Developer error occurred. Please see logs for detailed information"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_a
+    const-string v0, "GooglePlayServicesUtil"
+
+    const-string v2, "An invalid account was specified when connecting. Please provide a valid account."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_invalid_account_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_b
+    const-string v1, "GooglePlayServicesUtil"
+
+    const-string v2, "The application is not licensed to the user."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_c
+    const-string v1, "GooglePlayServicesUtil"
+
+    const-string v2, "One of the API components you attempted to connect to is not available."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_d
+    const-string v0, "GooglePlayServicesUtil"
+
+    const-string v2, "The specified account could not be signed in."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v0, Lcom/google/android/gms/R$string;->common_google_play_services_sign_in_failed_title:I
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_4
+        0x3 -> :sswitch_2
+        0x4 -> :sswitch_0
+        0x5 -> :sswitch_a
+        0x6 -> :sswitch_0
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_6
+        0xa -> :sswitch_9
+        0xb -> :sswitch_b
+        0x10 -> :sswitch_c
+        0x11 -> :sswitch_d
+        0x12 -> :sswitch_3
+        0x2a -> :sswitch_5
+    .end sparse-switch
 .end method

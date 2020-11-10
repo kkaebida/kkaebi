@@ -23,7 +23,8 @@
         value = {
             "(",
             "Ljava/lang/String;",
-            "Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper<",
+            "Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper",
+            "<",
             "Landroid/os/Parcel;",
             ">;)V"
         }

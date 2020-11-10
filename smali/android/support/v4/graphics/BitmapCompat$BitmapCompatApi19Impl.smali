@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x13
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 53
+    .prologue
+    .line 55
     invoke-direct {p0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;-><init>()V
 
     return-void
@@ -31,12 +32,14 @@
 
 # virtual methods
 .method public getAllocationByteCount(Landroid/graphics/Bitmap;)I
-    .locals 0
+    .locals 1
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 56
+    .prologue
+    .line 58
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getAllocationByteCount()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

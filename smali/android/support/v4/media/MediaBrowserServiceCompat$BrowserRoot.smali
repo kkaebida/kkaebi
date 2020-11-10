@@ -35,37 +35,40 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
-    .param p1    # Ljava/lang/String;
+    .locals 2
+    .param p1, "rootId"    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2    # Landroid/os/Bundle;
+    .param p2, "extras"    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 1541
+    .prologue
+    .line 1338
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1339
     if-nez p1, :cond_0
 
-    .line 1543
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    .line 1340
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "The root id in BrowserRoot cannot be null. Use null for BrowserRoot instead."
+    const-string v1, "The root id in BrowserRoot cannot be null. Use null for BrowserRoot instead."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    .line 1546
+    .line 1343
     :cond_0
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$BrowserRoot;->mRootId:Ljava/lang/String;
 
-    .line 1547
+    .line 1344
     iput-object p2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$BrowserRoot;->mExtras:Landroid/os/Bundle;
 
+    .line 1345
     return-void
 .end method
 
@@ -74,7 +77,8 @@
 .method public getExtras()Landroid/os/Bundle;
     .locals 1
 
-    .line 1561
+    .prologue
+    .line 1358
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$BrowserRoot;->mExtras:Landroid/os/Bundle;
 
     return-object v0
@@ -83,7 +87,8 @@
 .method public getRootId()Ljava/lang/String;
     .locals 1
 
-    .line 1554
+    .prologue
+    .line 1351
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$BrowserRoot;->mRootId:Ljava/lang/String;
 
     return-object v0

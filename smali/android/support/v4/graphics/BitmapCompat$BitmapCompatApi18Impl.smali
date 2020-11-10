@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x12
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 40
+    .prologue
+    .line 42
     invoke-direct {p0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;-><init>()V
 
     return-void
@@ -31,21 +32,27 @@
 
 # virtual methods
 .method public hasMipMap(Landroid/graphics/Bitmap;)Z
-    .locals 0
+    .locals 1
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 43
+    .prologue
+    .line 45
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->hasMipMap()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public setHasMipMap(Landroid/graphics/Bitmap;Z)V
     .locals 0
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p2, "hasMipMap"    # Z
 
-    .line 48
+    .prologue
+    .line 50
     invoke-virtual {p1, p2}, Landroid/graphics/Bitmap;->setHasMipMap(Z)V
 
+    .line 51
     return-void
 .end method

@@ -27,6 +27,7 @@
 .method constructor <init>(Ljava/util/ArrayList;Ljava/util/Map;)V
     .locals 0
 
+    .prologue
     .line 560
     iput-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$sharedElementsIn:Ljava/util/ArrayList;
 
@@ -40,50 +41,62 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 6
 
+    .prologue
     .line 563
-    iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$sharedElementsIn:Ljava/util/ArrayList;
+    iget-object v5, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$sharedElementsIn:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v3
 
-    const/4 v1, 0x0
+    .line 564
+    .local v3, "numSharedElements":I
+    const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v0, v3, :cond_0
 
     .line 565
-    iget-object v2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$sharedElementsIn:Ljava/util/ArrayList;
+    iget-object v5, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$sharedElementsIn:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/view/View;
+
+    .line 566
+    .local v4, "view":Landroid/view/View;
+    invoke-virtual {v4}, Landroid/view/View;->getTransitionName()Ljava/lang/String;
 
     move-result-object v2
 
-    check-cast v2, Landroid/view/View;
-
-    .line 566
-    invoke-virtual {v2}, Landroid/view/View;->getTransitionName()Ljava/lang/String;
-
-    move-result-object v3
-
     .line 567
-    iget-object v4, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$nameOverrides:Ljava/util/Map;
+    .local v2, "name":Ljava/lang/String;
+    iget-object v5, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$nameOverrides:Ljava/util/Map;
 
-    invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v5, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
     .line 568
-    invoke-virtual {v2, v3}, Landroid/view/View;->setTransitionName(Ljava/lang/String;)V
+    .local v1, "inName":Ljava/lang/String;
+    invoke-virtual {v4, v1}, Landroid/view/View;->setTransitionName(Ljava/lang/String;)V
 
-    add-int/lit8 v1, v1, 0x1
+    .line 564
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 570
+    .end local v1    # "inName":Ljava/lang/String;
+    .end local v2    # "name":Ljava/lang/String;
+    .end local v4    # "view":Landroid/view/View;
     :cond_0
     return-void
 .end method

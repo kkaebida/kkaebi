@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v4/app/FragmentTransitionCompat21;->setNameOverridesReordered(Landroid/view/View;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/Map;)V
+    value = Landroid/support/v4/app/FragmentTransitionCompat21;->setNameOverridesOptimized(Landroid/view/View;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/Map;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,6 +33,7 @@
 .method constructor <init>(ILjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 0
 
+    .prologue
     .line 343
     iput p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$numSharedElements:I
 
@@ -54,9 +55,11 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 346
     const/4 v0, 0x0
 
-    .line 346
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$3;->val$numSharedElements:I
 
@@ -100,10 +103,12 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setTransitionName(Ljava/lang/String;)V
 
+    .line 346
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 350
     :cond_0
     return-void
 .end method

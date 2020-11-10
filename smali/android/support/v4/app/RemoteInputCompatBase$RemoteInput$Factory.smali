@@ -25,7 +25,8 @@
             "Ljava/lang/CharSequence;",
             "Z",
             "Landroid/os/Bundle;",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;)",
             "Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;"

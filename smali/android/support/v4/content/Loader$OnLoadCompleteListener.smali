@@ -28,8 +28,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/support/v4/content/Loader<",
-            "TD;>;TD;)V"
+            "Landroid/support/v4/content/Loader",
+            "<TD;>;TD;)V"
         }
     .end annotation
 .end method

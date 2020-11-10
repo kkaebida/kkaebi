@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 43
+    .prologue
+    .line 44
     invoke-direct {p0}, Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;-><init>()V
 
     return-void
@@ -31,12 +32,15 @@
 
 # virtual methods
 .method public makeMainSelectorActivity(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 0
+    .locals 1
+    .param p1, "selectorAction"    # Ljava/lang/String;
+    .param p2, "selectorCategory"    # Ljava/lang/String;
 
-    .line 46
+    .prologue
+    .line 47
     invoke-static {p1, p2}, Landroid/content/Intent;->makeMainSelectorActivity(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

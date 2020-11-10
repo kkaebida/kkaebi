@@ -14,8 +14,8 @@
         "Lcom/google/ads/mediation/MediationServerParameters;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/ads/mediation/MediationAdapter<",
-        "TADDITIONA",
+        "Lcom/google/ads/mediation/MediationAdapter",
+        "<TADDITIONA",
         "L_PARAMETERS;",
         "TSERVER_PARAMETERS;>;"
     }

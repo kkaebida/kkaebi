@@ -2,13 +2,8 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
-.end annotation
-
-
 # static fields
-.field public static final API_NOT_CONNECTED:I = 0x11
+.field public static final API_NOT_AVAILABLE:I = 0x11
 
 .field public static final CANCELED:I = 0x10
 
@@ -22,19 +17,19 @@
 
 .field public static final INVALID_ACCOUNT:I = 0x5
 
+.field public static final LICENSE_CHECK_FAILED:I = 0xb
+
 .field public static final NETWORK_ERROR:I = 0x7
 
 .field public static final RESOLUTION_REQUIRED:I = 0x6
 
 .field public static final SERVICE_DISABLED:I = 0x3
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
+
+.field public static final SERVICE_INVALID:I = 0x9
+
+.field public static final SERVICE_MISSING:I = 0x1
 
 .field public static final SERVICE_VERSION_UPDATE_REQUIRED:I = 0x2
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final SIGN_IN_REQUIRED:I = 0x4
 
@@ -46,12 +41,9 @@
 
 
 # direct methods
-.method protected constructor <init>()V
+.method public constructor <init>()V
     .locals 0
-    .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
-    .end annotation
 
-    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -59,134 +51,171 @@
 
 .method public static getStatusCodeString(I)Ljava/lang/String;
     .locals 2
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
+    .param p0, "statusCode"    # I
 
-    packed-switch p0, :pswitch_data_0
+    .prologue
+    sparse-switch p0, :sswitch_data_0
 
-    :pswitch_0
-    const/16 v0, 0x20
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    .line 18
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(I)V
+    const-string v1, "unknown status code: "
 
-    const-string v0, "unknown status code: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object p0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object p0
+    move-result-object v0
 
-    :pswitch_1
-    const-string p0, "DEAD_CLIENT"
+    :goto_0
+    return-object v0
 
-    return-object p0
+    :sswitch_0
+    const-string v0, "SUCCESS_CACHE"
 
-    :pswitch_2
-    const-string p0, "API_NOT_CONNECTED"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_1
+    const-string v0, "SUCCESS"
 
-    :pswitch_3
-    const-string p0, "CANCELED"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_2
+    const-string v0, "SERVICE_MISSING"
 
-    :pswitch_4
-    const-string p0, "TIMEOUT"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_3
+    const-string v0, "SERVICE_VERSION_UPDATE_REQUIRED"
 
-    :pswitch_5
-    const-string p0, "INTERRUPTED"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_4
+    const-string v0, "SERVICE_DISABLED"
 
-    :pswitch_6
-    const-string p0, "ERROR"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_5
+    const-string v0, "SIGN_IN_REQUIRED"
 
-    :pswitch_7
-    const-string p0, "DEVELOPER_ERROR"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_6
+    const-string v0, "INVALID_ACCOUNT"
 
-    :pswitch_8
-    const-string p0, "INTERNAL_ERROR"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_7
+    const-string v0, "RESOLUTION_REQUIRED"
 
-    :pswitch_9
-    const-string p0, "NETWORK_ERROR"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_8
+    const-string v0, "NETWORK_ERROR"
 
-    :pswitch_a
-    const-string p0, "RESOLUTION_REQUIRED"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_9
+    const-string v0, "INTERNAL_ERROR"
 
-    :pswitch_b
-    const-string p0, "INVALID_ACCOUNT"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_a
+    const-string v0, "SERVICE_INVALID"
 
-    :pswitch_c
-    const-string p0, "SIGN_IN_REQUIRED"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_b
+    const-string v0, "DEVELOPER_ERROR"
 
-    :pswitch_d
-    const-string p0, "SERVICE_DISABLED"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_c
+    const-string v0, "LICENSE_CHECK_FAILED"
 
-    :pswitch_e
-    const-string p0, "SERVICE_VERSION_UPDATE_REQUIRED"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_d
+    const-string v0, "ERROR_OPERATION_FAILED"
 
-    :pswitch_f
-    const-string p0, "SUCCESS"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_e
+    const-string v0, "INTERRUPTED"
 
-    :pswitch_10
-    const-string p0, "SUCCESS_CACHE"
+    goto :goto_0
 
-    return-object p0
+    :sswitch_f
+    const-string v0, "TIMEOUT"
 
-    nop
+    goto :goto_0
 
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_10
-        :pswitch_f
-        :pswitch_0
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_0
-        :pswitch_7
-        :pswitch_0
-        :pswitch_0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
+    :sswitch_10
+    const-string v0, "CANCELED"
+
+    goto :goto_0
+
+    :sswitch_11
+    const-string v0, "AUTH_API_INVALID_CREDENTIALS"
+
+    goto :goto_0
+
+    :sswitch_12
+    const-string v0, "AUTH_API_ACCESS_FORBIDDEN"
+
+    goto :goto_0
+
+    :sswitch_13
+    const-string v0, "AUTH_API_CLIENT_ERROR"
+
+    goto :goto_0
+
+    :sswitch_14
+    const-string v0, "AUTH_API_SERVER_ERROR"
+
+    goto :goto_0
+
+    :sswitch_15
+    const-string v0, "AUTH_TOKEN_ERROR"
+
+    goto :goto_0
+
+    :sswitch_16
+    const-string v0, "AUTH_URL_RESOLUTION"
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x1 -> :sswitch_0
+        0x0 -> :sswitch_1
+        0x1 -> :sswitch_2
+        0x2 -> :sswitch_3
+        0x3 -> :sswitch_4
+        0x4 -> :sswitch_5
+        0x5 -> :sswitch_6
+        0x6 -> :sswitch_7
+        0x7 -> :sswitch_8
+        0x8 -> :sswitch_9
+        0x9 -> :sswitch_a
+        0xa -> :sswitch_b
+        0xb -> :sswitch_c
+        0xd -> :sswitch_d
+        0xe -> :sswitch_e
+        0xf -> :sswitch_f
+        0x10 -> :sswitch_10
+        0xbb8 -> :sswitch_11
+        0xbb9 -> :sswitch_12
+        0xbba -> :sswitch_13
+        0xbbb -> :sswitch_14
+        0xbbc -> :sswitch_15
+        0xbbd -> :sswitch_16
+    .end sparse-switch
 .end method

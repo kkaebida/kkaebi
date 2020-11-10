@@ -18,7 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 48
+    .prologue
+    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,52 +28,72 @@
 
 # virtual methods
 .method public getLayoutMode(Landroid/view/ViewGroup;)I
-    .locals 0
+    .locals 1
+    .param p1, "group"    # Landroid/view/ViewGroup;
 
-    const/4 p1, 0x0
+    .prologue
+    .line 49
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public getNestedScrollAxes(Landroid/view/ViewGroup;)I
     .locals 1
+    .param p1, "group"    # Landroid/view/ViewGroup;
 
-    .line 65
+    .prologue
+    .line 64
     instance-of v0, p1, Landroid/support/v4/view/NestedScrollingParent;
 
     if-eqz v0, :cond_0
 
-    .line 66
+    .line 65
     check-cast p1, Landroid/support/v4/view/NestedScrollingParent;
 
+    .end local p1    # "group":Landroid/view/ViewGroup;
     invoke-interface {p1}, Landroid/support/v4/view/NestedScrollingParent;->getNestedScrollAxes()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    .line 67
+    :goto_0
+    return v0
 
+    .restart local p1    # "group":Landroid/view/ViewGroup;
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public isTransitionGroup(Landroid/view/ViewGroup;)Z
-    .locals 0
+    .locals 1
+    .param p1, "group"    # Landroid/view/ViewGroup;
 
-    const/4 p1, 0x0
+    .prologue
+    .line 60
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public setLayoutMode(Landroid/view/ViewGroup;I)V
     .locals 0
+    .param p1, "group"    # Landroid/view/ViewGroup;
+    .param p2, "mode"    # I
 
+    .prologue
+    .line 54
     return-void
 .end method
 
 .method public setTransitionGroup(Landroid/view/ViewGroup;Z)V
     .locals 0
+    .param p1, "group"    # Landroid/view/ViewGroup;
+    .param p2, "isTransitionGroup"    # Z
 
+    .prologue
+    .line 57
     return-void
 .end method

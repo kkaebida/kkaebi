@@ -14,7 +14,7 @@
 
 
 # instance fields
-.field private final zzuw:Lcom/google/android/gms/internal/ads/zzmd;
+.field private final zznR:Lcom/google/android/gms/ads/internal/client/zzab;
 
 
 # direct methods
@@ -23,57 +23,69 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/google/android/gms/internal/ads/zzmd;
+    new-instance v0, Lcom/google/android/gms/ads/internal/client/zzab;
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/ads/zzmd;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/ads/internal/client/zzab;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/ads/MobileAds$Settings;->zzuw:Lcom/google/android/gms/internal/ads/zzmd;
+    iput-object v0, p0, Lcom/google/android/gms/ads/MobileAds$Settings;->zznR:Lcom/google/android/gms/ads/internal/client/zzab;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final getTrackingId()Ljava/lang/String;
+.method public getTrackingId()Ljava/lang/String;
     .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/google/android/gms/ads/MobileAds$Settings;->zznR:Lcom/google/android/gms/ads/internal/client/zzab;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/internal/client/zzab;->getTrackingId()Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public final isGoogleAnalyticsEnabled()Z
+.method public isGoogleAnalyticsEnabled()Z
     .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/google/android/gms/ads/MobileAds$Settings;->zznR:Lcom/google/android/gms/ads/internal/client/zzab;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/internal/client/zzab;->isGoogleAnalyticsEnabled()Z
+
+    move-result v0
 
     return v0
 .end method
 
-.method public final setGoogleAnalyticsEnabled(Z)Lcom/google/android/gms/ads/MobileAds$Settings;
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
+.method public setGoogleAnalyticsEnabled(Z)Lcom/google/android/gms/ads/MobileAds$Settings;
+    .locals 1
+    .param p1, "enable"    # Z
+
+    .prologue
+    iget-object v0, p0, Lcom/google/android/gms/ads/MobileAds$Settings;->zznR:Lcom/google/android/gms/ads/internal/client/zzab;
+
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/ads/internal/client/zzab;->zzl(Z)V
 
     return-object p0
 .end method
 
-.method public final setTrackingId(Ljava/lang/String;)Lcom/google/android/gms/ads/MobileAds$Settings;
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
+.method public setTrackingId(Ljava/lang/String;)Lcom/google/android/gms/ads/MobileAds$Settings;
+    .locals 1
+    .param p1, "trackingId"    # Ljava/lang/String;
+
+    .prologue
+    iget-object v0, p0, Lcom/google/android/gms/ads/MobileAds$Settings;->zznR:Lcom/google/android/gms/ads/internal/client/zzab;
+
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/ads/internal/client/zzab;->zzN(Ljava/lang/String;)V
 
     return-object p0
 .end method
 
-.method final zzbb()Lcom/google/android/gms/internal/ads/zzmd;
+.method zzaG()Lcom/google/android/gms/ads/internal/client/zzab;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/MobileAds$Settings;->zzuw:Lcom/google/android/gms/internal/ads/zzmd;
+    iget-object v0, p0, Lcom/google/android/gms/ads/MobileAds$Settings;->zznR:Lcom/google/android/gms/ads/internal/client/zzab;
 
     return-object v0
 .end method

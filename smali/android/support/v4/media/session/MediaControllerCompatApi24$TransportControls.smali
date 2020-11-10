@@ -18,6 +18,7 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
     .line 27
     invoke-direct {p0}, Landroid/support/v4/media/session/MediaControllerCompatApi23$TransportControls;-><init>()V
 
@@ -26,44 +27,66 @@
 
 .method public static prepare(Ljava/lang/Object;)V
     .locals 0
+    .param p0, "controlsObj"    # Ljava/lang/Object;
 
+    .prologue
     .line 29
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
+    .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->prepare()V
 
+    .line 30
     return-void
 .end method
 
 .method public static prepareFromMediaId(Ljava/lang/Object;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
+    .param p0, "controlsObj"    # Ljava/lang/Object;
+    .param p1, "mediaId"    # Ljava/lang/String;
+    .param p2, "extras"    # Landroid/os/Bundle;
 
+    .prologue
     .line 33
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
+    .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->prepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 34
     return-void
 .end method
 
 .method public static prepareFromSearch(Ljava/lang/Object;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
+    .param p0, "controlsObj"    # Ljava/lang/Object;
+    .param p1, "query"    # Ljava/lang/String;
+    .param p2, "extras"    # Landroid/os/Bundle;
 
+    .prologue
     .line 37
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
+    .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->prepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 38
     return-void
 .end method
 
 .method public static prepareFromUri(Ljava/lang/Object;Landroid/net/Uri;Landroid/os/Bundle;)V
     .locals 0
+    .param p0, "controlsObj"    # Ljava/lang/Object;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "extras"    # Landroid/os/Bundle;
 
+    .prologue
     .line 41
     check-cast p0, Landroid/media/session/MediaController$TransportControls;
 
+    .end local p0    # "controlsObj":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/media/session/MediaController$TransportControls;->prepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
 
+    .line 42
     return-void
 .end method

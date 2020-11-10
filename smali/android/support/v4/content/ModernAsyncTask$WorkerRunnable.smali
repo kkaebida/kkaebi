@@ -24,8 +24,8 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Ljava/util/concurrent/Callable<",
-        "TResult;>;"
+        "Ljava/util/concurrent/Callable",
+        "<TResult;>;"
     }
 .end annotation
 
@@ -44,8 +44,11 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 516
+    .prologue
+    .line 514
+    .local p0, "this":Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;, "Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable<TParams;TResult;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 515
     return-void
 .end method

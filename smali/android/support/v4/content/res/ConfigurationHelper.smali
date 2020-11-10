@@ -3,103 +3,139 @@
 .source "ConfigurationHelper.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperApi17Impl;,
+        Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
+    }
+.end annotation
+
+
+# static fields
+.field private static final IMPL:Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
+
+
 # direct methods
-.method private constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 3
 
-    .line 30
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .prologue
+    const/4 v2, 0x0
 
-    return-void
-.end method
-
-.method public static getDensityDpi(Landroid/content/res/Resources;)I
-    .locals 2
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-
-    .line 79
+    .line 34
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
     if-lt v0, v1, :cond_0
 
-    .line 80
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    .line 35
+    new-instance v0, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperApi17Impl;
 
-    move-result-object p0
+    invoke-direct {v0, v2}, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperApi17Impl;-><init>(Landroid/support/v4/content/res/ConfigurationHelper$1;)V
 
-    iget p0, p0, Landroid/content/res/Configuration;->densityDpi:I
+    sput-object v0, Landroid/support/v4/content/res/ConfigurationHelper;->IMPL:Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
 
-    return p0
+    .line 39
+    :goto_0
+    return-void
 
-    .line 82
+    .line 37
     :cond_0
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    new-instance v0, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
 
-    move-result-object p0
+    invoke-direct {v0, v2}, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;-><init>(Landroid/support/v4/content/res/ConfigurationHelper$1;)V
 
-    iget p0, p0, Landroid/util/DisplayMetrics;->densityDpi:I
+    sput-object v0, Landroid/support/v4/content/res/ConfigurationHelper;->IMPL:Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
 
-    return p0
+    goto :goto_0
+.end method
+
+.method private constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 41
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static getDensityDpi(Landroid/content/res/Resources;)I
+    .locals 1
+    .param p0, "resources"    # Landroid/content/res/Resources;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .prologue
+    .line 103
+    sget-object v0, Landroid/support/v4/content/res/ConfigurationHelper;->IMPL:Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;->getDensityDpi(Landroid/content/res/Resources;)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public static getScreenHeightDp(Landroid/content/res/Resources;)I
-    .locals 0
-    .param p0    # Landroid/content/res/Resources;
+    .locals 1
+    .param p0, "resources"    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 43
+    .prologue
+    .line 67
     invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget p0, p0, Landroid/content/res/Configuration;->screenHeightDp:I
+    iget v0, v0, Landroid/content/res/Configuration;->screenHeightDp:I
 
-    return p0
+    return v0
 .end method
 
 .method public static getScreenWidthDp(Landroid/content/res/Resources;)I
-    .locals 0
-    .param p0    # Landroid/content/res/Resources;
+    .locals 1
+    .param p0, "resources"    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 56
+    .prologue
+    .line 80
     invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget p0, p0, Landroid/content/res/Configuration;->screenWidthDp:I
+    iget v0, v0, Landroid/content/res/Configuration;->screenWidthDp:I
 
-    return p0
+    return v0
 .end method
 
 .method public static getSmallestScreenWidthDp(Landroid/content/res/Resources;)I
-    .locals 0
-    .param p0    # Landroid/content/res/Resources;
+    .locals 1
+    .param p0, "resources"    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 69
+    .prologue
+    .line 93
     invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget p0, p0, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
+    iget v0, v0, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
-    return p0
+    return v0
 .end method

@@ -15,6 +15,7 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
     .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -23,7 +24,10 @@
 
 .method public static getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
     .locals 2
+    .param p0, "bundle"    # Landroid/os/Bundle;
+    .param p1, "key"    # Ljava/lang/String;
 
+    .prologue
     .line 98
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -34,22 +38,27 @@
     .line 99
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object p0
-
-    return-object p0
+    move-result-object v0
 
     .line 101
+    :goto_0
+    return-object v0
+
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v4/app/BundleCompat$BundleCompatBaseImpl;->getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 2
+    .param p0, "bundle"    # Landroid/os/Bundle;
+    .param p1, "key"    # Ljava/lang/String;
+    .param p2, "binder"    # Landroid/os/IBinder;
 
+    .prologue
     .line 113
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -60,12 +69,13 @@
     .line 114
     invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    goto :goto_0
+    .line 118
+    :goto_0
+    return-void
 
     .line 116
     :cond_0
     invoke-static {p0, p1, p2}, Landroid/support/v4/app/BundleCompat$BundleCompatBaseImpl;->putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
 
-    :goto_0
-    return-void
+    goto :goto_0
 .end method

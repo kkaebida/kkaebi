@@ -29,6 +29,7 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     .line 143
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -43,7 +44,9 @@
 
     sput-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 
-    goto :goto_0
+    .line 150
+    :goto_0
+    return-void
 
     .line 145
     :cond_0
@@ -70,75 +73,83 @@
 
     sput-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 
-    :goto_0
-    return-void
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .line 199
+    .prologue
+    .line 198
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method public static getNetworkInfoFromBroadcast(Landroid/net/ConnectivityManager;Landroid/content/Intent;)Landroid/net/NetworkInfo;
-    .locals 1
+    .locals 2
+    .param p0, "cm"    # Landroid/net/ConnectivityManager;
+    .param p1, "intent"    # Landroid/content/Intent;
 
-    const-string v0, "networkInfo"
+    .prologue
+    .line 177
+    const-string v1, "networkInfo"
+
+    invoke-virtual {p1, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/NetworkInfo;
 
     .line 178
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    .local v0, "info":Landroid/net/NetworkInfo;
+    if-eqz v0, :cond_0
 
-    move-result-object p1
+    .line 179
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
 
-    check-cast p1, Landroid/net/NetworkInfo;
+    move-result v1
 
-    if-eqz p1, :cond_0
+    invoke-virtual {p0, v1}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
 
-    .line 180
-    invoke-virtual {p1}, Landroid/net/NetworkInfo;->getType()I
+    move-result-object v1
 
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
-
-    move-result-object p0
-
-    return-object p0
+    .line 181
+    :goto_0
+    return-object v1
 
     :cond_0
-    const/4 p0, 0x0
+    const/4 v1, 0x0
 
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
     .locals 1
+    .param p0, "cm"    # Landroid/net/ConnectivityManager;
 
-    .line 196
+    .prologue
+    .line 195
     sget-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;->getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        value = "android.permission.ACCESS_NETWORK_STATE"
-    .end annotation
+    .param p0, "cm"    # Landroid/net/ConnectivityManager;
 
-    .line 167
+    .prologue
+    .line 166
     sget-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;->isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method

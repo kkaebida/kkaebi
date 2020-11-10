@@ -7,7 +7,8 @@
 .field private final mChildNonConfigs:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/app/FragmentManagerNonConfig;",
             ">;"
         }
@@ -17,7 +18,8 @@
 .field private final mFragments:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/app/Fragment;",
             ">;"
         }
@@ -31,16 +33,21 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/app/Fragment;",
             ">;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/app/FragmentManagerNonConfig;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
     .line 38
+    .local p1, "fragments":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/app/Fragment;>;"
+    .local p2, "childNonConfigs":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/app/FragmentManagerNonConfig;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
@@ -49,6 +56,7 @@
     .line 40
     iput-object p2, p0, Landroid/support/v4/app/FragmentManagerNonConfig;->mChildNonConfigs:Ljava/util/List;
 
+    .line 41
     return-void
 .end method
 
@@ -59,12 +67,14 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/app/FragmentManagerNonConfig;",
             ">;"
         }
     .end annotation
 
+    .prologue
     .line 54
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerNonConfig;->mChildNonConfigs:Ljava/util/List;
 
@@ -76,12 +86,14 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/app/Fragment;",
             ">;"
         }
     .end annotation
 
+    .prologue
     .line 47
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerNonConfig;->mFragments:Ljava/util/List;
 

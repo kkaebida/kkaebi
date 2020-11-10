@@ -22,6 +22,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 307
     invoke-direct {p0}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi21Impl;-><init>()V
 
@@ -32,37 +33,48 @@
 # virtual methods
 .method public clearColorFilter(Landroid/graphics/drawable/Drawable;)V
     .locals 0
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
+    .prologue
     .line 327
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
 
+    .line 328
     return-void
 .end method
 
 .method public getLayoutDirection(Landroid/graphics/drawable/Drawable;)I
-    .locals 0
+    .locals 1
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
+    .prologue
     .line 315
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getLayoutDirection()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public setLayoutDirection(Landroid/graphics/drawable/Drawable;I)Z
-    .locals 0
+    .locals 1
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "layoutDirection"    # I
 
+    .prologue
     .line 310
     invoke-virtual {p1, p2}, Landroid/graphics/drawable/Drawable;->setLayoutDirection(I)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
     .locals 0
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
+    .prologue
+    .line 321
     return-object p1
 .end method

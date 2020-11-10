@@ -8,7 +8,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/common/internal/IAccountAccessor$Stub;
+        Lcom/google/android/gms/common/internal/IAccountAccessor$zza;
     }
 .end annotation
 

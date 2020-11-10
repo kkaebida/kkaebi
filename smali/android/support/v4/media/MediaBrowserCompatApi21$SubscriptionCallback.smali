@@ -24,8 +24,8 @@
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/List<",
-            "*>;)V"
+            "Ljava/util/List",
+            "<*>;)V"
         }
     .end annotation
 .end method

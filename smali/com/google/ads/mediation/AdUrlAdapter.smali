@@ -4,12 +4,6 @@
 # interfaces
 .implements Lcom/google/android/gms/ads/mediation/MediationBannerAdapter;
 .implements Lcom/google/android/gms/ads/mediation/MediationInterstitialAdapter;
-.implements Lcom/google/android/gms/ads/mediation/MediationNativeAdapter;
-
-
-# annotations
-.annotation build Landroid/support/annotation/Keep;
-.end annotation
 
 
 # direct methods
@@ -23,36 +17,28 @@
 
 
 # virtual methods
-.method public final getAdUnitId(Landroid/os/Bundle;)Ljava/lang/String;
-    .locals 0
-
-    const-string p1, "adurl"
-
-    return-object p1
-.end method
-
-.method protected final zza(Landroid/os/Bundle;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 1
+.method protected zza(Landroid/os/Bundle;Landroid/os/Bundle;)Landroid/os/Bundle;
+    .locals 2
 
     if-eqz p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    new-instance p1, Landroid/os/Bundle;
-
-    invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
 
     :goto_0
     const-string v0, "sdk_less_server_data"
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    const-string p2, "_noRefresh"
+    const-string v0, "_noRefresh"
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, p2, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     return-object p1
+
+    :cond_0
+    new-instance p1, Landroid/os/Bundle;
+
+    invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
+
+    goto :goto_0
 .end method

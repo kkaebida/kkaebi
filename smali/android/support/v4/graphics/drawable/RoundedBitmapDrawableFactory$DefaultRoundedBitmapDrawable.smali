@@ -17,10 +17,14 @@
 # direct methods
 .method constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
     .locals 0
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
 
+    .prologue
     .line 38
     invoke-direct {p0, p1, p2}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
+    .line 39
     return-void
 .end method
 
@@ -28,7 +32,14 @@
 # virtual methods
 .method gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 6
+    .param p1, "gravity"    # I
+    .param p2, "bitmapWidth"    # I
+    .param p3, "bitmapHeight"    # I
+    .param p4, "bounds"    # Landroid/graphics/Rect;
+    .param p5, "outRect"    # Landroid/graphics/Rect;
 
+    .prologue
+    .line 57
     const/4 v5, 0x0
 
     move v0, p1
@@ -41,15 +52,16 @@
 
     move-object v4, p5
 
-    .line 57
     invoke-static/range {v0 .. v5}, Landroid/support/v4/view/GravityCompat;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 
+    .line 59
     return-void
 .end method
 
 .method public hasMipMap()Z
     .locals 1
 
+    .prologue
     .line 51
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
@@ -65,18 +77,20 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_0
+    return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_0
 .end method
 
 .method public setMipMap(Z)V
     .locals 1
+    .param p1, "mipMap"    # Z
 
+    .prologue
     .line 43
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
@@ -90,6 +104,7 @@
     .line 45
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable;->invalidateSelf()V
 
+    .line 47
     :cond_0
     return-void
 .end method

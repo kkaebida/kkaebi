@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 99
+    .prologue
+    .line 100
     invoke-direct {p0}, Landroid/support/v4/view/ViewParentCompat$ViewParentCompatBaseImpl;-><init>()V
 
     return-void
@@ -32,9 +33,15 @@
 # virtual methods
 .method public notifySubtreeAccessibilityStateChanged(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)V
     .locals 0
+    .param p1, "parent"    # Landroid/view/ViewParent;
+    .param p2, "child"    # Landroid/view/View;
+    .param p3, "source"    # Landroid/view/View;
+    .param p4, "changeType"    # I
 
-    .line 104
+    .prologue
+    .line 105
     invoke-interface {p1, p2, p3, p4}, Landroid/view/ViewParent;->notifySubtreeAccessibilityStateChanged(Landroid/view/View;Landroid/view/View;I)V
 
+    .line 106
     return-void
 .end method

@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x18
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 55
+    .prologue
+    .line 56
     invoke-direct {p0}, Landroid/support/v4/net/TrafficStatsCompat$TrafficStatsCompatBaseImpl;-><init>()V
 
     return-void
@@ -32,28 +33,34 @@
 # virtual methods
 .method public tagDatagramSocket(Ljava/net/DatagramSocket;)V
     .locals 0
+    .param p1, "socket"    # Ljava/net/DatagramSocket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .line 58
+    .prologue
+    .line 59
     invoke-static {p1}, Landroid/net/TrafficStats;->tagDatagramSocket(Ljava/net/DatagramSocket;)V
 
+    .line 60
     return-void
 .end method
 
 .method public untagDatagramSocket(Ljava/net/DatagramSocket;)V
     .locals 0
+    .param p1, "socket"    # Ljava/net/DatagramSocket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .line 63
+    .prologue
+    .line 64
     invoke-static {p1}, Landroid/net/TrafficStats;->untagDatagramSocket(Ljava/net/DatagramSocket;)V
 
+    .line 65
     return-void
 .end method

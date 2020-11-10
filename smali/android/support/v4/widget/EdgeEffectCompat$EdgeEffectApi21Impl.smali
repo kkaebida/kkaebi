@@ -22,6 +22,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 52
     invoke-direct {p0}, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectBaseImpl;-><init>()V
 
@@ -32,9 +33,14 @@
 # virtual methods
 .method public onPull(Landroid/widget/EdgeEffect;FF)V
     .locals 0
+    .param p1, "edgeEffect"    # Landroid/widget/EdgeEffect;
+    .param p2, "deltaDistance"    # F
+    .param p3, "displacement"    # F
 
+    .prologue
     .line 55
     invoke-virtual {p1, p2, p3}, Landroid/widget/EdgeEffect;->onPull(FF)V
 
+    .line 56
     return-void
 .end method

@@ -18,6 +18,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -27,56 +28,73 @@
 
 # virtual methods
 .method public getFactory(Landroid/view/LayoutInflater;)Landroid/support/v4/view/LayoutInflaterFactory;
-    .locals 1
+    .locals 2
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
 
+    .prologue
     .line 116
     invoke-virtual {p1}, Landroid/view/LayoutInflater;->getFactory()Landroid/view/LayoutInflater$Factory;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 117
-    instance-of v0, p1, Landroid/support/v4/view/LayoutInflaterCompat$Factory2Wrapper;
+    .local v0, "factory":Landroid/view/LayoutInflater$Factory;
+    instance-of v1, v0, Landroid/support/v4/view/LayoutInflaterCompat$Factory2Wrapper;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     .line 118
-    check-cast p1, Landroid/support/v4/view/LayoutInflaterCompat$Factory2Wrapper;
+    check-cast v0, Landroid/support/v4/view/LayoutInflaterCompat$Factory2Wrapper;
 
-    iget-object p1, p1, Landroid/support/v4/view/LayoutInflaterCompat$Factory2Wrapper;->mDelegateFactory:Landroid/support/v4/view/LayoutInflaterFactory;
+    .end local v0    # "factory":Landroid/view/LayoutInflater$Factory;
+    iget-object v1, v0, Landroid/support/v4/view/LayoutInflaterCompat$Factory2Wrapper;->mDelegateFactory:Landroid/support/v4/view/LayoutInflaterFactory;
 
-    return-object p1
+    .line 120
+    :goto_0
+    return-object v1
 
+    .restart local v0    # "factory":Landroid/view/LayoutInflater$Factory;
     :cond_0
-    const/4 p1, 0x0
+    const/4 v1, 0x0
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public setFactory(Landroid/view/LayoutInflater;Landroid/support/v4/view/LayoutInflaterFactory;)V
     .locals 1
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "factory"    # Landroid/support/v4/view/LayoutInflaterFactory;
 
+    .prologue
+    .line 95
     if-eqz p2, :cond_0
 
-    .line 95
     new-instance v0, Landroid/support/v4/view/LayoutInflaterCompat$Factory2Wrapper;
 
     invoke-direct {v0, p2}, Landroid/support/v4/view/LayoutInflaterCompat$Factory2Wrapper;-><init>(Landroid/support/v4/view/LayoutInflaterFactory;)V
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
     .line 97
+    .local v0, "factory2":Landroid/view/LayoutInflater$Factory2;
     :goto_0
     invoke-virtual {p0, p1, v0}, Landroid/support/v4/view/LayoutInflaterCompat$LayoutInflaterCompatBaseImpl;->setFactory2(Landroid/view/LayoutInflater;Landroid/view/LayoutInflater$Factory2;)V
 
+    .line 98
     return-void
+
+    .line 95
+    .end local v0    # "factory2":Landroid/view/LayoutInflater$Factory2;
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setFactory2(Landroid/view/LayoutInflater;Landroid/view/LayoutInflater$Factory2;)V
     .locals 2
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "factory"    # Landroid/view/LayoutInflater$Factory2;
 
+    .prologue
     .line 101
     invoke-virtual {p1, p2}, Landroid/view/LayoutInflater;->setFactory2(Landroid/view/LayoutInflater$Factory2;)V
 
@@ -86,6 +104,7 @@
     move-result-object v0
 
     .line 104
+    .local v0, "f":Landroid/view/LayoutInflater$Factory;
     instance-of v1, v0, Landroid/view/LayoutInflater$Factory2;
 
     if-eqz v1, :cond_0
@@ -93,14 +112,17 @@
     .line 107
     check-cast v0, Landroid/view/LayoutInflater$Factory2;
 
+    .end local v0    # "f":Landroid/view/LayoutInflater$Factory;
     invoke-static {p1, v0}, Landroid/support/v4/view/LayoutInflaterCompat;->forceSetFactory2(Landroid/view/LayoutInflater;Landroid/view/LayoutInflater$Factory2;)V
 
-    goto :goto_0
+    .line 112
+    :goto_0
+    return-void
 
     .line 110
+    .restart local v0    # "f":Landroid/view/LayoutInflater$Factory;
     :cond_0
     invoke-static {p1, p2}, Landroid/support/v4/view/LayoutInflaterCompat;->forceSetFactory2(Landroid/view/LayoutInflater;Landroid/view/LayoutInflater$Factory2;)V
 
-    :goto_0
-    return-void
+    goto :goto_0
 .end method

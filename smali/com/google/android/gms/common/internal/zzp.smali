@@ -1,168 +1,375 @@
-.class public final Lcom/google/android/gms/common/internal/zzp;
+.class public interface abstract Lcom/google/android/gms/common/internal/zzp;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Landroid/os/IInterface;
 
-# static fields
-.field private static sLock:Ljava/lang/Object;
 
-.field private static zzeo:Z
-    .annotation build Ljavax/annotation/concurrent/GuardedBy;
-        value = "sLock"
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/common/internal/zzp$zza;
+    }
+.end annotation
+
+
+# virtual methods
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
     .end annotation
-.end field
-
-.field private static zzep:Ljava/lang/String;
-
-.field private static zzeq:I
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .line 22
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    sput-object v0, Lcom/google/android/gms/common/internal/zzp;->sLock:Ljava/lang/Object;
-
-    return-void
 .end method
 
-.method public static zzc(Landroid/content/Context;)Ljava/lang/String;
-    .locals 0
-
-    .line 1
-    invoke-static {p0}, Lcom/google/android/gms/common/internal/zzp;->zze(Landroid/content/Context;)V
-
-    .line 2
-    sget-object p0, Lcom/google/android/gms/common/internal/zzp;->zzep:Ljava/lang/String;
-
-    return-object p0
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method
 
-.method public static zzd(Landroid/content/Context;)I
-    .locals 0
-
-    .line 3
-    invoke-static {p0}, Lcom/google/android/gms/common/internal/zzp;->zze(Landroid/content/Context;)V
-
-    .line 4
-    sget p0, Lcom/google/android/gms/common/internal/zzp;->zzeq:I
-
-    return p0
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method
 
-.method private static zze(Landroid/content/Context;)V
-    .locals 3
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 5
-    sget-object v0, Lcom/google/android/gms/common/internal/zzp;->sLock:Ljava/lang/Object;
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    monitor-enter v0
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 6
-    :try_start_0
-    sget-boolean v1, Lcom/google/android/gms/common/internal/zzp;->zzeo:Z
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    if-eqz v1, :cond_0
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 7
-    monitor-exit v0
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    return-void
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    :cond_0
-    const/4 v1, 0x1
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 8
-    sput-boolean v1, Lcom/google/android/gms/common/internal/zzp;->zzeo:Z
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;Lcom/google/android/gms/common/internal/GetServiceRequest;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 9
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+.method public abstract zza(Lcom/google/android/gms/common/internal/zzo;Lcom/google/android/gms/common/internal/ValidateAccountRequest;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    move-result-object v1
+.method public abstract zzb(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 10
-    invoke-static {p0}, Lcom/google/android/gms/common/wrappers/Wrappers;->packageManager(Landroid/content/Context;)Lcom/google/android/gms/common/wrappers/PackageManagerWrapper;
+.method public abstract zzb(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    move-result-object p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+.method public abstract zzc(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    const/16 v2, 0x80
+.method public abstract zzc(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 11
-    :try_start_1
-    invoke-virtual {p0, v1, v2}, Lcom/google/android/gms/common/wrappers/PackageManagerWrapper;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+.method public abstract zzd(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    move-result-object p0
+.method public abstract zzd(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 12
-    iget-object p0, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
-    :try_end_1
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+.method public abstract zze(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    if-nez p0, :cond_1
+.method public abstract zze(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 14
-    :try_start_2
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+.method public abstract zzf(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    return-void
+.method public abstract zzf(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    :cond_1
-    :try_start_3
-    const-string v1, "com.google.app.id"
+.method public abstract zzg(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 15
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+.method public abstract zzg(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    move-result-object v1
+.method public abstract zzh(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    sput-object v1, Lcom/google/android/gms/common/internal/zzp;->zzep:Ljava/lang/String;
+.method public abstract zzh(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    const-string v1, "com.google.android.gms.version"
+.method public abstract zzi(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 17
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+.method public abstract zzi(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    move-result p0
+.method public abstract zzj(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    sput p0, Lcom/google/android/gms/common/internal/zzp;->zzeq:I
-    :try_end_3
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+.method public abstract zzj(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    goto :goto_0
+.method public abstract zzk(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    :catch_0
-    move-exception p0
+.method public abstract zzk(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    :try_start_4
-    const-string v1, "MetadataValueReader"
+.method public abstract zzl(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    const-string v2, "This should never happen."
+.method public abstract zzl(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 20
-    invoke-static {v1, v2, p0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+.method public abstract zzm(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    .line 21
-    :goto_0
-    monitor-exit v0
+.method public abstract zzm(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    return-void
+.method public abstract zzn(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    :catchall_0
-    move-exception p0
+.method public abstract zznY()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    monitor-exit v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+.method public abstract zzo(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    throw p0
+.method public abstract zzp(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract zzq(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract zzr(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract zzs(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract zzt(Lcom/google/android/gms/common/internal/zzo;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method

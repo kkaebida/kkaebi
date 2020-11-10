@@ -14,7 +14,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lcom/google/ads/AdRequest$ErrorCode;",
         ">;"
     }
@@ -30,7 +31,7 @@
 
 .field public static final enum NO_FILL:Lcom/google/ads/AdRequest$ErrorCode;
 
-.field private static final synthetic zzcl:[Lcom/google/ads/AdRequest$ErrorCode;
+.field private static final synthetic zzaI:[Lcom/google/ads/AdRequest$ErrorCode;
 
 
 # instance fields
@@ -41,13 +42,19 @@
 .method static constructor <clinit>()V
     .locals 7
 
+    const/4 v6, 0x3
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
     new-instance v0, Lcom/google/ads/AdRequest$ErrorCode;
 
     const-string v1, "INVALID_REQUEST"
 
     const-string v2, "Invalid Ad request."
-
-    const/4 v3, 0x0
 
     invoke-direct {v0, v1, v3, v2}, Lcom/google/ads/AdRequest$ErrorCode;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
@@ -59,8 +66,6 @@
 
     const-string v2, "Ad request successful, but no ad returned due to lack of ad inventory."
 
-    const/4 v4, 0x1
-
     invoke-direct {v0, v1, v4, v2}, Lcom/google/ads/AdRequest$ErrorCode;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/google/ads/AdRequest$ErrorCode;->NO_FILL:Lcom/google/ads/AdRequest$ErrorCode;
@@ -71,8 +76,6 @@
 
     const-string v2, "A network error occurred."
 
-    const/4 v5, 0x2
-
     invoke-direct {v0, v1, v5, v2}, Lcom/google/ads/AdRequest$ErrorCode;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/google/ads/AdRequest$ErrorCode;->NETWORK_ERROR:Lcom/google/ads/AdRequest$ErrorCode;
@@ -82,8 +85,6 @@
     const-string v1, "INTERNAL_ERROR"
 
     const-string v2, "There was an internal error."
-
-    const/4 v6, 0x3
 
     invoke-direct {v0, v1, v6, v2}, Lcom/google/ads/AdRequest$ErrorCode;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
@@ -109,13 +110,14 @@
 
     aput-object v1, v0, v6
 
-    sput-object v0, Lcom/google/ads/AdRequest$ErrorCode;->zzcl:[Lcom/google/ads/AdRequest$ErrorCode;
+    sput-object v0, Lcom/google/ads/AdRequest$ErrorCode;->zzaI:[Lcom/google/ads/AdRequest$ErrorCode;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
+    .param p3, "description"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -124,6 +126,7 @@
         }
     .end annotation
 
+    .prologue
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     iput-object p3, p0, Lcom/google/ads/AdRequest$ErrorCode;->description:Ljava/lang/String;
@@ -133,22 +136,24 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/ads/AdRequest$ErrorCode;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
     const-class v0, Lcom/google/ads/AdRequest$ErrorCode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/google/ads/AdRequest$ErrorCode;
+    check-cast v0, Lcom/google/ads/AdRequest$ErrorCode;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lcom/google/ads/AdRequest$ErrorCode;
     .locals 1
 
-    sget-object v0, Lcom/google/ads/AdRequest$ErrorCode;->zzcl:[Lcom/google/ads/AdRequest$ErrorCode;
+    sget-object v0, Lcom/google/ads/AdRequest$ErrorCode;->zzaI:[Lcom/google/ads/AdRequest$ErrorCode;
 
     invoke-virtual {v0}, [Lcom/google/ads/AdRequest$ErrorCode;->clone()Ljava/lang/Object;
 
@@ -161,7 +166,7 @@
 
 
 # virtual methods
-.method public final toString()Ljava/lang/String;
+.method public toString()Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/google/ads/AdRequest$ErrorCode;->description:Ljava/lang/String;

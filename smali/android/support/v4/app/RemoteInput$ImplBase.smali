@@ -21,7 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 316
+    .prologue
+    .line 314
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,80 +31,99 @@
 
 # virtual methods
 .method public addDataResultToIntent(Landroid/support/v4/app/RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
-    .locals 0
+    .locals 2
+    .param p1, "remoteInput"    # Landroid/support/v4/app/RemoteInput;
+    .param p2, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/support/v4/app/RemoteInput;",
             "Landroid/content/Intent;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Landroid/net/Uri;",
             ">;)V"
         }
     .end annotation
 
-    const-string p1, "RemoteInput"
+    .prologue
+    .line 336
+    .local p3, "results":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/net/Uri;>;"
+    const-string v0, "RemoteInput"
 
-    const-string p2, "RemoteInput is only supported from API Level 16"
+    const-string v1, "RemoteInput is only supported from API Level 16"
 
-    .line 338
-    invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 337
     return-void
 .end method
 
 .method public addResultsToIntent([Landroid/support/v4/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
-    .locals 0
+    .locals 2
+    .param p1, "remoteInputs"    # [Landroid/support/v4/app/RemoteInput;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "results"    # Landroid/os/Bundle;
 
-    const-string p1, "RemoteInput"
+    .prologue
+    .line 330
+    const-string v0, "RemoteInput"
 
-    const-string p2, "RemoteInput is only supported from API Level 16"
+    const-string v1, "RemoteInput is only supported from API Level 16"
 
-    .line 332
-    invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 331
     return-void
 .end method
 
 .method public getDataResultsFromIntent(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
-    .locals 0
+    .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "remoteInputResultKey"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Intent;",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Landroid/net/Uri;",
             ">;"
         }
     .end annotation
 
-    const-string p1, "RemoteInput"
+    .prologue
+    .line 324
+    const-string v0, "RemoteInput"
 
-    const-string p2, "RemoteInput is only supported from API Level 16"
+    const-string v1, "RemoteInput is only supported from API Level 16"
 
-    .line 326
-    invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 p1, 0x0
+    .line 325
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
-    .locals 1
+    .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
 
-    const-string p1, "RemoteInput"
+    .prologue
+    .line 317
+    const-string v0, "RemoteInput"
 
-    const-string v0, "RemoteInput is only supported from API Level 16"
+    const-string v1, "RemoteInput is only supported from API Level 16"
 
-    .line 319
-    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 p1, 0x0
+    .line 318
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method

@@ -21,7 +21,8 @@
             "(",
             "Landroid/support/v4/app/RemoteInput;",
             "Landroid/content/Intent;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Landroid/net/Uri;",
             ">;)V"
@@ -39,7 +40,8 @@
             "Landroid/content/Intent;",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Landroid/net/Uri;",
             ">;"

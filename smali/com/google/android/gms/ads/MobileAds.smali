@@ -21,34 +21,26 @@
 
 .method public static getRewardedVideoAdInstance(Landroid/content/Context;)Lcom/google/android/gms/ads/reward/RewardedVideoAd;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
 
-    invoke-static {}, Lcom/google/android/gms/internal/ads/zzmb;->zziv()Lcom/google/android/gms/internal/ads/zzmb;
+    .prologue
+    invoke-static {}, Lcom/google/android/gms/ads/internal/client/zzaa;->zzcP()Lcom/google/android/gms/ads/internal/client/zzaa;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/google/android/gms/internal/ads/zzmb;->getRewardedVideoAdInstance(Landroid/content/Context;)Lcom/google/android/gms/ads/reward/RewardedVideoAd;
+    invoke-virtual {v0, p0}, Lcom/google/android/gms/ads/internal/client/zzaa;->getRewardedVideoAdInstance(Landroid/content/Context;)Lcom/google/android/gms/ads/reward/RewardedVideoAd;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
-.end method
-
-.method public static initialize(Landroid/content/Context;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, v0, v0}, Lcom/google/android/gms/ads/MobileAds;->initialize(Landroid/content/Context;Ljava/lang/String;Lcom/google/android/gms/ads/MobileAds$Settings;)V
-
-    return-void
+    return-object v0
 .end method
 
 .method public static initialize(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        value = "android.permission.INTERNET"
-    .end annotation
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "applicationCode"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Lcom/google/android/gms/ads/MobileAds;->initialize(Landroid/content/Context;Ljava/lang/String;Lcom/google/android/gms/ads/MobileAds$Settings;)V
@@ -57,67 +49,29 @@
 .end method
 
 .method public static initialize(Landroid/content/Context;Ljava/lang/String;Lcom/google/android/gms/ads/MobileAds$Settings;)V
-    .locals 1
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        value = "android.permission.INTERNET"
-    .end annotation
+    .locals 2
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "applicationCode"    # Ljava/lang/String;
+    .param p2, "settings"    # Lcom/google/android/gms/ads/MobileAds$Settings;
 
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
+    .prologue
+    invoke-static {}, Lcom/google/android/gms/ads/internal/client/zzaa;->zzcP()Lcom/google/android/gms/ads/internal/client/zzaa;
 
-    invoke-static {}, Lcom/google/android/gms/internal/ads/zzmb;->zziv()Lcom/google/android/gms/internal/ads/zzmb;
-
-    move-result-object v0
+    move-result-object v1
 
     if-nez p2, :cond_0
 
-    const/4 p2, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p2}, Lcom/google/android/gms/ads/MobileAds$Settings;->zzbb()Lcom/google/android/gms/internal/ads/zzmd;
-
-    move-result-object p2
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {v0, p0, p1, p2}, Lcom/google/android/gms/internal/ads/zzmb;->zza(Landroid/content/Context;Ljava/lang/String;Lcom/google/android/gms/internal/ads/zzmd;)V
+    invoke-virtual {v1, p0, p1, v0}, Lcom/google/android/gms/ads/internal/client/zzaa;->zza(Landroid/content/Context;Ljava/lang/String;Lcom/google/android/gms/ads/internal/client/zzab;)V
 
     return-void
-.end method
 
-.method public static openDebugMenu(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/gms/internal/ads/zzmb;->zziv()Lcom/google/android/gms/internal/ads/zzmb;
+    :cond_0
+    invoke-virtual {p2}, Lcom/google/android/gms/ads/MobileAds$Settings;->zzaG()Lcom/google/android/gms/ads/internal/client/zzab;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p1}, Lcom/google/android/gms/internal/ads/zzmb;->openDebugMenu(Landroid/content/Context;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static setAppMuted(Z)V
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/gms/internal/ads/zzmb;->zziv()Lcom/google/android/gms/internal/ads/zzmb;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Lcom/google/android/gms/internal/ads/zzmb;->setAppMuted(Z)V
-
-    return-void
-.end method
-
-.method public static setAppVolume(F)V
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/gms/internal/ads/zzmb;->zziv()Lcom/google/android/gms/internal/ads/zzmb;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Lcom/google/android/gms/internal/ads/zzmb;->setAppVolume(F)V
-
-    return-void
+    goto :goto_0
 .end method

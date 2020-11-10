@@ -21,7 +21,9 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/os/ResultReceiver;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/os/ResultReceiver;
 
+    .prologue
     .line 64
     iput-object p1, p0, Landroid/support/v4/os/ResultReceiver$MyResultReceiver;->this$0:Landroid/support/v4/os/ResultReceiver;
 
@@ -34,7 +36,10 @@
 # virtual methods
 .method public send(ILandroid/os/Bundle;)V
     .locals 3
+    .param p1, "resultCode"    # I
+    .param p2, "resultData"    # Landroid/os/Bundle;
 
+    .prologue
     .line 67
     iget-object v0, p0, Landroid/support/v4/os/ResultReceiver$MyResultReceiver;->this$0:Landroid/support/v4/os/ResultReceiver;
 
@@ -55,7 +60,9 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    .line 72
+    :goto_0
+    return-void
 
     .line 70
     :cond_0
@@ -63,6 +70,5 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/os/ResultReceiver;->onReceiveResult(ILandroid/os/Bundle;)V
 
-    :goto_0
-    return-void
+    goto :goto_0
 .end method

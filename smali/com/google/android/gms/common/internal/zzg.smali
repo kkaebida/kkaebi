@@ -1,159 +1,114 @@
-.class public final Lcom/google/android/gms/common/internal/zzg;
+.class public Lcom/google/android/gms/common/internal/zzg;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Landroid/content/DialogInterface$OnClickListener;
 
-# static fields
-.field private static final zzed:Landroid/net/Uri;
 
-.field private static final zzee:Landroid/net/Uri;
+# instance fields
+.field private final mActivity:Landroid/app/Activity;
+
+.field private final mIntent:Landroid/content/Intent;
+
+.field private final zzZX:Landroid/support/v4/app/Fragment;
+
+.field private final zzZY:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
+.method public constructor <init>(Landroid/app/Activity;Landroid/content/Intent;I)V
+    .locals 1
 
-    const-string v0, "https://plus.google.com/"
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    iput-object p1, p0, Lcom/google/android/gms/common/internal/zzg;->mActivity:Landroid/app/Activity;
 
-    move-result-object v0
+    const/4 v0, 0x0
 
-    .line 22
-    sput-object v0, Lcom/google/android/gms/common/internal/zzg;->zzed:Landroid/net/Uri;
+    iput-object v0, p0, Lcom/google/android/gms/common/internal/zzg;->zzZX:Landroid/support/v4/app/Fragment;
 
-    .line 23
-    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+    iput-object p2, p0, Lcom/google/android/gms/common/internal/zzg;->mIntent:Landroid/content/Intent;
 
-    move-result-object v0
-
-    const-string v1, "circles"
-
-    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    const-string v1, "find"
-
-    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/google/android/gms/common/internal/zzg;->zzee:Landroid/net/Uri;
+    iput p3, p0, Lcom/google/android/gms/common/internal/zzg;->zzZY:I
 
     return-void
 .end method
 
-.method public static zza(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+.method public constructor <init>(Landroid/support/v4/app/Fragment;Landroid/content/Intent;I)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/google/android/gms/common/internal/zzg;->mActivity:Landroid/app/Activity;
+
+    iput-object p1, p0, Lcom/google/android/gms/common/internal/zzg;->zzZX:Landroid/support/v4/app/Fragment;
+
+    iput-object p2, p0, Lcom/google/android/gms/common/internal/zzg;->mIntent:Landroid/content/Intent;
+
+    iput p3, p0, Lcom/google/android/gms/common/internal/zzg;->zzZY:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
-    .line 5
-    new-instance v0, Landroid/content/Intent;
+    .prologue
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzg;->mIntent:Landroid/content/Intent;
 
-    const-string v1, "android.intent.action.VIEW"
+    if-eqz v0, :cond_1
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzg;->zzZX:Landroid/support/v4/app/Fragment;
 
-    const-string v1, "market://details"
+    if-eqz v0, :cond_1
 
-    .line 8
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzg;->zzZX:Landroid/support/v4/app/Fragment;
 
-    move-result-object v1
+    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzg;->mIntent:Landroid/content/Intent;
 
-    .line 9
-    invoke-virtual {v1}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+    iget v2, p0, Lcom/google/android/gms/common/internal/zzg;->zzZY:I
 
-    move-result-object v1
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    const-string v2, "id"
-
-    .line 10
-    invoke-virtual {v1, v2, p0}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    move-result-object p0
-
-    .line 11
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "pcampaignid"
-
-    .line 12
-    invoke-virtual {p0, v1, p1}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    .line 13
     :cond_0
-    invoke-virtual {p0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+    :goto_0
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    move-result-object p0
+    :goto_1
+    return-void
 
-    .line 14
-    invoke-virtual {v0, p0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    :cond_1
+    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzg;->mIntent:Landroid/content/Intent;
 
-    const-string p0, "com.android.vending"
+    if-eqz v0, :cond_0
 
-    .line 15
-    invoke-virtual {v0, p0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+    iget-object v0, p0, Lcom/google/android/gms/common/internal/zzg;->mActivity:Landroid/app/Activity;
 
-    const/high16 p0, 0x80000
+    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzg;->mIntent:Landroid/content/Intent;
 
-    .line 16
-    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    iget v2, p0, Lcom/google/android/gms/common/internal/zzg;->zzZY:I
 
-    return-object v0
-.end method
+    invoke-virtual {v0, v1, v2}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-.method public static zzg(Ljava/lang/String;)Landroid/content/Intent;
-    .locals 2
+    goto :goto_0
 
-    const-string v0, "package"
+    :catch_0
+    move-exception v0
 
-    const/4 v1, 0x0
+    const-string v0, "SettingsRedirect"
 
-    .line 1
-    invoke-static {v0, p0, v1}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+    const-string v1, "Can\'t redirect to app settings for Google Play services"
 
-    move-result-object p0
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "android.settings.APPLICATION_DETAILS_SETTINGS"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 3
-    invoke-virtual {v0, p0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
-
-    return-object v0
-.end method
-
-.method public static zzs()Landroid/content/Intent;
-    .locals 2
-
-    .line 18
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "com.google.android.clockwork.home.UPDATE_ANDROID_WEAR_ACTION"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string v1, "com.google.android.wearable.app"
-
-    .line 19
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    return-object v0
+    goto :goto_1
 .end method

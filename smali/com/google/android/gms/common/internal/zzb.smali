@@ -1,117 +1,209 @@
 .class public final Lcom/google/android/gms/common/internal/zzb;
-.super Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;
-
-
-# annotations
-.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Class;
-    creator = "ConnectionInfoCreator"
-.end annotation
-
-
-# static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/os/Parcelable$Creator<",
-            "Lcom/google/android/gms/common/internal/zzb;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-
-# instance fields
-.field zzcz:Landroid/os/Bundle;
-    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
-        id = 0x1
-    .end annotation
-.end field
-
-.field zzda:[Lcom/google/android/gms/common/Feature;
-    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
-        id = 0x2
-    .end annotation
-.end field
+.super Ljava/lang/Object;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static zzU(Z)V
     .locals 1
 
-    .line 12
-    new-instance v0, Lcom/google/android/gms/common/internal/zzc;
+    if-nez p0, :cond_0
 
-    invoke-direct {v0}, Lcom/google/android/gms/common/internal/zzc;-><init>()V
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    sput-object v0, Lcom/google/android/gms/common/internal/zzb;->CREATOR:Landroid/os/Parcelable$Creator;
+    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
+    throw v0
+
+    :cond_0
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 0
+.method public static zza(ZLjava/lang/Object;)V
+    .locals 2
 
-    .line 5
-    invoke-direct {p0}, Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
+    if-nez p0, :cond_0
 
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     return-void
 .end method
 
-.method constructor <init>(Landroid/os/Bundle;[Lcom/google/android/gms/common/Feature;)V
-    .locals 0
-    .param p1    # Landroid/os/Bundle;
-        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
-            id = 0x1
-        .end annotation
-    .end param
-    .param p2    # [Lcom/google/android/gms/common/Feature;
-        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
-            id = 0x2
-        .end annotation
-    .end param
-    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Constructor;
-    .end annotation
+.method public static zzbY(Ljava/lang/String;)V
+    .locals 3
 
-    .line 1
-    invoke-direct {p0}, Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    .line 2
-    iput-object p1, p0, Lcom/google/android/gms/common/internal/zzb;->zzcz:Landroid/os/Bundle;
+    move-result-object v0
 
-    .line 3
-    iput-object p2, p0, Lcom/google/android/gms/common/internal/zzb;->zzda:[Lcom/google/android/gms/common/Feature;
+    invoke-virtual {v0}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
 
+    move-result-object v0
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v1
+
+    if-eq v0, v1, :cond_0
+
+    const-string v0, "Asserts"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "checkMainThread: current thread "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " IS NOT the main thread "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "!"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     return-void
 .end method
 
+.method public static zzbZ(Ljava/lang/String;)V
+    .locals 3
 
-# virtual methods
-.method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 4
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    .line 7
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
 
-    .line 8
-    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzb;->zzcz:Landroid/os/Bundle;
+    move-result-object v0
 
-    const/4 v2, 0x0
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    const/4 v3, 0x1
+    move-result-object v1
 
-    invoke-static {p1, v3, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeBundle(Landroid/os/Parcel;ILandroid/os/Bundle;Z)V
+    if-ne v0, v1, :cond_0
 
-    .line 9
-    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzb;->zzda:[Lcom/google/android/gms/common/Feature;
+    const-string v0, "Asserts"
 
-    const/4 v3, 0x2
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-static {p1, v3, v1, p2, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeTypedArray(Landroid/os/Parcel;I[Landroid/os/Parcelable;IZ)V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 10
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
+    const-string v2, "checkNotMainThread: current thread "
 
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " IS the main thread "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "!"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    return-void
+.end method
+
+.method public static zzq(Ljava/lang/Object;)V
+    .locals 2
+
+    if-nez p0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "null reference"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     return-void
 .end method

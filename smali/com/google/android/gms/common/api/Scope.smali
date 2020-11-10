@@ -1,24 +1,16 @@
 .class public final Lcom/google/android/gms/common/api/Scope;
-.super Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;
+.super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/gms/common/internal/ReflectedParcelable;
-
-
-# annotations
-.annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
-.end annotation
-
-.annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Class;
-    creator = "ScopeCreator"
-.end annotation
+.implements Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
 
 
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/google/android/gms/common/api/Scope;",
             ">;"
         }
@@ -27,28 +19,18 @@
 
 
 # instance fields
-.field private final zzap:Ljava/lang/String;
-    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Field;
-        getter = "getScopeUri"
-        id = 0x2
-    .end annotation
-.end field
+.field final zzCY:I
 
-.field private final zzg:I
-    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$VersionField;
-        id = 0x1
-    .end annotation
-.end field
+.field private final zzXO:Ljava/lang/String;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 24
-    new-instance v0, Lcom/google/android/gms/common/api/zza;
+    new-instance v0, Lcom/google/android/gms/common/api/zzj;
 
-    invoke-direct {v0}, Lcom/google/android/gms/common/api/zza;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/common/api/zzj;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/common/api/Scope;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -57,42 +39,30 @@
 
 .method constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .param p1    # I
-        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
-            id = 0x1
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/String;
-        .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Param;
-            id = 0x2
-        .end annotation
-    .end param
-    .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Constructor;
-    .end annotation
+    .param p1, "versionCode"    # I
+    .param p2, "scopeUri"    # Ljava/lang/String;
 
-    .line 1
-    invoke-direct {p0}, Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
+    .prologue
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const-string v0, "scopeUri must not be null or empty"
 
-    .line 2
-    invoke-static {p2, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotEmpty(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p2, v0}, Lcom/google/android/gms/common/internal/zzu;->zzh(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
 
-    .line 3
-    iput p1, p0, Lcom/google/android/gms/common/api/Scope;->zzg:I
+    iput p1, p0, Lcom/google/android/gms/common/api/Scope;->zzCY:I
 
-    .line 4
-    iput-object p2, p0, Lcom/google/android/gms/common/api/Scope;->zzap:Ljava/lang/String;
+    iput-object p2, p0, Lcom/google/android/gms/common/api/Scope;->zzXO:Ljava/lang/String;
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1, "scopeUri"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x1
 
-    .line 6
     invoke-direct {p0, v0, p1}, Lcom/google/android/gms/common/api/Scope;-><init>(ILjava/lang/String;)V
 
     return-void
@@ -100,56 +70,56 @@
 
 
 # virtual methods
-.method public final equals(Ljava/lang/Object;)Z
+.method public describeContents()I
     .locals 1
 
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 2
+    .param p1, "o"    # Ljava/lang/Object;
+
+    .prologue
     if-ne p0, p1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    .end local p1    # "o":Ljava/lang/Object;
+    :goto_0
+    return v0
 
-    .line 11
+    .restart local p1    # "o":Ljava/lang/Object;
     :cond_0
     instance-of v0, p1, Lcom/google/android/gms/common/api/Scope;
 
     if-nez v0, :cond_1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 
-    .line 13
     :cond_1
-    iget-object v0, p0, Lcom/google/android/gms/common/api/Scope;->zzap:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/common/api/Scope;->zzXO:Ljava/lang/String;
 
     check-cast p1, Lcom/google/android/gms/common/api/Scope;
 
-    iget-object p1, p1, Lcom/google/android/gms/common/api/Scope;->zzap:Ljava/lang/String;
+    .end local p1    # "o":Ljava/lang/Object;
+    iget-object v1, p1, Lcom/google/android/gms/common/api/Scope;->zzXO:Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
-.method public final getScopeUri()Ljava/lang/String;
-    .locals 1
-    .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
-    .end annotation
-
-    .line 8
-    iget-object v0, p0, Lcom/google/android/gms/common/api/Scope;->zzap:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public final hashCode()I
+.method public hashCode()I
     .locals 1
 
-    .line 14
-    iget-object v0, p0, Lcom/google/android/gms/common/api/Scope;->zzap:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/common/api/Scope;->zzXO:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
@@ -158,44 +128,29 @@
     return v0
 .end method
 
-.method public final toString()Ljava/lang/String;
+.method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 15
-    iget-object v0, p0, Lcom/google/android/gms/common/api/Scope;->zzap:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/common/api/Scope;->zzXO:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 3
+.method public writeToParcel(Landroid/os/Parcel;I)V
+    .locals 0
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
-    .line 17
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
-
-    move-result p2
-
-    .line 18
-    iget v0, p0, Lcom/google/android/gms/common/api/Scope;->zzg:I
-
-    const/4 v1, 0x1
-
-    invoke-static {p1, v1, v0}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeInt(Landroid/os/Parcel;II)V
-
-    .line 20
-    invoke-virtual {p0}, Lcom/google/android/gms/common/api/Scope;->getScopeUri()Ljava/lang/String;
-
-    move-result-object v0
-
-    const/4 v1, 0x2
-
-    const/4 v2, 0x0
-
-    .line 21
-    invoke-static {p1, v1, v0, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
-
-    .line 22
-    invoke-static {p1, p2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
+    .prologue
+    invoke-static {p0, p1, p2}, Lcom/google/android/gms/common/api/zzj;->zza(Lcom/google/android/gms/common/api/Scope;Landroid/os/Parcel;I)V
 
     return-void
+.end method
+
+.method public zzmS()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/common/api/Scope;->zzXO:Ljava/lang/String;
+
+    return-object v0
 .end method

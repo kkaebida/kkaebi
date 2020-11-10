@@ -5,14 +5,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/gms/ads/formats/NativeAd$AdChoicesInfo;,
         Lcom/google/android/gms/ads/formats/NativeAd$Image;
     }
 .end annotation
-
-
-# static fields
-.field public static final ASSET_ADCHOICES_CONTAINER_VIEW:Ljava/lang/String; = "1098"
 
 
 # direct methods
@@ -26,20 +21,5 @@
 
 
 # virtual methods
-.method public abstract performClick(Landroid/os/Bundle;)V
-    .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
-    .end annotation
-.end method
-
-.method public abstract recordImpression(Landroid/os/Bundle;)Z
-    .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
-    .end annotation
-.end method
-
-.method public abstract reportTouchEvent(Landroid/os/Bundle;)V
-    .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
-    .end annotation
-.end method
-
-.method protected abstract zzbe()Ljava/lang/Object;
+.method protected abstract zzaH()Ljava/lang/Object;
 .end method

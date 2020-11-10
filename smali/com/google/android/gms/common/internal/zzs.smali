@@ -1,95 +1,135 @@
-.class public final Lcom/google/android/gms/common/internal/zzs;
+.class public Lcom/google/android/gms/common/internal/zzs;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Landroid/os/Parcelable$Creator;
 
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator<",
-        "Lcom/google/android/gms/common/internal/zzr;",
-        ">;"
-    }
-.end annotation
+# instance fields
+.field private final separator:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>()V
+.method private constructor <init>(Ljava/lang/String;)V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/common/internal/zzs;->separator:Ljava/lang/String;
 
     return-void
 .end method
 
+.method public static zzci(Ljava/lang/String;)Lcom/google/android/gms/common/internal/zzs;
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/common/internal/zzs;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/common/internal/zzs;-><init>(Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
 
 # virtual methods
-.method public final synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 5
+.method public final zza(Ljava/lang/Iterable;)Ljava/lang/String;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Iterable",
+            "<*>;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
 
-    .line 7
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelReader;->validateObjectHeader(Landroid/os/Parcel;)I
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result v0
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/common/internal/zzs;->zza(Ljava/lang/StringBuilder;Ljava/lang/Iterable;)Ljava/lang/StringBuilder;
 
-    .line 9
-    :goto_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+    move-result-object v0
 
-    move-result v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-ge v2, v0, :cond_1
+    move-result-object v0
 
-    .line 10
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelReader;->readHeader(Landroid/os/Parcel;)I
+    return-object v0
+.end method
 
-    move-result v2
+.method public final zza(Ljava/lang/StringBuilder;Ljava/lang/Iterable;)Ljava/lang/StringBuilder;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/StringBuilder;",
+            "Ljava/lang/Iterable",
+            "<*>;)",
+            "Ljava/lang/StringBuilder;"
+        }
+    .end annotation
 
-    .line 11
-    invoke-static {v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelReader;->getFieldId(I)I
+    invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result v3
+    move-result-object v0
 
-    const/4 v4, 0x1
-
-    if-eq v3, v4, :cond_0
-
-    .line 15
-    invoke-static {p1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelReader;->skipUnknownField(Landroid/os/Parcel;I)V
-
-    goto :goto_0
-
-    .line 13
-    :cond_0
-    invoke-static {p1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelReader;->readInt(Landroid/os/Parcel;I)I
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/google/android/gms/common/internal/zzs;->zzs(Ljava/lang/Object;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/google/android/gms/common/internal/zzs;->separator:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/google/android/gms/common/internal/zzs;->zzs(Ljava/lang/Object;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
     goto :goto_0
 
-    .line 17
-    :cond_1
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelReader;->ensureAtEnd(Landroid/os/Parcel;I)V
-
-    .line 18
-    new-instance p1, Lcom/google/android/gms/common/internal/zzr;
-
-    invoke-direct {p1, v1}, Lcom/google/android/gms/common/internal/zzr;-><init>(I)V
-
+    :cond_0
     return-object p1
 .end method
 
-.method public final synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+.method zzs(Ljava/lang/Object;)Ljava/lang/CharSequence;
+    .locals 1
 
-    .line 4
-    new-array p1, p1, [Lcom/google/android/gms/common/internal/zzr;
+    instance-of v0, p1, Ljava/lang/CharSequence;
 
+    if-eqz v0, :cond_0
+
+    check-cast p1, Ljava/lang/CharSequence;
+
+    :goto_0
     return-object p1
+
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    goto :goto_0
 .end method

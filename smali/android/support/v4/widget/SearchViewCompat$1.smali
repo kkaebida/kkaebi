@@ -25,7 +25,8 @@
 .method constructor <init>(Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;)V
     .locals 0
 
-    .line 135
+    .prologue
+    .line 136
     iput-object p1, p0, Landroid/support/v4/widget/SearchViewCompat$1;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,26 +38,30 @@
 # virtual methods
 .method public onQueryTextChange(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "newText"    # Ljava/lang/String;
 
-    .line 143
+    .prologue
+    .line 144
     iget-object v0, p0, Landroid/support/v4/widget/SearchViewCompat$1;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;
 
     invoke-interface {v0, p1}, Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;->onQueryTextChange(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "query"    # Ljava/lang/String;
 
-    .line 138
+    .prologue
+    .line 139
     iget-object v0, p0, Landroid/support/v4/widget/SearchViewCompat$1;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;
 
     invoke-interface {v0, p1}, Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;->onQueryTextSubmit(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

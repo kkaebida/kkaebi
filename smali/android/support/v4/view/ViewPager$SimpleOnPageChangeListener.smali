@@ -21,7 +21,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 315
+    .prologue
+    .line 318
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,18 +32,29 @@
 # virtual methods
 .method public onPageScrollStateChanged(I)V
     .locals 0
+    .param p1, "state"    # I
 
+    .prologue
+    .line 332
     return-void
 .end method
 
 .method public onPageScrolled(IFI)V
     .locals 0
+    .param p1, "position"    # I
+    .param p2, "positionOffset"    # F
+    .param p3, "positionOffsetPixels"    # I
 
+    .prologue
+    .line 322
     return-void
 .end method
 
 .method public onPageSelected(I)V
     .locals 0
+    .param p1, "position"    # I
 
+    .prologue
+    .line 327
     return-void
 .end method

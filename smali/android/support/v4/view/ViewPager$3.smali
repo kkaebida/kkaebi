@@ -24,8 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/ViewPager;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/view/ViewPager;
 
-    .line 263
+    .prologue
+    .line 266
     iput-object p1, p0, Landroid/support/v4/view/ViewPager$3;->this$0:Landroid/support/v4/view/ViewPager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,17 +40,19 @@
 .method public run()V
     .locals 2
 
-    .line 266
+    .prologue
+    .line 269
     iget-object v0, p0, Landroid/support/v4/view/ViewPager$3;->this$0:Landroid/support/v4/view/ViewPager;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setScrollState(I)V
 
-    .line 267
+    .line 270
     iget-object v0, p0, Landroid/support/v4/view/ViewPager$3;->this$0:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0}, Landroid/support/v4/view/ViewPager;->populate()V
 
+    .line 271
     return-void
 .end method

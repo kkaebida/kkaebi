@@ -12,7 +12,8 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 39
+    .prologue
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -23,7 +24,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 36
+    .prologue
+    .line 37
     sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
     return-object v0

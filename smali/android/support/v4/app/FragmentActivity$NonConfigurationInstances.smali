@@ -22,7 +22,8 @@
 .field loaders:Landroid/support/v4/util/SimpleArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/support/v4/util/SimpleArrayMap<",
+            "Landroid/support/v4/util/SimpleArrayMap",
+            "<",
             "Ljava/lang/String;",
             "Landroid/support/v4/app/LoaderManager;",
             ">;"
@@ -35,7 +36,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 121
+    .prologue
+    .line 129
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

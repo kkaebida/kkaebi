@@ -24,9 +24,11 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 37
     return-void
 .end method
 
@@ -39,7 +41,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }

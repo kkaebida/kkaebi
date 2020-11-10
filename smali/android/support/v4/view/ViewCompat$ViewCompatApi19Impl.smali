@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x13
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 1173
+    .prologue
+    .line 1107
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi18Impl;-><init>()V
 
     return-void
@@ -31,63 +32,79 @@
 
 # virtual methods
 .method public getAccessibilityLiveRegion(Landroid/view/View;)I
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
-    .line 1176
+    .prologue
+    .line 1110
     invoke-virtual {p1}, Landroid/view/View;->getAccessibilityLiveRegion()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public isAttachedToWindow(Landroid/view/View;)Z
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
-    .line 1201
+    .prologue
+    .line 1135
     invoke-virtual {p1}, Landroid/view/View;->isAttachedToWindow()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public isLaidOut(Landroid/view/View;)Z
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
-    .line 1191
+    .prologue
+    .line 1125
     invoke-virtual {p1}, Landroid/view/View;->isLaidOut()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public isLayoutDirectionResolved(Landroid/view/View;)Z
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
-    .line 1196
+    .prologue
+    .line 1130
     invoke-virtual {p1}, Landroid/view/View;->isLayoutDirectionResolved()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public setAccessibilityLiveRegion(Landroid/view/View;I)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "mode"    # I
 
-    .line 1181
+    .prologue
+    .line 1115
     invoke-virtual {p1, p2}, Landroid/view/View;->setAccessibilityLiveRegion(I)V
 
+    .line 1116
     return-void
 .end method
 
 .method public setImportantForAccessibility(Landroid/view/View;I)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "mode"    # I
 
-    .line 1186
+    .prologue
+    .line 1120
     invoke-virtual {p1, p2}, Landroid/view/View;->setImportantForAccessibility(I)V
 
+    .line 1121
     return-void
 .end method

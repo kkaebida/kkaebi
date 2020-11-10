@@ -28,9 +28,10 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 3567
     const/4 v0, 0x3
 
-    .line 3728
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
@@ -52,7 +53,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 3727
+    .prologue
+    .line 3566
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

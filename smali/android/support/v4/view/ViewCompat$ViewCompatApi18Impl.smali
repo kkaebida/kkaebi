@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x12
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 1155
+    .prologue
+    .line 1089
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi17Impl;-><init>()V
 
     return-void
@@ -31,32 +32,40 @@
 
 # virtual methods
 .method public getClipBounds(Landroid/view/View;)Landroid/graphics/Rect;
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
-    .line 1163
+    .prologue
+    .line 1097
     invoke-virtual {p1}, Landroid/view/View;->getClipBounds()Landroid/graphics/Rect;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public isInLayout(Landroid/view/View;)Z
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
-    .line 1168
+    .prologue
+    .line 1102
     invoke-virtual {p1}, Landroid/view/View;->isInLayout()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public setClipBounds(Landroid/view/View;Landroid/graphics/Rect;)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "clipBounds"    # Landroid/graphics/Rect;
 
-    .line 1158
+    .prologue
+    .line 1092
     invoke-virtual {p1, p2}, Landroid/view/View;->setClipBounds(Landroid/graphics/Rect;)V
 
+    .line 1093
     return-void
 .end method

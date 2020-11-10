@@ -31,8 +31,8 @@
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/List<",
-            "*>;",
+            "Ljava/util/List",
+            "<*>;",
             "Landroid/os/Bundle;",
             ")V"
         }

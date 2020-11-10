@@ -21,55 +21,58 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 65
+    .prologue
+    .line 67
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
+    .line 68
+    .local v0, "version":I
     const/16 v1, 0x13
 
     if-lt v0, v1, :cond_0
 
-    .line 66
-    new-instance v0, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi19Impl;
+    .line 69
+    new-instance v1, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi19Impl;
 
-    invoke-direct {v0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi19Impl;-><init>()V
+    invoke-direct {v1}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi19Impl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
+    sput-object v1, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
-    goto :goto_0
+    .line 75
+    :goto_0
+    return-void
 
-    .line 67
+    .line 70
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
     const/16 v1, 0x12
 
     if-lt v0, v1, :cond_1
 
-    .line 68
-    new-instance v0, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;
+    .line 71
+    new-instance v1, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;
 
-    invoke-direct {v0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;-><init>()V
+    invoke-direct {v1}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
+    sput-object v1, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
     goto :goto_0
 
-    .line 70
+    .line 73
     :cond_1
-    new-instance v0, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
+    new-instance v1, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
-    invoke-direct {v0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;-><init>()V
+    invoke-direct {v1}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
+    sput-object v1, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
-    :goto_0
-    return-void
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .line 93
+    .prologue
+    .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -77,37 +80,45 @@
 
 .method public static getAllocationByteCount(Landroid/graphics/Bitmap;)I
     .locals 1
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 90
+    .prologue
+    .line 93
     sget-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;->getAllocationByteCount(Landroid/graphics/Bitmap;)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static hasMipMap(Landroid/graphics/Bitmap;)Z
     .locals 1
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 75
+    .prologue
+    .line 78
     sget-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;->hasMipMap(Landroid/graphics/Bitmap;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static setHasMipMap(Landroid/graphics/Bitmap;Z)V
     .locals 1
+    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p1, "hasMipMap"    # Z
 
-    .line 79
+    .prologue
+    .line 82
     sget-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
     invoke-virtual {v0, p0, p1}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;->setHasMipMap(Landroid/graphics/Bitmap;Z)V
 
+    .line 83
     return-void
 .end method

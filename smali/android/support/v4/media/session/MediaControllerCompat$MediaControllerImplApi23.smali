@@ -4,10 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x17
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/media/session/MediaControllerCompat;
 .end annotation
@@ -21,24 +17,32 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "sessionToken"    # Landroid/support/v4/media/session/MediaSessionCompat$Token;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 2389
+    .prologue
+    .line 2125
     invoke-direct {p0, p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;-><init>(Landroid/content/Context;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
 
+    .line 2126
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v4/media/session/MediaSessionCompat;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "session"    # Landroid/support/v4/media/session/MediaSessionCompat;
 
-    .line 2384
+    .prologue
+    .line 2120
     invoke-direct {p0, p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;-><init>(Landroid/content/Context;Landroid/support/v4/media/session/MediaSessionCompat;)V
 
+    .line 2121
     return-void
 .end method
 
@@ -47,25 +51,27 @@
 .method public getTransportControls()Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;
     .locals 2
 
-    .line 2394
-    iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi23;->mControllerObj:Ljava/lang/Object;
+    .prologue
+    .line 2130
+    iget-object v1, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi23;->mControllerObj:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/media/session/MediaControllerCompatApi21;->getTransportControls(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1}, Landroid/support/v4/media/session/MediaControllerCompatApi21;->getTransportControls(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 2131
+    .local v0, "controlsObj":Ljava/lang/Object;
     if-eqz v0, :cond_0
 
-    .line 2395
     new-instance v1, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi23;
 
     invoke-direct {v1, v0}, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi23;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_0
+    :goto_0
+    return-object v1
 
     :cond_0
     const/4 v1, 0x0
 
-    :goto_0
-    return-object v1
+    goto :goto_0
 .end method

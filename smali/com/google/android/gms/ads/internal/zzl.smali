@@ -1,233 +1,538 @@
-.class final Lcom/google/android/gms/ads/internal/zzl;
-.super Ljava/lang/Object;
+.class public Lcom/google/android/gms/ads/internal/zzl;
+.super Lcom/google/android/gms/ads/internal/client/zzv$zza;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/google/android/gms/internal/zznw$zza;
+.implements Lcom/google/android/gms/internal/zzpw$zza;
+
+
+# annotations
+.annotation runtime Lcom/google/android/gms/internal/zzgd;
+.end annotation
+
+
+# static fields
+.field private static final zzoW:Ljava/lang/Object;
+
+.field private static zzoX:Lcom/google/android/gms/ads/internal/zzl;
 
 
 # instance fields
-.field final synthetic zzwg:Lcom/google/android/gms/internal/ads/zzaji;
+.field private final mContext:Landroid/content/Context;
 
-.field final synthetic zzwm:Lcom/google/android/gms/ads/internal/zzi;
+.field zzoY:Lcom/google/android/gms/internal/zzpv;
 
-.field final synthetic zzwn:Lcom/google/android/gms/internal/ads/zzait;
+.field zzoZ:Ljava/lang/String;
 
-.field private final synthetic zzwo:Lcom/google/android/gms/internal/ads/zznx;
+.field zzpa:Ljava/lang/String;
+
+.field private zzpb:Z
+
+.field private zzpc:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/google/android/gms/ads/internal/zzi;Lcom/google/android/gms/internal/ads/zzaji;Lcom/google/android/gms/internal/ads/zzait;Lcom/google/android/gms/internal/ads/zznx;)V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
-    iput-object p1, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
+    new-instance v0, Ljava/lang/Object;
 
-    iput-object p2, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwg:Lcom/google/android/gms/internal/ads/zzaji;
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p3, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwn:Lcom/google/android/gms/internal/ads/zzait;
-
-    iput-object p4, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwo:Lcom/google/android/gms/internal/ads/zznx;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    sput-object v0, Lcom/google/android/gms/ads/internal/zzl;->zzoW:Ljava/lang/Object;
 
     return-void
 .end method
 
+.method constructor <init>(Landroid/content/Context;)V
+    .locals 1
 
-# virtual methods
-.method public final run()V
-    .locals 13
+    invoke-direct {p0}, Lcom/google/android/gms/ads/internal/client/zzv$zza;-><init>()V
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwg:Lcom/google/android/gms/internal/ads/zzaji;
-
-    iget-object v0, v0, Lcom/google/android/gms/internal/ads/zzaji;->zzcos:Lcom/google/android/gms/internal/ads/zzaej;
-
-    iget-boolean v0, v0, Lcom/google/android/gms/internal/ads/zzaej;->zzcez:Z
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/zzi;->zzvw:Lcom/google/android/gms/ads/internal/zzbw;
-
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/zzbw;->zzado:Lcom/google/android/gms/internal/ads/zzod;
-
-    if-eqz v0, :cond_1
+    iput-object p1, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
 
     const/4 v0, 0x0
 
-    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwg:Lcom/google/android/gms/internal/ads/zzaji;
+    iput-boolean v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpb:Z
 
-    iget-object v2, v2, Lcom/google/android/gms/internal/ads/zzaji;->zzcos:Lcom/google/android/gms/internal/ads/zzaej;
+    return-void
+.end method
 
-    iget-object v2, v2, Lcom/google/android/gms/internal/ads/zzaej;->zzbyq:Ljava/lang/String;
+.method public static zzq(Landroid/content/Context;)Lcom/google/android/gms/ads/internal/zzl;
+    .locals 3
 
-    if-eqz v2, :cond_0
+    sget-object v1, Lcom/google/android/gms/ads/internal/zzl;->zzoW:Ljava/lang/Object;
 
-    invoke-static {}, Lcom/google/android/gms/ads/internal/zzbv;->zzek()Lcom/google/android/gms/internal/ads/zzakk;
+    monitor-enter v1
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwg:Lcom/google/android/gms/internal/ads/zzaji;
+    :try_start_0
+    sget-object v0, Lcom/google/android/gms/ads/internal/zzl;->zzoX:Lcom/google/android/gms/ads/internal/zzl;
 
-    iget-object v0, v0, Lcom/google/android/gms/internal/ads/zzaji;->zzcos:Lcom/google/android/gms/internal/ads/zzaej;
+    if-nez v0, :cond_0
 
-    iget-object v0, v0, Lcom/google/android/gms/internal/ads/zzaej;->zzbyq:Ljava/lang/String;
+    new-instance v0, Lcom/google/android/gms/ads/internal/zzl;
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/ads/zzakk;->zzcu(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Lcom/google/android/gms/ads/internal/zzl;-><init>(Landroid/content/Context;)V
+
+    sput-object v0, Lcom/google/android/gms/ads/internal/zzl;->zzoX:Lcom/google/android/gms/ads/internal/zzl;
+
+    :cond_0
+    sget-object v0, Lcom/google/android/gms/ads/internal/zzl;->zzoX:Lcom/google/android/gms/ads/internal/zzl;
+
+    monitor-exit v1
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+.end method
+
+
+# virtual methods
+.method public getClientId()Ljava/lang/String;
+    .locals 2
+
+    sget-object v1, Lcom/google/android/gms/ads/internal/zzl;->zzoW:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpc:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    monitor-exit v1
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/google/android/gms/analytics/GoogleAnalytics;->getInstance(Landroid/content/Context;)Lcom/google/android/gms/analytics/GoogleAnalytics;
 
     move-result-object v0
 
-    :cond_0
-    new-instance v2, Lcom/google/android/gms/internal/ads/zzny;
+    invoke-virtual {v0}, Lcom/google/android/gms/analytics/GoogleAnalytics;->getClientId()Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
+    move-result-object v0
 
-    iget-object v4, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwg:Lcom/google/android/gms/internal/ads/zzaji;
+    monitor-exit v1
 
-    iget-object v4, v4, Lcom/google/android/gms/internal/ads/zzaji;->zzcos:Lcom/google/android/gms/internal/ads/zzaej;
+    goto :goto_0
 
-    iget-object v4, v4, Lcom/google/android/gms/internal/ads/zzaej;->zzceo:Ljava/lang/String;
-
-    invoke-direct {v2, v3, v0, v4}, Lcom/google/android/gms/internal/ads/zzny;-><init>(Lcom/google/android/gms/ads/internal/zzaf;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/zzi;->zzvw:Lcom/google/android/gms/ads/internal/zzbw;
-
-    const/4 v3, 0x1
-
-    iput v3, v0, Lcom/google/android/gms/ads/internal/zzbw;->zzadv:I
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iput-boolean v1, v0, Lcom/google/android/gms/ads/internal/zzi;->zzvu:Z
-
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/zzi;->zzvw:Lcom/google/android/gms/ads/internal/zzbw;
-
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/zzbw;->zzado:Lcom/google/android/gms/internal/ads/zzod;
-
-    invoke-interface {v0, v2}, Lcom/google/android/gms/internal/ads/zzod;->zza(Lcom/google/android/gms/internal/ads/zzoa;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
+    :catchall_0
     move-exception v0
 
-    const-string v2, "#007 Could not call remote method."
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v2, v0}, Lcom/google/android/gms/internal/ads/zzakb;->zzd(Ljava/lang/String;Ljava/lang/Throwable;)V
+    throw v0
+.end method
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
+.method public zza(Lcom/google/android/gms/internal/zzod;)V
+    .locals 0
 
-    iput-boolean v3, v0, Lcom/google/android/gms/ads/internal/zzi;->zzvu:Z
+    return-void
+.end method
+
+.method public zza(Lcom/google/android/gms/internal/zzod;Landroid/app/Activity;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x1
+
+    if-eqz p1, :cond_0
+
+    if-nez p2, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
 
     :cond_1
-    new-instance v0, Lcom/google/android/gms/ads/internal/zzx;
+    instance-of v0, p2, Lcom/google/android/gms/ads/AdActivity;
 
-    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
+    if-eqz v0, :cond_5
 
-    iget-object v2, v2, Lcom/google/android/gms/ads/internal/zzi;->zzvw:Lcom/google/android/gms/ads/internal/zzbw;
+    invoke-static {}, Lcom/google/android/gms/ads/internal/zzo;->zzbv()Lcom/google/android/gms/internal/zzhl;
 
-    iget-object v2, v2, Lcom/google/android/gms/ads/internal/zzbw;->zzrt:Landroid/content/Context;
+    move-result-object v0
 
-    iget-object v3, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwn:Lcom/google/android/gms/internal/ads/zzait;
+    invoke-virtual {v0, p2}, Lcom/google/android/gms/internal/zzhl;->zzk(Landroid/app/Activity;)I
 
-    iget-object v4, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwg:Lcom/google/android/gms/internal/ads/zzaji;
+    move-result v0
 
-    iget-object v4, v4, Lcom/google/android/gms/internal/ads/zzaji;->zzcos:Lcom/google/android/gms/internal/ads/zzaej;
+    if-ne v0, v1, :cond_2
 
-    iget-object v4, v4, Lcom/google/android/gms/internal/ads/zzaej;->zzcfi:Lcom/google/android/gms/internal/ads/zzael;
+    invoke-virtual {p1, v1}, Lcom/google/android/gms/internal/zzod;->zzai(Z)V
 
-    invoke-direct {v0, v2, v3, v4}, Lcom/google/android/gms/ads/internal/zzx;-><init>(Landroid/content/Context;Lcom/google/android/gms/internal/ads/zzait;Lcom/google/android/gms/internal/ads/zzael;)V
+    const-string v0, "Interstitial Ad"
 
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/zzod;->setScreenName(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_3
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_4
+
+    :cond_3
+    const-string v0, "Expanded Ad"
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/zzod;->setScreenName(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {p1, v2}, Lcom/google/android/gms/internal/zzod;->setScreenName(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_5
+    instance-of v0, p2, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1, v2}, Lcom/google/android/gms/internal/zzod;->setScreenName(Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
+.method public zza(Ljava/lang/String;Lcom/google/android/gms/ads/internal/client/MobileAdsSettingsParcel;)V
+    .locals 2
+
+    sget-object v1, Lcom/google/android/gms/ads/internal/zzl;->zzoW:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpb:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "Mobile ads is initialized already."
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/zzb;->zzaC(Ljava/lang/String;)V
+
+    monitor-exit v1
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
+
+    if-nez v0, :cond_1
+
+    const-string v0, "Fail to initialize mobile ads because context is null."
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/zzb;->zzaC(Ljava/lang/String;)V
+
+    monitor-exit v1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+
+    :cond_1
     :try_start_1
-    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    iget-object v3, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwg:Lcom/google/android/gms/internal/ads/zzaji;
+    move-result v0
 
-    iget-object v4, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwn:Lcom/google/android/gms/internal/ads/zzait;
+    if-eqz v0, :cond_2
 
-    invoke-virtual {v2, v3, v0, v4}, Lcom/google/android/gms/ads/internal/zzi;->zza(Lcom/google/android/gms/internal/ads/zzaji;Lcom/google/android/gms/ads/internal/zzx;Lcom/google/android/gms/internal/ads/zzait;)Lcom/google/android/gms/internal/ads/zzaqw;
+    const-string v0, "Fail to initialize mobile ads because ApplicationCode is empty."
 
-    move-result-object v9
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/zzb;->zzaC(Ljava/lang/String;)V
+
+    monitor-exit v1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpb:Z
+
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/gms/ads/internal/zzl;->zzb(Ljava/lang/String;Lcom/google/android/gms/ads/internal/client/MobileAdsSettingsParcel;)V
+
+    monitor-exit v1
     :try_end_1
-    .catch Lcom/google/android/gms/internal/ads/zzarg; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    new-instance v2, Lcom/google/android/gms/ads/internal/zzn;
+    goto :goto_0
+.end method
 
-    invoke-direct {v2, p0, v0}, Lcom/google/android/gms/ads/internal/zzn;-><init>(Lcom/google/android/gms/ads/internal/zzl;Lcom/google/android/gms/ads/internal/zzx;)V
+.method zzb(Ljava/lang/String;Lcom/google/android/gms/ads/internal/client/MobileAdsSettingsParcel;)V
+    .locals 4
 
-    invoke-interface {v9, v2}, Lcom/google/android/gms/internal/ads/zzaqw;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    if-eqz p2, :cond_0
 
-    new-instance v2, Lcom/google/android/gms/ads/internal/zzo;
+    iget-boolean v0, p2, Lcom/google/android/gms/ads/internal/client/MobileAdsSettingsParcel;->zztf:Z
 
-    invoke-direct {v2, p0, v0}, Lcom/google/android/gms/ads/internal/zzo;-><init>(Lcom/google/android/gms/ads/internal/zzl;Lcom/google/android/gms/ads/internal/zzx;)V
+    if-eqz v0, :cond_0
 
-    invoke-interface {v9, v2}, Lcom/google/android/gms/internal/ads/zzaqw;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-static {}, Lcom/google/android/gms/ads/internal/zzo;->zzbv()Lcom/google/android/gms/internal/zzhl;
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
+    move-result-object v0
 
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/zzi;->zzvw:Lcom/google/android/gms/ads/internal/zzbw;
+    iget-object v1, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
 
-    iput v1, v0, Lcom/google/android/gms/ads/internal/zzbw;->zzadv:I
-
-    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/zzi;->zzvw:Lcom/google/android/gms/ads/internal/zzbw;
-
-    invoke-static {}, Lcom/google/android/gms/ads/internal/zzbv;->zzej()Lcom/google/android/gms/internal/ads/zzabl;
-
-    iget-object v1, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v1, v1, Lcom/google/android/gms/ads/internal/zzi;->zzvw:Lcom/google/android/gms/ads/internal/zzbw;
-
-    iget-object v5, v1, Lcom/google/android/gms/ads/internal/zzbw;->zzrt:Landroid/content/Context;
-
-    iget-object v6, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v7, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwg:Lcom/google/android/gms/internal/ads/zzaji;
-
-    iget-object v1, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v1, v1, Lcom/google/android/gms/ads/internal/zzi;->zzvw:Lcom/google/android/gms/ads/internal/zzbw;
-
-    iget-object v8, v1, Lcom/google/android/gms/ads/internal/zzbw;->zzacq:Lcom/google/android/gms/internal/ads/zzci;
-
-    iget-object v1, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v10, v1, Lcom/google/android/gms/ads/internal/zzi;->zzwh:Lcom/google/android/gms/internal/ads/zzxn;
-
-    iget-object v11, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwm:Lcom/google/android/gms/ads/internal/zzi;
-
-    iget-object v12, p0, Lcom/google/android/gms/ads/internal/zzl;->zzwo:Lcom/google/android/gms/internal/ads/zznx;
-
-    invoke-static/range {v5 .. v12}, Lcom/google/android/gms/internal/ads/zzabl;->zza(Landroid/content/Context;Lcom/google/android/gms/ads/internal/zza;Lcom/google/android/gms/internal/ads/zzaji;Lcom/google/android/gms/internal/ads/zzci;Lcom/google/android/gms/internal/ads/zzaqw;Lcom/google/android/gms/internal/ads/zzxn;Lcom/google/android/gms/internal/ads/zzabm;Lcom/google/android/gms/internal/ads/zznx;)Lcom/google/android/gms/internal/ads/zzalc;
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/google/android/gms/ads/internal/zzbw;->zzacu:Lcom/google/android/gms/internal/ads/zzalc;
+    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
 
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "android.permission.INTERNET"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/google/android/gms/internal/zzhl;->zza(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string v0, "Missing permission android.permission.INTERNET"
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/zzb;->zzaz(Ljava/lang/String;)V
+
+    :cond_0
+    :goto_0
     return-void
 
-    :catch_1
+    :cond_1
+    invoke-static {}, Lcom/google/android/gms/ads/internal/zzo;->zzbv()Lcom/google/android/gms/internal/zzhl;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "android.permission.ACCESS_NETWORK_STATE"
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/google/android/gms/internal/zzhl;->zza(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    const-string v0, "Missing permission android.permission.ACCESS_NETWORK_STATE"
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/zzb;->zzaz(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    const-string v0, "ca-app-[a-z0-9_-]+~[a-z0-9_-]+"
+
+    invoke-static {v0, p1}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Please provide a valid application code"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_3
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpc:Z
+
+    iput-object p1, p0, Lcom/google/android/gms/ads/internal/zzl;->zzoZ:Ljava/lang/String;
+
+    iget-object v0, p2, Lcom/google/android/gms/ads/internal/client/MobileAdsSettingsParcel;->zztg:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpa:Ljava/lang/String;
+
+    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/zzpw;->zzaK(Landroid/content/Context;)Lcom/google/android/gms/internal/zzpw;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/google/android/gms/internal/zzpv$zza;
+
+    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->zzoZ:Ljava/lang/String;
+
+    invoke-direct {v1, v2}, Lcom/google/android/gms/internal/zzpv$zza;-><init>(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpa:Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpa:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Lcom/google/android/gms/internal/zzpv$zza;->zzeS(Ljava/lang/String;)Lcom/google/android/gms/internal/zzpv$zza;
+
+    :cond_4
+    invoke-virtual {v1}, Lcom/google/android/gms/internal/zzpv$zza;->zzzW()Lcom/google/android/gms/internal/zzpv;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/zzpw;->zza(Lcom/google/android/gms/internal/zzpv;)V
+
+    invoke-virtual {v0, p0}, Lcom/google/android/gms/internal/zzpw;->zza(Lcom/google/android/gms/internal/zzpw$zza;)V
+
+    iget-object v1, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/google/android/gms/internal/zznw;->zzaC(Landroid/content/Context;)Lcom/google/android/gms/internal/zznw;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/google/android/gms/internal/zznw;->zza(Lcom/google/android/gms/internal/zznw$zza;)V
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/zzpw;->start()V
+
+    goto :goto_0
+.end method
+
+.method public zzbl()Z
+    .locals 2
+
+    sget-object v1, Lcom/google/android/gms/ads/internal/zzl;->zzoW:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpc:Z
+
+    monitor-exit v1
+
+    return v0
+
+    :catchall_0
     move-exception v0
 
-    const-string v1, "Could not obtain webview."
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/ads/zzakb;->zzb(Ljava/lang/String;Ljava/lang/Throwable;)V
+    throw v0
+.end method
 
-    sget-object v0, Lcom/google/android/gms/internal/ads/zzakk;->zzcrm:Landroid/os/Handler;
+.method public zzbm()V
+    .locals 1
 
-    new-instance v1, Lcom/google/android/gms/ads/internal/zzm;
+    iget-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, p0}, Lcom/google/android/gms/ads/internal/zzm;-><init>(Lcom/google/android/gms/ads/internal/zzl;)V
+    invoke-static {v0}, Lcom/google/android/gms/internal/zzpw;->zzaK(Landroid/content/Context;)Lcom/google/android/gms/internal/zzpw;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/zzpw;->zzzX()Lcom/google/android/gms/internal/zzpv;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/ads/internal/zzl;->zzoY:Lcom/google/android/gms/internal/zzpv;
 
     return-void
+.end method
+
+.method public zzbn()I
+    .locals 3
+
+    const/4 v0, -0x1
+
+    sget-object v1, Lcom/google/android/gms/ads/internal/zzl;->zzoW:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-boolean v2, p0, Lcom/google/android/gms/ads/internal/zzl;->zzpc:Z
+
+    if-nez v2, :cond_0
+
+    monitor-exit v1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    iget-object v2, p0, Lcom/google/android/gms/ads/internal/zzl;->mContext:Landroid/content/Context;
+
+    invoke-static {v2}, Lcom/google/android/gms/internal/zznw;->zzaC(Landroid/content/Context;)Lcom/google/android/gms/internal/zznw;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/google/android/gms/internal/zznw;->zzwe()Lcom/google/android/gms/internal/zzod;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Lcom/google/android/gms/internal/zzod;->zzbn()I
+
+    move-result v0
+
+    monitor-exit v1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+
+    :cond_1
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
 .end method

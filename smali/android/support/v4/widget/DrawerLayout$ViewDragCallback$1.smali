@@ -24,8 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
 
-    .line 2049
+    .prologue
+    .line 2056
     iput-object p1, p0, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback$1;->this$1:Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,10 +40,12 @@
 .method public run()V
     .locals 1
 
-    .line 2051
+    .prologue
+    .line 2058
     iget-object v0, p0, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback$1;->this$1:Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
 
     invoke-virtual {v0}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;->peekDrawer()V
 
+    .line 2059
     return-void
 .end method

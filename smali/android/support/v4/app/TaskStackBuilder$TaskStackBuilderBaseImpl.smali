@@ -18,6 +18,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -27,29 +28,35 @@
 
 # virtual methods
 .method public getPendingIntent(Landroid/content/Context;[Landroid/content/Intent;IILandroid/os/Bundle;)Landroid/app/PendingIntent;
-    .locals 2
+    .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intents"    # [Landroid/content/Intent;
+    .param p3, "requestCode"    # I
+    .param p4, "flags"    # I
+    .param p5, "options"    # Landroid/os/Bundle;
+
+    .prologue
+    const/4 v2, 0x0
 
     .line 79
-    new-instance p5, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const/4 v0, 0x0
+    aget-object v1, p2, v2
 
-    aget-object v1, p2, v0
-
-    invoke-direct {p5, v1}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
     const v1, 0x1000c000
 
-    invoke-virtual {p5, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    move-result-object p5
+    move-result-object v0
 
-    aput-object p5, p2, v0
+    aput-object v0, p2, v2
 
     .line 81
     invoke-static {p1, p3, p2, p4}, Landroid/app/PendingIntent;->getActivities(Landroid/content/Context;I[Landroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

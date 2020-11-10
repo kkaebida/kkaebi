@@ -31,8 +31,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
-            "*>;)V"
+            "Ljava/util/List",
+            "<*>;)V"
         }
     .end annotation
 .end method

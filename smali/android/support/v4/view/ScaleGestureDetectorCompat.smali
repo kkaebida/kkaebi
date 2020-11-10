@@ -3,80 +3,92 @@
 .source "ScaleGestureDetectorCompat.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorCompatKitKatImpl;,
+        Landroid/support/v4/view/ScaleGestureDetectorCompat$BaseScaleGestureDetectorImpl;,
+        Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorImpl;
+    }
+.end annotation
+
+
+# static fields
+.field static final IMPL:Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorImpl;
+
+
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .prologue
+    .line 64
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    .line 65
+    .local v0, "version":I
+    const/16 v1, 0x13
+
+    if-lt v0, v1, :cond_0
+
+    .line 66
+    new-instance v1, Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorCompatKitKatImpl;
+
+    invoke-direct {v1}, Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorCompatKitKatImpl;-><init>()V
+
+    sput-object v1, Landroid/support/v4/view/ScaleGestureDetectorCompat;->IMPL:Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorImpl;
+
+    .line 70
+    :goto_0
+    return-void
+
+    .line 68
+    :cond_0
+    new-instance v1, Landroid/support/v4/view/ScaleGestureDetectorCompat$BaseScaleGestureDetectorImpl;
+
+    invoke-direct {v1}, Landroid/support/v4/view/ScaleGestureDetectorCompat$BaseScaleGestureDetectorImpl;-><init>()V
+
+    sput-object v1, Landroid/support/v4/view/ScaleGestureDetectorCompat;->IMPL:Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorImpl;
+
+    goto :goto_0
+.end method
+
 .method private constructor <init>()V
     .locals 0
 
-    .line 26
+    .prologue
+    .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static isQuickScaleEnabled(Landroid/view/ScaleGestureDetector;)Z
-    .locals 2
-
-    .line 78
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_0
-
-    .line 79
-    invoke-virtual {p0}, Landroid/view/ScaleGestureDetector;->isQuickScaleEnabled()Z
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
 .method public static isQuickScaleEnabled(Ljava/lang/Object;)Z
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
+    .locals 1
+    .param p0, "scaleGestureDetector"    # Ljava/lang/Object;
 
-    .line 68
-    check-cast p0, Landroid/view/ScaleGestureDetector;
+    .prologue
+    .line 89
+    sget-object v0, Landroid/support/v4/view/ScaleGestureDetectorCompat;->IMPL:Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorImpl;
 
-    invoke-static {p0}, Landroid/support/v4/view/ScaleGestureDetectorCompat;->isQuickScaleEnabled(Landroid/view/ScaleGestureDetector;)Z
+    invoke-interface {v0, p0}, Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorImpl;->isQuickScaleEnabled(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
-.end method
-
-.method public static setQuickScaleEnabled(Landroid/view/ScaleGestureDetector;Z)V
-    .locals 2
-
-    .line 53
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_0
-
-    .line 54
-    invoke-virtual {p0, p1}, Landroid/view/ScaleGestureDetector;->setQuickScaleEnabled(Z)V
-
-    :cond_0
-    return-void
+    return v0
 .end method
 
 .method public static setQuickScaleEnabled(Ljava/lang/Object;Z)V
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
+    .locals 1
+    .param p0, "scaleGestureDetector"    # Ljava/lang/Object;
+    .param p1, "enabled"    # Z
 
-    .line 40
-    check-cast p0, Landroid/view/ScaleGestureDetector;
+    .prologue
+    .line 81
+    sget-object v0, Landroid/support/v4/view/ScaleGestureDetectorCompat;->IMPL:Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorImpl;
 
-    invoke-static {p0, p1}, Landroid/support/v4/view/ScaleGestureDetectorCompat;->setQuickScaleEnabled(Landroid/view/ScaleGestureDetector;Z)V
+    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/ScaleGestureDetectorCompat$ScaleGestureDetectorImpl;->setQuickScaleEnabled(Ljava/lang/Object;Z)V
 
+    .line 82
     return-void
 .end method

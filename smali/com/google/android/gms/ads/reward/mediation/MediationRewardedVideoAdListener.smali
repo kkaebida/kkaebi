@@ -30,11 +30,5 @@
 .method public abstract onRewarded(Lcom/google/android/gms/ads/reward/mediation/MediationRewardedVideoAdAdapter;Lcom/google/android/gms/ads/reward/RewardItem;)V
 .end method
 
-.method public abstract onVideoCompleted(Lcom/google/android/gms/ads/reward/mediation/MediationRewardedVideoAdAdapter;)V
-.end method
-
 .method public abstract onVideoStarted(Lcom/google/android/gms/ads/reward/mediation/MediationRewardedVideoAdAdapter;)V
-.end method
-
-.method public abstract zzc(Landroid/os/Bundle;)V
 .end method

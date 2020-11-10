@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0xf
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 997
+    .prologue
+    .line 931
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;-><init>()V
 
     return-void
@@ -31,12 +32,14 @@
 
 # virtual methods
 .method public hasOnClickListeners(Landroid/view/View;)Z
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
-    .line 1000
+    .prologue
+    .line 934
     invoke-virtual {p1}, Landroid/view/View;->hasOnClickListeners()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

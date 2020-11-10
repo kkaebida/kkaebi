@@ -21,13 +21,16 @@
 # direct methods
 .method constructor <init>(Landroid/service/media/MediaBrowserService$Result;)V
     .locals 0
+    .param p1, "result"    # Landroid/service/media/MediaBrowserService$Result;
 
+    .prologue
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 65
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
 
+    .line 66
     return-void
 .end method
 
@@ -36,124 +39,140 @@
 .method public detach()V
     .locals 1
 
+    .prologue
     .line 78
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
 
     invoke-virtual {v0}, Landroid/service/media/MediaBrowserService$Result;->detach()V
 
+    .line 79
     return-void
 .end method
 
 .method parcelListToItemList(Ljava/util/List;)Ljava/util/List;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/os/Parcel;",
             ">;)",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/media/browse/MediaBrowser$MediaItem;",
             ">;"
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    .prologue
+    .line 82
+    .local p1, "parcelList":Ljava/util/List;, "Ljava/util/List<Landroid/os/Parcel;>;"
+    if-nez p1, :cond_1
 
-    const/4 p1, 0x0
+    .line 83
+    const/4 v0, 0x0
 
-    return-object p1
+    .line 91
+    :cond_0
+    return-object v0
 
     .line 85
-    :cond_0
+    :cond_1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 86
+    .local v0, "items":Ljava/util/List;, "Ljava/util/List<Landroid/media/browse/MediaBrowser$MediaItem;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v2
 
     :goto_0
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/os/Parcel;
 
-    const/4 v2, 0x0
-
     .line 87
-    invoke-virtual {v1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    .local v1, "parcel":Landroid/os/Parcel;
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 88
-    sget-object v2, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v3, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 89
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     goto :goto_0
-
-    :cond_1
-    return-object v0
 .end method
 
 .method public sendResult(Ljava/util/List;I)V
-    .locals 2
+    .locals 3
+    .param p2, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/os/Parcel;",
             ">;I)V"
         }
     .end annotation
 
+    .prologue
     .line 70
+    .local p1, "result":Ljava/util/List;, "Ljava/util/List<Landroid/os/Parcel;>;"
     :try_start_0
     # getter for: Landroid/support/v4/media/MediaBrowserServiceCompatApi24;->sResultFlags:Ljava/lang/reflect/Field;
     invoke-static {}, Landroid/support/v4/media/MediaBrowserServiceCompatApi24;->access$000()Ljava/lang/reflect/Field;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
+    iget-object v2, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
 
-    invoke-virtual {v0, v1, p2}, Ljava/lang/reflect/Field;->setInt(Ljava/lang/Object;I)V
+    invoke-virtual {v1, v2, p2}, Ljava/lang/reflect/Field;->setInt(Ljava/lang/Object;I)V
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
-    :catch_0
-    move-exception p2
-
-    const-string v0, "MBSCompatApi24"
-
-    .line 72
-    invoke-static {v0, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
-
     .line 74
     :goto_0
-    iget-object p2, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
+    iget-object v1, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->mResultObj:Landroid/service/media/MediaBrowserService$Result;
 
     invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->parcelListToItemList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p2, p1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
+    invoke-virtual {v1, v2}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
+    .line 75
     return-void
+
+    .line 71
+    :catch_0
+    move-exception v0
+
+    .line 72
+    .local v0, "e":Ljava/lang/IllegalAccessException;
+    const-string v1, "MBSCompatApi24"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method

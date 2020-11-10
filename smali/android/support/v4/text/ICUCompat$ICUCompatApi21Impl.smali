@@ -4,8 +4,8 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x15
+.annotation build Landroid/annotation/TargetApi;
+    value = 0x17
 .end annotation
 
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -22,6 +22,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 33
     invoke-direct {p0}, Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;-><init>()V
 
@@ -31,12 +32,14 @@
 
 # virtual methods
 .method public maximizeAndGetScript(Ljava/util/Locale;)Ljava/lang/String;
-    .locals 0
+    .locals 1
+    .param p1, "locale"    # Ljava/util/Locale;
 
+    .prologue
     .line 36
     invoke-static {p1}, Landroid/support/v4/text/ICUCompatApi21;->maximizeAndGetScript(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

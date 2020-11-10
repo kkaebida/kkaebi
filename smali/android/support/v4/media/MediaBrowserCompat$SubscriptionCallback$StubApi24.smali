@@ -25,23 +25,25 @@
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
     .locals 0
 
-    .line 803
+    .prologue
+    .line 728
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback$StubApi24;->this$0:Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
 
     invoke-direct {p0, p1}, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback$StubApi21;-><init>(Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
+    .line 729
     return-void
 .end method
 
 
 # virtual methods
 .method public onChildrenLoaded(Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1    # Ljava/lang/String;
+    .locals 2
+    .param p1, "parentId"    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3    # Landroid/os/Bundle;
+    .param p3, "options"    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -49,42 +51,47 @@
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/List<",
-            "*>;",
+            "Ljava/util/List",
+            "<*>;",
             "Landroid/os/Bundle;",
             ")V"
         }
     .end annotation
 
-    .line 809
+    .prologue
+    .line 734
+    .local p2, "children":Ljava/util/List;, "Ljava/util/List<*>;"
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback$StubApi24;->this$0:Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
 
-    .line 810
+    .line 735
     invoke-static {p2}, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;->fromMediaItemList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p2
+    move-result-object v1
 
-    .line 809
-    invoke-virtual {v0, p1, p2, p3}, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->onChildrenLoaded(Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;)V
+    .line 734
+    invoke-virtual {v0, p1, v1, p3}, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->onChildrenLoaded(Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;)V
 
+    .line 736
     return-void
 .end method
 
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .param p1    # Ljava/lang/String;
+    .param p1, "parentId"    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2    # Landroid/os/Bundle;
+    .param p2, "options"    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
-    .line 815
+    .prologue
+    .line 740
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback$StubApi24;->this$0:Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->onError(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 741
     return-void
 .end method

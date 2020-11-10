@@ -3,18 +3,20 @@
 
 
 # instance fields
-.field private final zzaf:I
+.field private final zzOD:I
 
 
 # direct methods
-.method public constructor <init>(ILjava/lang/String;Landroid/content/Intent;)V
+.method constructor <init>(ILjava/lang/String;Landroid/content/Intent;)V
     .locals 0
+    .param p1, "connectionStatusCode"    # I
+    .param p2, "msg"    # Ljava/lang/String;
+    .param p3, "intent"    # Landroid/content/Intent;
 
-    .line 1
+    .prologue
     invoke-direct {p0, p2, p3}, Lcom/google/android/gms/common/UserRecoverableException;-><init>(Ljava/lang/String;Landroid/content/Intent;)V
 
-    .line 2
-    iput p1, p0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;->zzaf:I
+    iput p1, p0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;->zzOD:I
 
     return-void
 .end method
@@ -24,8 +26,7 @@
 .method public getConnectionStatusCode()I
     .locals 1
 
-    .line 4
-    iget v0, p0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;->zzaf:I
+    iget v0, p0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;->zzOD:I
 
     return v0
 .end method

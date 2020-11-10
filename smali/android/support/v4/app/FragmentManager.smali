@@ -21,18 +21,23 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 85
+    .prologue
+    .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 422
     return-void
 .end method
 
 .method public static enableDebugLogging(Z)V
     .locals 0
+    .param p0, "enabled"    # Z
 
-    .line 428
+    .prologue
+    .line 415
     sput-boolean p0, Landroid/support/v4/app/FragmentManagerImpl;->DEBUG:Z
 
+    .line 416
     return-void
 .end method
 
@@ -70,10 +75,17 @@
 .end method
 
 .method public abstract getFragments()Ljava/util/List;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/app/Fragment;",
             ">;"
         }
@@ -84,9 +96,6 @@
 .end method
 
 .method public abstract isDestroyed()Z
-.end method
-
-.method public abstract isStateSaved()Z
 .end method
 
 .method public openTransaction()Landroid/support/v4/app/FragmentTransaction;
@@ -100,7 +109,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 171
+    .prologue
+    .line 164
     invoke-virtual {p0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
 
     move-result-object v0

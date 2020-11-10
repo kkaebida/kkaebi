@@ -25,7 +25,8 @@
 .method constructor <init>(Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;)V
     .locals 0
 
-    .line 209
+    .prologue
+    .line 210
     iput-object p1, p0, Landroid/support/v4/widget/SearchViewCompat$2;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +39,8 @@
 .method public onClose()Z
     .locals 1
 
-    .line 212
+    .prologue
+    .line 213
     iget-object v0, p0, Landroid/support/v4/widget/SearchViewCompat$2;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;
 
     invoke-interface {v0}, Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;->onClose()Z

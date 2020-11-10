@@ -8,34 +8,40 @@
 
 
 # instance fields
-.field private final zzhl:Ljava/util/Date;
+.field private final zzaQ:Ljava/util/Date;
 
-.field private final zzhm:Lcom/google/ads/AdRequest$Gender;
+.field private final zzaR:Lcom/google/ads/AdRequest$Gender;
 
-.field private final zzhn:Ljava/util/Set;
+.field private final zzaS:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final zzho:Z
+.field private final zzaT:Z
 
-.field private final zzhp:Landroid/location/Location;
+.field private final zzaU:Landroid/location/Location;
 
 
 # direct methods
 .method public constructor <init>(Ljava/util/Date;Lcom/google/ads/AdRequest$Gender;Ljava/util/Set;ZLandroid/location/Location;)V
     .locals 0
+    .param p1, "birthday"    # Ljava/util/Date;
+    .param p2, "gender"    # Lcom/google/ads/AdRequest$Gender;
+    .param p4, "isTesting"    # Z
+    .param p5, "location"    # Landroid/location/Location;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/Date;",
             "Lcom/google/ads/AdRequest$Gender;",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;Z",
             "Landroid/location/Location;",
@@ -43,17 +49,19 @@
         }
     .end annotation
 
+    .prologue
+    .local p3, "keywords":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhl:Ljava/util/Date;
+    iput-object p1, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaQ:Ljava/util/Date;
 
-    iput-object p2, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhm:Lcom/google/ads/AdRequest$Gender;
+    iput-object p2, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaR:Lcom/google/ads/AdRequest$Gender;
 
-    iput-object p3, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhn:Ljava/util/Set;
+    iput-object p3, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaS:Ljava/util/Set;
 
-    iput-boolean p4, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzho:Z
+    iput-boolean p4, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaT:Z
 
-    iput-object p5, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhp:Landroid/location/Location;
+    iput-object p5, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaU:Landroid/location/Location;
 
     return-void
 .end method
@@ -63,96 +71,97 @@
 .method public getAgeInYears()Ljava/lang/Integer;
     .locals 7
 
-    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhl:Ljava/util/Date;
+    const/4 v6, 0x5
+
+    const/4 v3, 0x1
+
+    const/4 v5, 0x2
+
+    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaQ:Ljava/util/Date;
 
     if-eqz v0, :cond_2
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhl:Ljava/util/Date;
+    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaQ:Ljava/util/Date;
 
-    invoke-virtual {v0, v2}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
+    invoke-virtual {v1, v0}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
 
-    const/4 v2, 0x1
+    invoke-virtual {v2, v3}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
+    move-result v0
+
+    invoke-virtual {v1, v3}, Ljava/util/Calendar;->get(I)I
 
     move-result v3
 
-    invoke-virtual {v0, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v4
-
-    sub-int/2addr v3, v4
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    const/4 v4, 0x2
-
-    invoke-virtual {v1, v4}, Ljava/util/Calendar;->get(I)I
-
-    move-result v5
-
-    invoke-virtual {v0, v4}, Ljava/util/Calendar;->get(I)I
-
-    move-result v6
-
-    if-lt v5, v6, :cond_0
-
-    invoke-virtual {v1, v4}, Ljava/util/Calendar;->get(I)I
-
-    move-result v5
-
-    invoke-virtual {v0, v4}, Ljava/util/Calendar;->get(I)I
-
-    move-result v4
-
-    if-ne v5, v4, :cond_1
-
-    const/4 v4, 0x5
-
-    invoke-virtual {v1, v4}, Ljava/util/Calendar;->get(I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v4}, Ljava/util/Calendar;->get(I)I
-
-    move-result v0
-
-    if-ge v1, v0, :cond_1
-
-    :cond_0
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    sub-int/2addr v0, v2
+    sub-int/2addr v0, v3
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v0
+
+    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
+
+    move-result v3
+
+    invoke-virtual {v1, v5}, Ljava/util/Calendar;->get(I)I
+
+    move-result v4
+
+    if-lt v3, v4, :cond_0
+
+    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
+
+    move-result v3
+
+    invoke-virtual {v1, v5}, Ljava/util/Calendar;->get(I)I
+
+    move-result v4
+
+    if-ne v3, v4, :cond_1
+
+    invoke-virtual {v2, v6}, Ljava/util/Calendar;->get(I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v6}, Ljava/util/Calendar;->get(I)I
+
+    move-result v1
+
+    if-ge v2, v1, :cond_1
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
 
     :cond_1
-    return-object v3
+    :goto_0
+    return-object v0
 
     :cond_2
     const/4 v0, 0x0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getBirthday()Ljava/util/Date;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhl:Ljava/util/Date;
+    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaQ:Ljava/util/Date;
 
     return-object v0
 .end method
@@ -160,7 +169,7 @@
 .method public getGender()Lcom/google/ads/AdRequest$Gender;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhm:Lcom/google/ads/AdRequest$Gender;
+    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaR:Lcom/google/ads/AdRequest$Gender;
 
     return-object v0
 .end method
@@ -170,13 +179,14 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhn:Ljava/util/Set;
+    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaS:Ljava/util/Set;
 
     return-object v0
 .end method
@@ -184,7 +194,7 @@
 .method public getLocation()Landroid/location/Location;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzhp:Landroid/location/Location;
+    iget-object v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaU:Landroid/location/Location;
 
     return-object v0
 .end method
@@ -192,7 +202,7 @@
 .method public isTesting()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzho:Z
+    iget-boolean v0, p0, Lcom/google/ads/mediation/MediationAdRequest;->zzaT:Z
 
     return v0
 .end method

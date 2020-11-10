@@ -26,8 +26,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/lang/Class<",
-            "TADDITIONA",
+            "Ljava/lang/Class",
+            "<TADDITIONA",
             "L_PARAMETERS;",
             ">;"
         }
@@ -38,8 +38,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/lang/Class<",
-            "TSERVER_PARAMETERS;>;"
+            "Ljava/lang/Class",
+            "<TSERVER_PARAMETERS;>;"
         }
     .end annotation
 .end method

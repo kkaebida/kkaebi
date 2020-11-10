@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x2
     name = "ServiceCallbacksCompat"
 .end annotation
 
@@ -20,49 +20,61 @@
 # instance fields
 .field final mCallbacks:Landroid/os/Messenger;
 
+.field final synthetic this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
+
 
 # direct methods
-.method constructor <init>(Landroid/os/Messenger;)V
+.method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Landroid/os/Messenger;)V
     .locals 0
+    .param p2, "callbacks"    # Landroid/os/Messenger;
 
-    .line 927
+    .prologue
+    .line 779
+    iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 928
-    iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->mCallbacks:Landroid/os/Messenger;
+    .line 780
+    iput-object p2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->mCallbacks:Landroid/os/Messenger;
 
+    .line 781
     return-void
 .end method
 
 .method private sendRequest(ILandroid/os/Bundle;)V
-    .locals 1
+    .locals 2
+    .param p1, "what"    # I
+    .param p2, "data"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 969
+    .prologue
+    .line 821
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 970
+    .line 822
+    .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
-    const/4 p1, 0x1
+    .line 823
+    const/4 v1, 0x1
 
-    .line 971
-    iput p1, v0, Landroid/os/Message;->arg1:I
+    iput v1, v0, Landroid/os/Message;->arg1:I
 
-    .line 972
+    .line 824
     invoke-virtual {v0, p2}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
-    .line 973
-    iget-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->mCallbacks:Landroid/os/Messenger;
+    .line 825
+    iget-object v1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->mCallbacks:Landroid/os/Messenger;
 
-    invoke-virtual {p1, v0}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
+    invoke-virtual {v1, v0}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
 
+    .line 826
     return-void
 .end method
 
@@ -71,7 +83,8 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 933
+    .prologue
+    .line 785
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->mCallbacks:Landroid/os/Messenger;
 
     invoke-virtual {v0}, Landroid/os/Messenger;->getBinder()Landroid/os/IBinder;
@@ -83,50 +96,59 @@
 
 .method public onConnect(Ljava/lang/String;Landroid/support/v4/media/session/MediaSessionCompat$Token;Landroid/os/Bundle;)V
     .locals 3
+    .param p1, "root"    # Ljava/lang/String;
+    .param p2, "session"    # Landroid/support/v4/media/session/MediaSessionCompat$Token;
+    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    const/4 v2, 0x1
+
+    .line 791
     if-nez p3, :cond_0
 
-    .line 940
+    .line 792
     new-instance p3, Landroid/os/Bundle;
 
+    .end local p3    # "extras":Landroid/os/Bundle;
     invoke-direct {p3}, Landroid/os/Bundle;-><init>()V
 
+    .line 794
+    .restart local p3    # "extras":Landroid/os/Bundle;
     :cond_0
-    const-string v0, "extra_service_version"
+    const-string v1, "extra_service_version"
 
-    const/4 v1, 0x1
+    invoke-virtual {p3, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 942
-    invoke-virtual {p3, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 943
+    .line 795
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v2, "data_media_item_id"
+    .line 796
+    .local v0, "data":Landroid/os/Bundle;
+    const-string v1, "data_media_item_id"
 
-    .line 944
-    invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string p1, "data_media_session_token"
+    .line 797
+    const-string v1, "data_media_session_token"
 
-    .line 945
-    invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    const-string p1, "data_root_hints"
+    .line 798
+    const-string v1, "data_root_hints"
 
-    .line 946
-    invoke-virtual {v0, p1, p3}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 947
-    invoke-direct {p0, v1, v0}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->sendRequest(ILandroid/os/Bundle;)V
+    .line 799
+    invoke-direct {p0, v2, v0}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->sendRequest(ILandroid/os/Bundle;)V
 
+    .line 800
     return-void
 .end method
 
@@ -138,23 +160,28 @@
         }
     .end annotation
 
+    .prologue
+    .line 804
     const/4 v0, 0x2
 
     const/4 v1, 0x0
 
-    .line 952
     invoke-direct {p0, v0, v1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->sendRequest(ILandroid/os/Bundle;)V
 
+    .line 805
     return-void
 .end method
 
 .method public onLoadChildren(Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
+    .param p1, "mediaId"    # Ljava/lang/String;
+    .param p3, "options"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/support/v4/media/MediaBrowserCompat$MediaItem;",
             ">;",
             "Landroid/os/Bundle;",
@@ -168,49 +195,57 @@
         }
     .end annotation
 
-    .line 958
+    .prologue
+    .line 810
+    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;"
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    .line 811
+    .local v0, "data":Landroid/os/Bundle;
     const-string v1, "data_media_item_id"
 
-    .line 959
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string p1, "data_options"
+    .line 812
+    const-string v1, "data_options"
 
-    .line 960
-    invoke-virtual {v0, p1, p3}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    if-eqz p2, :cond_1
+    .line 813
+    if-eqz p2, :cond_0
 
-    const-string p1, "data_media_item_list"
+    .line 814
+    const-string v2, "data_media_item_list"
 
-    .line 962
-    instance-of p3, p2, Ljava/util/ArrayList;
+    instance-of v1, p2, Ljava/util/ArrayList;
 
-    if-eqz p3, :cond_0
+    if-eqz v1, :cond_1
 
     check-cast p2, Ljava/util/ArrayList;
 
-    goto :goto_0
-
-    :cond_0
-    new-instance p3, Ljava/util/ArrayList;
-
-    invoke-direct {p3, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    move-object p2, p3
-
+    .end local p2    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;"
     :goto_0
-    invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+    invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    :cond_1
-    const/4 p1, 0x3
+    .line 817
+    :cond_0
+    const/4 v1, 0x3
 
-    .line 965
-    invoke-direct {p0, p1, v0}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->sendRequest(ILandroid/os/Bundle;)V
+    invoke-direct {p0, v1, v0}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->sendRequest(ILandroid/os/Bundle;)V
 
+    .line 818
     return-void
+
+    .line 814
+    .restart local p2    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;"
+    :cond_1
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    move-object p2, v1
+
+    goto :goto_0
 .end method

@@ -21,55 +21,58 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 40
+    .prologue
+    .line 41
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
+    .line 42
+    .local v0, "sdk":I
     const/16 v1, 0x17
 
     if-lt v0, v1, :cond_0
 
-    .line 41
-    new-instance v0, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi23Impl;
+    .line 43
+    new-instance v1, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi23Impl;
 
-    invoke-direct {v0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi23Impl;-><init>()V
+    invoke-direct {v1}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi23Impl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
+    sput-object v1, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
-    goto :goto_0
+    .line 49
+    :goto_0
+    return-void
 
-    .line 42
+    .line 44
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
     const/16 v1, 0x15
 
     if-lt v0, v1, :cond_1
 
-    .line 43
-    new-instance v0, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;
+    .line 45
+    new-instance v1, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;
 
-    invoke-direct {v0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;-><init>()V
+    invoke-direct {v1}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
+    sput-object v1, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     goto :goto_0
 
-    .line 45
+    .line 47
     :cond_1
-    new-instance v0, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
+    new-instance v1, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
-    invoke-direct {v0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;-><init>()V
+    invoke-direct {v1}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;-><init>()V
 
-    sput-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
+    sput-object v1, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
-    :goto_0
-    return-void
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .line 135
+    .prologue
+    .line 137
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -77,95 +80,102 @@
 
 .method public static getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .param p0    # Landroid/widget/CompoundButton;
+    .param p0, "button"    # Landroid/widget/CompoundButton;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    .line 196
+    .prologue
+    .line 198
     sget-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;->getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
     .locals 1
-    .param p0    # Landroid/widget/CompoundButton;
+    .param p0, "button"    # Landroid/widget/CompoundButton;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    .line 160
+    .prologue
+    .line 162
     sget-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;->getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getButtonTintMode(Landroid/widget/CompoundButton;)Landroid/graphics/PorterDuff$Mode;
     .locals 1
-    .param p0    # Landroid/widget/CompoundButton;
+    .param p0, "button"    # Landroid/widget/CompoundButton;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    .line 186
+    .prologue
+    .line 188
     sget-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;->getButtonTintMode(Landroid/widget/CompoundButton;)Landroid/graphics/PorterDuff$Mode;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
     .locals 1
-    .param p0    # Landroid/widget/CompoundButton;
+    .param p0, "button"    # Landroid/widget/CompoundButton;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1    # Landroid/content/res/ColorStateList;
+    .param p1, "tint"    # Landroid/content/res/ColorStateList;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 150
+    .prologue
+    .line 152
     sget-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     invoke-virtual {v0, p0, p1}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
+    .line 153
     return-void
 .end method
 
 .method public static setButtonTintMode(Landroid/widget/CompoundButton;Landroid/graphics/PorterDuff$Mode;)V
     .locals 1
-    .param p0    # Landroid/widget/CompoundButton;
+    .param p0, "button"    # Landroid/widget/CompoundButton;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1    # Landroid/graphics/PorterDuff$Mode;
+    .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 176
+    .prologue
+    .line 178
     sget-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     invoke-virtual {v0, p0, p1}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;->setButtonTintMode(Landroid/widget/CompoundButton;Landroid/graphics/PorterDuff$Mode;)V
 
+    .line 179
     return-void
 .end method

@@ -24,15 +24,19 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 54
     return-void
 .end method
 
 .method public static createCallback(Landroid/support/v4/media/session/MediaSessionCompatApi24$Callback;)Ljava/lang/Object;
     .locals 1
+    .param p0, "callback"    # Landroid/support/v4/media/session/MediaSessionCompatApi24$Callback;
 
+    .prologue
     .line 33
     new-instance v0, Landroid/support/v4/media/session/MediaSessionCompatApi24$CallbackProxy;
 
@@ -42,53 +46,80 @@
 .end method
 
 .method public static getCallingPackage(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 4
+    .locals 6
+    .param p0, "sessionObj"    # Ljava/lang/Object;
 
+    .prologue
     .line 37
-    check-cast p0, Landroid/media/session/MediaSession;
+    move-object v2, p0
+
+    check-cast v2, Landroid/media/session/MediaSession;
 
     .line 39
+    .local v2, "session":Landroid/media/session/MediaSession;
     :try_start_0
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v3
 
-    const-string v1, "getCallingPackage"
+    const-string v4, "getCallingPackage"
 
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
-    new-array v3, v2, [Ljava/lang/Class;
+    new-array v5, v5, [Ljava/lang/Class;
 
-    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 40
-    new-array v1, v2, [Ljava/lang/Object;
+    .local v1, "getCallingPackageMethod":Ljava/lang/reflect/Method;
+    const/4 v3, 0x0
 
-    invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    move-result-object p0
+    invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast p0, Ljava/lang/String;
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
     :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object p0
+    .line 44
+    .end local v1    # "getCallingPackageMethod":Ljava/lang/reflect/Method;
+    :goto_0
+    return-object v3
 
+    .line 41
     :catch_0
-    move-exception p0
-
-    const-string v0, "MediaSessionCompatApi24"
-
-    const-string v1, "Cannot execute MediaSession.getCallingPackage()"
+    move-exception v0
 
     .line 42
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
+    :goto_1
+    const-string v3, "MediaSessionCompatApi24"
 
-    const/4 p0, 0x0
+    const-string v4, "Cannot execute MediaSession.getCallingPackage()"
 
-    return-object p0
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 44
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    .line 41
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
+    :catch_1
+    move-exception v0
+
+    goto :goto_1
+
+    :catch_2
+    move-exception v0
+
+    goto :goto_1
 .end method

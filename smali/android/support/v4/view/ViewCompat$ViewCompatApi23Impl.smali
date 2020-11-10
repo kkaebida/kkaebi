@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
+.annotation build Landroid/annotation/TargetApi;
     value = 0x17
 .end annotation
 
@@ -22,7 +22,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 1461
+    .prologue
+    .line 1395
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;-><init>()V
 
     return-void
@@ -31,48 +32,67 @@
 
 # virtual methods
 .method public getScrollIndicators(Landroid/view/View;)I
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
-    .line 1474
+    .prologue
+    .line 1408
     invoke-virtual {p1}, Landroid/view/View;->getScrollIndicators()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public offsetLeftAndRight(Landroid/view/View;I)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "offset"    # I
 
-    .line 1480
+    .prologue
+    .line 1414
     invoke-virtual {p1, p2}, Landroid/view/View;->offsetLeftAndRight(I)V
 
+    .line 1415
     return-void
 .end method
 
 .method public offsetTopAndBottom(Landroid/view/View;I)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "offset"    # I
 
-    .line 1485
+    .prologue
+    .line 1419
     invoke-virtual {p1, p2}, Landroid/view/View;->offsetTopAndBottom(I)V
 
+    .line 1420
     return-void
 .end method
 
 .method public setScrollIndicators(Landroid/view/View;I)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "indicators"    # I
 
-    .line 1464
+    .prologue
+    .line 1398
     invoke-virtual {p1, p2}, Landroid/view/View;->setScrollIndicators(I)V
 
+    .line 1399
     return-void
 .end method
 
 .method public setScrollIndicators(Landroid/view/View;II)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "indicators"    # I
+    .param p3, "mask"    # I
 
-    .line 1469
+    .prologue
+    .line 1403
     invoke-virtual {p1, p2, p3}, Landroid/view/View;->setScrollIndicators(II)V
 
+    .line 1404
     return-void
 .end method

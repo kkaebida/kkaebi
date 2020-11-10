@@ -11,10 +11,11 @@
 
 
 # instance fields
-.field private final zzdgj:Ljava/util/HashMap;
+.field private final zzHL:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashMap<",
+            "Ljava/util/HashMap",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Object;",
             ">;"
@@ -33,29 +34,34 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzdgj:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzHL:Ljava/util/HashMap;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final getExtra(Ljava/lang/String;)Ljava/lang/Object;
+.method public getExtra(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
+    .param p1, "label"    # Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzdgj:Ljava/util/HashMap;
+    .prologue
+    iget-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzHL:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
-.method public final setExtra(Ljava/lang/String;Ljava/lang/Object;)V
+.method public setExtra(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
+    .param p1, "label"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzdgj:Ljava/util/HashMap;
+    .prologue
+    iget-object v0, p0, Lcom/google/android/gms/ads/mediation/customevent/CustomEventExtras;->zzHL:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

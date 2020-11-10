@@ -19,10 +19,12 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Landroid/support/v4/app/BackStackRecord;",
             ">;",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Ljava/lang/Boolean;",
             ">;)Z"
         }

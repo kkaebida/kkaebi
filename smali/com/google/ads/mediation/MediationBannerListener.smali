@@ -12,8 +12,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/ads/mediation/MediationBannerAdapter<",
-            "**>;)V"
+            "Lcom/google/ads/mediation/MediationBannerAdapter",
+            "<**>;)V"
         }
     .end annotation
 .end method
@@ -22,8 +22,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/ads/mediation/MediationBannerAdapter<",
-            "**>;)V"
+            "Lcom/google/ads/mediation/MediationBannerAdapter",
+            "<**>;)V"
         }
     .end annotation
 .end method
@@ -32,8 +32,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/ads/mediation/MediationBannerAdapter<",
-            "**>;",
+            "Lcom/google/ads/mediation/MediationBannerAdapter",
+            "<**>;",
             "Lcom/google/ads/AdRequest$ErrorCode;",
             ")V"
         }
@@ -44,8 +44,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/ads/mediation/MediationBannerAdapter<",
-            "**>;)V"
+            "Lcom/google/ads/mediation/MediationBannerAdapter",
+            "<**>;)V"
         }
     .end annotation
 .end method
@@ -54,8 +54,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/ads/mediation/MediationBannerAdapter<",
-            "**>;)V"
+            "Lcom/google/ads/mediation/MediationBannerAdapter",
+            "<**>;)V"
         }
     .end annotation
 .end method
@@ -64,8 +64,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/ads/mediation/MediationBannerAdapter<",
-            "**>;)V"
+            "Lcom/google/ads/mediation/MediationBannerAdapter",
+            "<**>;)V"
         }
     .end annotation
 .end method

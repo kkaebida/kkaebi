@@ -35,25 +35,32 @@
 # direct methods
 .method constructor <init>(IIIII)V
     .locals 0
+    .param p1, "type"    # I
+    .param p2, "stream"    # I
+    .param p3, "control"    # I
+    .param p4, "max"    # I
+    .param p5, "current"    # I
 
-    .line 1273
+    .prologue
+    .line 1057
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1274
+    .line 1058
     iput p1, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mPlaybackType:I
 
-    .line 1275
+    .line 1059
     iput p2, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mAudioStream:I
 
-    .line 1276
+    .line 1060
     iput p3, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mVolumeControl:I
 
-    .line 1277
+    .line 1061
     iput p4, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mMaxVolume:I
 
-    .line 1278
+    .line 1062
     iput p5, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mCurrentVolume:I
 
+    .line 1063
     return-void
 .end method
 
@@ -62,7 +69,8 @@
 .method public getAudioStream()I
     .locals 1
 
-    .line 1303
+    .prologue
+    .line 1087
     iget v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mAudioStream:I
 
     return v0
@@ -71,7 +79,8 @@
 .method public getCurrentVolume()I
     .locals 1
 
-    .line 1336
+    .prologue
+    .line 1120
     iget v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mCurrentVolume:I
 
     return v0
@@ -80,7 +89,8 @@
 .method public getMaxVolume()I
     .locals 1
 
-    .line 1327
+    .prologue
+    .line 1111
     iget v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mMaxVolume:I
 
     return v0
@@ -89,7 +99,8 @@
 .method public getPlaybackType()I
     .locals 1
 
-    .line 1291
+    .prologue
+    .line 1075
     iget v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mPlaybackType:I
 
     return v0
@@ -98,7 +109,8 @@
 .method public getVolumeControl()I
     .locals 1
 
-    .line 1318
+    .prologue
+    .line 1102
     iget v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mVolumeControl:I
 
     return v0

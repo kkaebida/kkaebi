@@ -21,8 +21,5 @@
 .method public abstract onRewardedVideoAdOpened()V
 .end method
 
-.method public abstract onRewardedVideoCompleted()V
-.end method
-
 .method public abstract onRewardedVideoStarted()V
 .end method

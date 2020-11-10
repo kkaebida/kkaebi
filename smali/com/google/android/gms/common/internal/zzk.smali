@@ -1,86 +1,86 @@
-.class public final Lcom/google/android/gms/common/internal/zzk;
-.super Lcom/google/android/gms/internal/common/zza;
+.class public abstract Lcom/google/android/gms/common/internal/zzk;
+.super Ljava/lang/Object;
 
-# interfaces
-.implements Lcom/google/android/gms/common/internal/zzi;
+
+# static fields
+.field private static final zzaaJ:Ljava/lang/Object;
+
+.field private static zzaaK:Lcom/google/android/gms/common/internal/zzk;
 
 
 # direct methods
-.method constructor <init>(Landroid/os/IBinder;)V
+.method static constructor <clinit>()V
     .locals 1
 
-    const-string v0, "com.google.android.gms.common.internal.ICertData"
+    new-instance v0, Ljava/lang/Object;
 
-    .line 1
-    invoke-direct {p0, p1, v0}, Lcom/google/android/gms/internal/common/zza;-><init>(Landroid/os/IBinder;Ljava/lang/String;)V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/common/internal/zzk;->zzaaJ:Ljava/lang/Object;
 
     return-void
 .end method
 
+.method public constructor <init>()V
+    .locals 0
 
-# virtual methods
-.method public final zzb()Lcom/google/android/gms/dynamic/IObjectWrapper;
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/common/zza;->zza()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    .line 4
-    invoke-virtual {p0, v1, v0}, Lcom/google/android/gms/internal/common/zza;->zza(ILandroid/os/Parcel;)Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5
-    invoke-virtual {v0}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/google/android/gms/dynamic/IObjectWrapper$Stub;->asInterface(Landroid/os/IBinder;)Lcom/google/android/gms/dynamic/IObjectWrapper;
-
-    move-result-object v1
-
-    .line 6
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return-object v1
+    return-void
 .end method
 
-.method public final zzc()I
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method public static zzah(Landroid/content/Context;)Lcom/google/android/gms/common/internal/zzk;
+    .locals 3
 
-    .line 8
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/common/zza;->zza()Landroid/os/Parcel;
+    sget-object v1, Lcom/google/android/gms/common/internal/zzk;->zzaaJ:Ljava/lang/Object;
 
-    move-result-object v0
+    monitor-enter v1
 
-    const/4 v1, 0x2
+    :try_start_0
+    sget-object v0, Lcom/google/android/gms/common/internal/zzk;->zzaaK:Lcom/google/android/gms/common/internal/zzk;
 
-    .line 9
-    invoke-virtual {p0, v1, v0}, Lcom/google/android/gms/internal/common/zza;->zza(ILandroid/os/Parcel;)Landroid/os/Parcel;
+    if-nez v0, :cond_0
 
-    move-result-object v0
+    new-instance v0, Lcom/google/android/gms/common/internal/zzl;
 
-    .line 10
-    invoke-virtual {v0}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result v1
+    move-result-object v2
 
-    .line 11
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+    invoke-direct {v0, v2}, Lcom/google/android/gms/common/internal/zzl;-><init>(Landroid/content/Context;)V
 
-    return v1
+    sput-object v0, Lcom/google/android/gms/common/internal/zzk;->zzaaK:Lcom/google/android/gms/common/internal/zzk;
+
+    :cond_0
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    sget-object v0, Lcom/google/android/gms/common/internal/zzk;->zzaaK:Lcom/google/android/gms/common/internal/zzk;
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+
+# virtual methods
+.method public abstract zza(Landroid/content/ComponentName;Landroid/content/ServiceConnection;Ljava/lang/String;)Z
+.end method
+
+.method public abstract zza(Ljava/lang/String;Landroid/content/ServiceConnection;Ljava/lang/String;)Z
+.end method
+
+.method public abstract zzb(Landroid/content/ComponentName;Landroid/content/ServiceConnection;Ljava/lang/String;)V
+.end method
+
+.method public abstract zzb(Ljava/lang/String;Landroid/content/ServiceConnection;Ljava/lang/String;)V
 .end method
