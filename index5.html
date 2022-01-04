@@ -1,0 +1,156 @@
+<!doctype html>
+<head>
+<meta content="width=device-width,initial-scale=1" name=viewport>
+<meta content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'" http-equiv=Content-Security-Policy>
+<meta charset=UTF-8>
+<link href=jquery.mobile-1.3.2.min.css rel=stylesheet>
+<script src=jquery-1.7.1.min.js></script>
+<script src=jquery.mobile-1.3.2.min.js></script>
+<link rel="stylesheet" href="rpopup.css">
+<!--<script src="jquery-3.1.1.min.js"></script>-->
+<script src="rpopup.min.js"></script>
+<script src="rpopup.js"></script>
+	
+ <!--<script>
+$(document).ready(function(){
+
+    //단일 팝업창
+
+    $.rpopup({
+
+        imgSrc : "aaa.png",
+
+        mobile_imgSrc : "aaa.gif",
+
+        linkHref : "",             // [String] 링크 주소.(팝업창 클릭하면, 이동할 링크 경로.)
+
+        linkTarget : "_blank",      // [String] 링크 열리는 방식. (기본값: "_self") or (새창띄우기 값: "_blank")
+
+
+        positionTop :"70px",
+
+        positionLeft :"50%", //(좌우 중간 위치)
+
+        headerText :"Responsive Popup"
+
+    });
+
+    
+
+});
+
+</script>-->
+
+
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('#MOVE_TOP_BTN').fadeIn();
+            } else {
+                $('#MOVE_TOP_BTN').fadeOut();
+            }
+        });
+        
+        $("#MOVE_TOP_BTN").click(function() {
+            $('html, body').animate({
+                scrollTop : 0
+            }, 400);
+            return false;
+        });
+    });
+</script>
+<style>
+a#MOVE_TOP_BTN {
+    position: fixed;
+    right: 3%;
+    bottom: 8px;
+    display: none;
+    z-index: 999;
+}
+</style>
+</head>
+
+<body>
+<a id="MOVE_TOP_BTN" href=""><img src=top.png></a>
+<div data-role=page data-position=fixed data-theme=c data-url=kkaebi id=kyungsoo>
+    <div data-role=content>
+    
+    <ul data-filter=false data-filter-placeholder="성명을 입력하세요!" data-role=listview id=NewsList>
+		
+        
+		
+		
+ <li data-role=list-divider><h3 align=center>일반 업무문서 작성방법</h3>
+<li><a href="index4.html"><font color=red>여직원 요일별 할일</font></a>
+<li><a href="index4-1.html">납품업체 출입일지</a>
+<li><a href="feedback/2.html">작업자 출입일지</a>
+<li><a href="feedback/3.html">방문자 출입일지</a>
+<li><a href="feedback/4.html">방문자 건강문진표</a>
+
+<li data-role=list-divider>
+<h3 align=center>마감 업무문서 작성방법</h3>
+<li><a href="feedback/6.html">경비 순찰 근무일지</a>
+<li><a href="feedback/5.html">임시 출입일지</a>
+<li><a href="feedback/7.html">업무일지</a>
+<li><a href="index4-2.html">일일 근무편성표</a>
+<li><a href="feedback/8.html">출입통제 기록</a>
+	<li data-role=list-divider>
+<h3 align=center>월말 서류정리 방법</h3>
+	<li><a href="feedback/9.html">월말표지</a>	
+		
+
+
+
+ </li>
+        </ul>
+    </div>
+                                 
+
+<script>
+    function exitToast() {
+        var t = $('<div class="ui-loader ui-overlay-shadow ui-body-e ui-corner-all" style="font-family:Dosis;font-size:16px">한번 더누르시면 종료됩니다</div>');
+        t.css({
+            display: "block",
+            background: "black",
+            color: "white",
+            opacity: 0.7,
+            position: "fixed",
+            padding: "10px",
+            width: "210px",
+            "text-align": "center",
+            left: ($(window).width() - 180) / 2,
+            top: $(window).height() - 150
+        });
+        var e = function() {
+            $(this).remove()
+        };
+        t.click(e), t.appendTo($.mobile.pageContainer).delay(1e3), t.fadeOut(400, e)
+    }
+
+
+    function toTop() {
+        window.scrollTo(0, 0)
+    }
+$("#send").on("click", function() {
+        var e = $("#NewsList").prev("form").find("input").val();
+        t = null !== e && "" !== e ? "https://www.google.com/search?q=" + e : "https://google.com", window.open(t)
+    })
+    $("#sendNews").on("click", function() {
+        var e = $("#NewsList").prev("form").find("input").val();
+        t = null !== e && "" !== e ? "https://www.news.google.com/search?q=" + e : "https://news.google.com", window.open(t)
+    })
+</script>
+
+<script>
+   var exitApp = !1,
+        intval = setInterval(function() {
+            exitApp = !1
+        }, 3500);
+        document.addEventListener("backbutton", function(t) {
+        t.preventDefault(), exitApp ? clearInterval(intval)(navigator.app && navigator.app.exitApp()) || device && device.exitApp() : (exitApp = !0, window.scrollTo(0, 0), exitToast())
+    }, !1);
+</script>
+</body>
+
+</body>

@@ -1,0 +1,85 @@
+
+
+ * { margin: 0; padding: 0; border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+   box-sizing: border-box; }
+ul { list-style: none; }
+img { max-width: 100%; }
+
+
+
+
+body, html {  }
+body { background: #fff; font-family: sans-serif;}
+#wrap {  width: 100%; margin: 0 auto; background: #333; }
+
+header { height: 2.3em;  padding: 0 0 0 0em; line-height: 2.3em;  overflow: hidden; border-bottom: 1px solid #cacaca; background: #333;  color:#111;}
+
+
+a:link {text-decoration: none; color: #333;}
+a:visited {text-decoration: none; color: #333;}
+a:active {text-decoration: none; color: #333; }
+a:hover {text-decoration: none; color: #333; }
+
+
+/* 메인 리스트 */
+.main_list {  width: 100%;  clear: both; margin: 0 auto;  background: #fff;}
+.main_list li { height:2.8em; line-height: 2.8em; overflow: hidden; border-bottom: 1.5px solid #cacaca;
+ padding-left: 1em; background: url(feedback/images/arrow.png) no-repeat 97% center; background-size: auto 0.9em; }
+.main_list img { vertical-align: middle; margin-right: 1em;  height: 2em; }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
