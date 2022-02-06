@@ -20,7 +20,7 @@
 .rPopup_footer label{display:inline-block; vertical-align:middle; cursor:pointer;}
 .rPopup_footer label input{ transform:translate(1px,2px); opacity:0.5; }
 .rPopup_footer label span{ padding:7px; font-size:16px; }
-.rPopup_footer button{ display:inline-block; vertical-align:middle; border:0px solid #ced4da; background:#; padding:5px 5px; border-radius:5px; cursor:pointer; font-size:15px;}
+.rPopup_footer button{ display:inline-block; vertical-align:middle; border:0px solid #ced4da; background:#; padding:5px 5px; border-radius:5px; cursor:pointer; font-size:14px;}
 
 
 /* mobile */
