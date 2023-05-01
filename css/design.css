@@ -1,0 +1,64 @@
+
+
+ * { margin: 0; padding: 0; border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+   box-sizing: border-box; }
+ul { list-style: none; }
+img { max-width: 100%; }
+
+
+
+
+body, html {  }
+body { background: #F2F2F2; font-family: sans-serif; }
+#wrap {  width: 100%; margin: 0  auto; background: #fff; }
+
+header { height: 3em;  padding: 0 0 0 0em; line-height: 3em;  overflow: hidden; border-bottom: 1px solid #fff; background: #8181F7;  }
+
+
+a:link {text-decoration: none; color: #333;}
+a:visited {text-decoration: none; color: #333;}
+a:active {text-decoration: none; color: #333; }
+a:hover {text-decoration: none; color: #333; }
+
+/* 아이콘 이미지4 */
+.thumbicon_list {  width: 100%;  clear: both; margin: 0 auto; overflow: hidden;  font-size: 0.85em; 
+padding-bottom: 1%; margin-top: 2%; }
+.thumbicon_list li { float: left; width: 45%; text-align: center; margin: 2%; overflow: hidden; 
+  padding: 0.5em 0em 0.7em 0em ; white-space: nowrap; text-overflow: ellipsis; }
+.thumbicon_list li  img {  width: 85%; padding: 25% 2% 25% 2%; display: block; margin: 0 auto;  
+border-radius: 5px; box-shadow: 0px 0.2px 0.5px 0.2px #fff;  background: #DAD9FF; margin-bottom: 0.35em; }
+.thumbicon_list a:link {color: #777;}
+.thumbicon_list a:visited {color: #777;}
+
+
+/* 메인 리스트 */
+.main_list {  width: 100%;  clear: both; margin: 0 auto;  background: #A9BCF5;}
+.main_list li { height:6em; line-height: 6em; overflow: hidden; border-bottom: 1.5px solid #DAD9FF;
+ padding-left: 0.5em; background: url(arrow.png) no-repeat 97% center; background-size: auto 0.9em; }
+.main_list img { vertical-align: middle; margin-right: 1em;  height: 4.2em; }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
