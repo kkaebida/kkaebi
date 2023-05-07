@@ -26,7 +26,6 @@
 <script src="css/rpopup1.min.js"></script>
 <script src="css/rpopup1.js"></script>
 
-
 <!--<script>
 $(document).ready(function(){
  });
@@ -93,7 +92,7 @@ a#MOVE_TOP_BTN {
 
 
 <!-- 고정레이어 --> 
-<div style=" position:fixed; right:7%; bottom:9px; z-index:99999; background:#transparent"> <a href="https://kkaebi.channel.io"><img src="images/00c.gif" width=70 height=70></a> </div>  
+<div style=" position:fixed; right:7%; bottom:9px; z-index:99999; background:#transparent"> <a href="http://mawang68.dothome.co.kr/1/03.html"><img src="images/00c.gif" width=70 height=70></a> </div>  
 
 <!--<a id="MOVE_TOP_BTN" href="#"><img src=css/images/top.png></a>-->
 
@@ -262,6 +261,20 @@ a#MOVE_TOP_BTN {
   </ul>
   </div>
 </div> 
+ 
+ <script src="css/jquery.plugin.pullToRefresh.js"></script>
+        <script>
+            $('.scrollable').pullToRefresh({
+                callback: function() {
+                    var def = $.Deferred();
+                    
+                    setTimeout(function() {
+                        def.resolve();      
+                    }, 3000); 
 
+                    return def.promise();
+                }
+            });
+        </script>
 </body>
 </html>
